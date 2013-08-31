@@ -1,0 +1,22 @@
+permalink: /articles/:title
+
+# Use the port config option to determine if we're in prod or dev
+# anything other than port 80 is assumed to be dev
+port: 80
+url: http://philipwalton.github.io/solved-by-flexbox
+
+markdown: rdiscount
+pygments: true
+
+exclude:
+- config.rb
+- README.md
+- Rakefile
+- Gemfile
+- Gemfile.lock
+- bower.json
+- bower_components
+
+
+# Vendor Settings
+# google_analytics_tracking_id: UA-21292978-1
