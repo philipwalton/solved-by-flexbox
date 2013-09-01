@@ -2,4 +2,9 @@
 // https://github.com/chriseppstein/sass-css-importer
 @import "CSS:normalize-css/normalize";
 
+@import "variables";
 @import "base";
+
+@import "components/demo";
+@import "components/container";
+@import "components/media";

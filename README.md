@@ -1,7 +1,8 @@
 # Solved by Flexbox
 
-* Grid System
+
 * Media Object
+* Grid System
 * Sticky Footer
 * Holy Grail Layout
 * Input Add-ons
