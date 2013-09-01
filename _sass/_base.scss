@@ -13,6 +13,13 @@ body {
   padding: 3em;
 }
 
+img {
+  display: block;
+  margin-top: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
 h1, h2, h3, p {
   margin: 0 0 1rem;
 }
