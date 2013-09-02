@@ -16,6 +16,7 @@
     text-decoration:none;
   }
   &:hover, &:active, &:focus {
+    border: 0;
     background: hsla(31, 15%, 50%, 0.25);
     text-decoration:none;
   }
