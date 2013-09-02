@@ -15,12 +15,8 @@ $legacy-support-for-ie8: true !default;
 // its absense in "compass/css3" is a bug in 0.12.x
 @import "compass/css3/user-interface";
 
-
-
 @import "variables";
 @import "base";
-
-@import "highlight";
 
 @import "utils/size";
 @import "utils/color";
@@ -32,3 +28,6 @@ $legacy-support-for-ie8: true !default;
 @import "components/button";
 @import "components/media";
 @import "components/grid";
+
+@import "vendor/highlight";
+@import "vendor/twitter";

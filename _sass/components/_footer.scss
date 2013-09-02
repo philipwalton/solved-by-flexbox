@@ -1,9 +1,9 @@
 .Footer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0.667rem 1.5rem 1rem;
+  padding: 1rem 1.5rem 1rem 1rem;
   background: hsl(0, 0, 25%);
   color: hsl(0, 0, 75%);
   font-size: 0.8em;
@@ -17,32 +17,26 @@
   }
 }
 
-.Footer-owner, .Footer-credits, .Footer-twitter {
-  margin-top: 0.667em;
-}
-
 .Footer-credits {
-  border: solid hsl(0, 0, 50%);
-  border-width: 0 1px;
-  padding: 0.1em 1.5em;
-  margin-right: 1.5em;
-  margin-left: 1.5em;
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    margin: 0 0.5rem;
+    line-height: 1.5;
+  }
 }
 
-.Footer-twitter {
-  overflow: hidden;
-  height: 20px;
-  width: 130px;
+.Footer-social {
+  max-height: 20px;
 }
 
-@media (max-width: 30em) {
+@media (max-width: 720px) {
   .Footer {
     flex-direction: column;
   }
   .Footer-credits {
-    border: 0;
-    padding: 0;
-    margin-left: 0;
-    margin-right: 0;
+    text-align: center;
+    margin-bottom: 1em;
   }
 }
