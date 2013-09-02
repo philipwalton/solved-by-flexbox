@@ -7,6 +7,18 @@ html {
   font: 300 1em/1.333 "proxima-nova", sans-serif;
 }
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  padding: 0 1.5em;
+}
+
 img {
   display: block;
   margin-top: 0.2em;
