@@ -1,6 +1,8 @@
 // A special imported is needed for plain CSS files at the moment
 // https://github.com/chriseppstein/sass-css-importer
 @import "CSS:normalize-css/normalize";
+@import "CSS:suit-utils-dimension/dimension";
+@import "CSS:suit-utils-text/text";
 
 $legacy-support-for-ie6: false !default;
 $legacy-support-for-ie7: false !default;
@@ -28,3 +30,4 @@ $legacy-support-for-ie8: true !default;
 @import "components/header";
 @import "components/button";
 @import "components/media";
+@import "components/grid";
