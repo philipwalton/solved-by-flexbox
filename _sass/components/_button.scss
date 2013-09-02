@@ -1,7 +1,7 @@
 .Button {
   @include transition(background-color 0.2s);
   display: inline-block;
-  padding: 0.75em 1.5em;
+  padding: 0.75em 2em;
   background: hsla(31, 15%, 50%, 0.15);
   color: inherit;
   border: 0;
@@ -21,10 +21,21 @@
   }
 }
 
+.Button + .Button {
+  margin-left: 0.5em;
+}
+
 .Button--action {
   background-color: hsl(150, 45%, 50%);
   color: #fff;
   &:hover, &:active, &:focus {
     background-color: hsl(150, 45%, 40%);
+  }
+}
+
+.with-Button--cozy {
+  .Button {
+    padding: 0.6em 1.5em;
+    font-size: 0.75em;
   }
 }

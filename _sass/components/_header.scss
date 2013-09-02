@@ -60,14 +60,3 @@
     text-align: right;
   }
 }
-
-.with-Button {
-  .Button {
-    padding: 0.75em 2em;
-    margin-right: 0.5em;
-  }
-  &.Header--cozy .Button {
-    padding: 0.6em 1.5em;
-    font-size: 0.75em;
-  }
-}
