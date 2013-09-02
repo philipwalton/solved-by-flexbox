@@ -11,7 +11,7 @@
 *.sass-cache
 
 # Ignore bower componnents
-components
+bower_components
 
 # OS or Editor folders
 .DS_Store
@@ -23,6 +23,3 @@ _site
 
 # Don't track the main CSS file
 css
-
-# Bower components
-bower_components

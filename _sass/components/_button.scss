@@ -1,0 +1,30 @@
+.Button {
+  @include transition(background-color 0.2s);
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  background: hsla(31, 15%, 50%, 0.15);
+  color: inherit;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 300;
+  line-height: normal;
+  text-decoration: none;
+  &:focus {
+    outline: thin dotted #666;
+    text-decoration:none;
+  }
+  &:hover, &:active, &:focus {
+    background: hsla(31, 15%, 50%, 0.25);
+    text-decoration:none;
+  }
+}
+
+.Button--action {
+  background-color: hsl(150, 45%, 50%);
+  color: #fff;
+  &:hover, &:active, &:focus {
+    background-color: hsl(150, 45%, 40%);
+  }
+}

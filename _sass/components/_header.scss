@@ -1,0 +1,73 @@
+.Header {
+  margin-bottom: 3em;
+  padding: 3em 0;
+  background-color: hsla(31, 15%, 50%, 0.1);
+  text-align: center;
+}
+
+.Header-title {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 4em;
+  line-height: 1;
+  word-spacing: 0.08em;
+  i {
+    font-family: "tisa-web-pro";
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+  }
+  a {
+    border: none;
+    color: inherit;
+    font-weight: inherit;
+    &:focus,
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+  }
+}
+
+.Header-subTitle {
+  margin: 0.5em 0 1.5em;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.Header--cozy {
+  display: flex;
+  padding: 1.5em;
+  align-items: center;
+
+  .Header-titles {
+    display: flex;
+    align-items: baseline;
+  }
+  .Header-title {
+    font-size: 1.5em;
+  }
+  .Header-subTitle {
+    margin: 0 0 0 1em;
+    font-family: "proxima-nova";
+    font-size: 0.8em;
+    font-weight: 300;
+    color: hsl(0,0%,50%);
+  }
+  .Header-actions {
+    flex: 1;
+    text-align: right;
+  }
+}
+
+.with-Button {
+  .Button {
+    padding: 0.75em 2em;
+    margin-right: 0.5em;
+  }
+  &.Header--cozy .Button {
+    padding: 0.6em 1.5em;
+    font-size: 0.75em;
+  }
+}

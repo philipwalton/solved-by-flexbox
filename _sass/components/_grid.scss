@@ -1,0 +1,38 @@
+.Grid, .Grid-cell {
+  display: flex;
+}
+
+.Grid-cell {
+  flex: 0 0 auto;
+}
+
+.Grid--gutters {
+  margin-left: -1em;
+  .Grid-cell {
+    padding-left: 1em;
+  }
+}
+
+.Grid--top {
+  align-items: flex-start;
+}
+
+.Grid--bottom {
+  align-items: flex-end;
+}
+
+.Grid--center {
+  align-items: center;
+}
+
+.Grid-cell--top {
+  align-self: flex-start;
+}
+
+.Grid-cell--bottom {
+  align-self: flex-end;
+}
+
+.Grid-cell--center {
+  align-self: center;
+}
