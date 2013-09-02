@@ -1,32 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}Solved By Flexbox</title>
-
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="description" content="Demonstrating how previously hard or impossible CSS problems can now be solved trivially with flexbox.">
-
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ '/css/style.css' | absolute }}" rel="stylesheet" type="text/css">
-
-  </head>
+  {% include head.html %}
   <body>
-    <header class="header" role="banner">
-
-    </header>
-    <main role="main">
+    {% include header.html %}
+    <main class="Container" role="main">
       {{ content }}
     </main>
-
     {% include google-analytics.html %}
-
-    <script src="{{ '/scripts/highlight.js' | absolute }}"></script>
-    <script>hljs.initHighlightingOnLoad()</script>
-
+    {% include hightlightjs.html %}
   </body>
 </html>

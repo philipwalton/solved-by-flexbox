@@ -2,13 +2,29 @@
 // https://github.com/chriseppstein/sass-css-importer
 @import "CSS:normalize-css/normalize";
 
+$legacy-support-for-ie6: false !default;
+$legacy-support-for-ie7: false !default;
+$legacy-support-for-ie8: true !default;
+
+@import "compass/utilities";
+@import "compass/css3";
+
+// This line can be removed after compass 0.13.0 comes out
+// its absense in "compass/css3" is a bug in 0.12.x
+@import "compass/css3/user-interface";
+
+
+
 @import "variables";
 @import "base";
 
 @import "highlight";
 
 @import "utils/size";
+@import "utils/color";
 
 @import "components/demo";
 @import "components/container";
+@import "components/header";
+@import "components/button";
 @import "components/media";

@@ -4,22 +4,46 @@
 
 html {
   color: hsl(0,0%,25%);
-  font-size: 0.875em;
-  font-weight: 300;
-  line-height: 1.333;
-}
-
-body {
-  padding: 3em;
+  font: 300 1em/1.333 "proxima-nova", sans-serif;
 }
 
 img {
   display: block;
-  margin-top: 2px;
-  border-radius: 2px;
-  overflow: hidden;
+  margin-top: 0.2em;
 }
 
-h1, h2, h3, p {
+h1 {
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 3em;
+  -webkit-font-kerning: normal;
+}
+
+h2 {
+  margin: 2rem 0;
+  font: 700 1.3em "ff-tisa-web-pro", serif;
+  -webkit-font-kerning: normal;
+}
+
+h3 {
   margin: 0 0 1rem;
+  font-size: 1em;
+}
+
+pre, p {
+  margin: 0 0 1rem;
+}
+
+pre, code {
+  font-family: "source-code-pro", monospace;
+}
+
+a {
+  border-bottom: 1px dotted hsla(150, 45%, 50%, 0.5);
+  color: hsl(150, 45%, 50%);
+  font-weight: 400;
+  text-decoration: none;
+  &:hover, &:focus {
+    border-bottom: 1px dotted hsl(150, 45%, 50%);
+  }
 }
