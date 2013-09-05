@@ -1,0 +1,29 @@
+.HolyGrail {
+  display: flex;
+  flex-direction: column;
+}
+
+.HolyGrail-body {
+  display: flex;
+  flex: 1;
+  padding: 1.5em;
+}
+
+.HolyGrail-content {
+  flex: 1;
+  padding: 0 1.5em;
+}
+
+.HolyGrail-leftSidebar {
+  flex: 0 0 12em;
+  order: -1;
+}
+
+.HolyGrail-leftSidebar, .HolyGrail-rightSidebar {
+  flex: 0 0 12em;
+  padding: 1em;
+  border-radius: 3px;
+  background: hsla(31, 15%, 50%, 0.1);
+}
+
+

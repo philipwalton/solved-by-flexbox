@@ -1,23 +1,26 @@
 ---
-layout: page
+layout: default
 title: Sticky Footer
 ---
 
-<h1>Sticky Footer</h1>
+<main class="Site-content">
 
-<pre class="highlight"><code class="language-xml">&lt;body>
+  <h1>Sticky Footer</h1>
+
+<pre class="highlight"><code class="language-xml">&lt;body class="Site">
   &lt;header>...&lt;/header>
-  &lt;main>...&lt;/main>
+  &lt;main class="Site-content">...&lt;/main>
   &lt;footer>...&lt;/footer>
 &lt;/body></code></pre>
 
-<pre class="highlight"><code class="language-css">body {
+<pre class="highlight"><code class="language-css">.Site {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-main {
+.Site-content {
   flex: 1;
-  width: 100%;
 }</code></pre>
+
+</main>
