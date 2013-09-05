@@ -7,6 +7,9 @@
   display: flex;
   flex: 1;
   padding: 1.5em;
+  & :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .HolyGrail-content {
@@ -25,5 +28,4 @@
   border-radius: 3px;
   background: hsla(31, 15%, 50%, 0.1);
 }
-
 

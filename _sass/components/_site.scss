@@ -6,4 +6,9 @@
 
 .Site-content {
   flex: 1;
+  padding: 1.5em;
+  & :last-child {
+    margin-bottom: 0;
+  }
 }
+
