@@ -1,5 +1,8 @@
 # Solved by Flexbox
 
+* Fluid, Full Width Horizontal Navigation
+  - unknown number of items
+  - previously required a table
 
 * Media Object
 * Grid System
