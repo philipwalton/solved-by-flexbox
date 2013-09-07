@@ -5,18 +5,18 @@
 
 .InputAddOn-field, .InputAddOn-button {
   padding: 0.5em 0.75em;
-  border: 1px solid hsl(0, 0%, 90%);
 }
 
 .InputAddOn-field {
+  border: 1px solid hsl(0, 0%, 90%);
+  border-right: 0;
   border-radius: 4px 0 0 4px;
   flex: 1;
 }
 
 .InputAddOn-button {
-  border: 1px solid hsl(0, 0%, 90%);
-  border-left: 0;
+  border: 1px solid transparent;
   border-radius: 0 4px 4px 0;
-  background: hsla(31, 15%, 50%, 0.15);
-  color: inherit;
+  background-color: hsl(150, 45%, 50%);
+  color: #fff;
 }
