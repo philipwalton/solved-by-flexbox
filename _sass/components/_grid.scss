@@ -1,4 +1,4 @@
-.Grid, .Grid-cell {
+.Grid {
   display: flex;
 }
 
@@ -10,6 +10,12 @@
   margin-left: -1em;
   .Grid-cell {
     padding-left: 1em;
+  }
+}
+
+.Grid--flexCells {
+  .Grid-cell {
+    display: flex;
   }
 }
 

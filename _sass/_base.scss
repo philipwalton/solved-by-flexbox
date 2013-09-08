@@ -38,6 +38,19 @@ pre, code {
   font-family: "source-code-pro", monospace;
 }
 
+code {
+  font-size: .9em;
+  font-weight: normal;
+  color: #000;
+}
+
+pre > code {
+  font: inherit;
+  color: inherit;
+}
+
+
+
 a {
   border-bottom: 1px dotted hsla(150, 45%, 50%, 0.5);
   color: hsl(150, 45%, 50%);
