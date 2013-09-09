@@ -7,20 +7,15 @@ title: Better Grids
 
   <h1>Better Grids</h1>
 
-<pre class="highlight"><code class="language-xml">&lt;div class="Grid">
-  &lt;div class="Grid-cell u-size1of2">...&lt;/div>
-  &lt;div class="Grid-cell u-size1of2">...&lt;/div>
-&lt;/div></code></pre>
+  <p>Almost every CSS framework out there has its own grid system, but all of them have to compromise in some form or another. No grid system has equal height columns, and only a few of them have any kind of vertical alignment.</p>
 
-  <p>And the CSS</p>
+  <p>The two main methods of laying out grid cells are to either use <code>float</code> or <code>inline-block</code>, both have which have their disadvantages.</p>
 
-<pre class="highlight"><code class="language-css">.Grid, .Grid-cell {
-  display: flex;
-}
+  <p>Floats require clearing which has a whole host of <a href="https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969">layout issues</a> especially when grid items are within non-floated content sections on a page with a floated sidebar. In addition, clearing floats often necessitates taking up at least one but usually both of the before/after pseduo-elements.</p>
 
-.Grid-cell {
-  flex: 0 0 auto;
-}</code></pre>
+  <p>Inline block layouts must address the problem of <a href="http://css-tricks.com/fighting-the-space-between-inline-block-elements/">white-space between inline-block items</a>, and all of the <a href="http://davidwalsh.name/remove-whitespace-inline-block">solutions</a> to that problem are <a href="https://github.com/suitcss/grid/blob/master/grid.css#L44-L45">hacky</a> and <a href="https://twitter.com/thierrykoblentz/status/305152267374428160">annoying</a>.</p>
+
+  <p>Flexbox basically eliminates all of the headaches.</p>
 
   <h2>Basic Grids</h2>
 
@@ -223,5 +218,24 @@ title: Better Grids
         Sed est ligula, ornare ac nisi adipiscing, iaculis facilisis tellus. Nullam vel facilisis libero. Duis semper lobortis elit, vitae dictum erat.</div>
     </div>
   </div>
+
+  <h2>The HTML</h2>
+
+<pre class="highlight"><code class="language-xml">&lt;div class="Grid">
+  &lt;div class="Grid-cell u-size1of3">...&lt;/div>
+  &lt;div class="Grid-cell u-size2of3">...&lt;/div>
+&lt;/div></code></pre>
+
+  <h2>And the CSS</h2>
+
+<pre class="highlight"><code class="language-css">.Grid, .Grid-cell {
+  display: flex;
+}
+
+.Grid-cell {
+  flex: 0 0 auto;
+}</code></pre>
+
+<p>Note: for the grid cell widths I'm using the <a href="https://github.com/suitcss/utils-dimension/blob/master/dimension.css#L57-L175">dimension utility classes</a> from the <a href="https://github.com/suitcss/suit">suit.css</a> library.</p>
 
 </main>
