@@ -1,0 +1,21 @@
+.u-handFull {
+  width: 100%;
+}
+
+.u-handSize1of2 {
+  width: 50%;
+}
+
+.u-handImgSmall {
+  @include breakpoint(hand) {
+    width: 40px;
+    height: auto;
+  }
+}
+
+.u-handImgTiny {
+  @include breakpoint(hand) {
+    width: 30px;
+    height: auto;
+  }
+}

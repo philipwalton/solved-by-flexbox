@@ -1,9 +1,15 @@
 .Grid {
   display: flex;
+  @media (max-width: 48em) {
+    display: block;
+  }
 }
 
 .Grid-cell {
   flex: 0 0 auto;
+  @media (max-width: 48em) {
+    width: 100%;
+  }
 }
 
 .Grid--gutters {

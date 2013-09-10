@@ -16,10 +16,12 @@ $legacy-support-for-ie8: true !default;
 @import "compass/css3/user-interface";
 
 @import "variables";
+@import "breakpoints";
 @import "base";
 
 @import "utils/size";
 @import "utils/color";
+@import "utils/media";
 
 @import "components/demo";
 @import "components/site";

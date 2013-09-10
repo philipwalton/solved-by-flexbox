@@ -7,9 +7,6 @@
   display: flex;
   flex: 1;
   padding: 1.5em;
-  & :last-child {
-    margin-bottom: 0;
-  }
 }
 
 .HolyGrail-content {
@@ -18,12 +15,11 @@
 }
 
 .HolyGrail-leftSidebar {
-  flex: 0 0 12em;
   order: -1;
 }
 
 .HolyGrail-leftSidebar, .HolyGrail-rightSidebar {
-  flex: 0 0 12em;
+  flex: 0 0 15em;
   padding: 1em;
   border-radius: 3px;
   background: hsla(31, 15%, 50%, 0.1);

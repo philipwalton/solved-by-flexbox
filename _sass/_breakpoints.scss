@@ -1,0 +1,8 @@
+@mixin breakpoint($point) {
+  @if $point == hand {
+    @media (max-width: 570px) { @content; }
+  }
+  @else if $point == lap {
+    @media (min-width: 570em) and (max-width: 768px) { @content; }
+  }
+}

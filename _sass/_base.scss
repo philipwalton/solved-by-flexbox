@@ -5,6 +5,9 @@
 html {
   color: hsl(0,0%,25%);
   font: 300 1em/1.333 "proxima-nova", sans-serif;
+  @include breakpoint(hand) {
+    font-size: 0.875em;
+  }
 }
 
 img {
@@ -16,6 +19,7 @@ h1 {
   margin: 0 0 1rem;
   font-weight: 700;
   font-size: 3em;
+  line-height: 1;
   -webkit-font-kerning: normal;
 }
 
@@ -32,6 +36,10 @@ h3 {
 
 pre, p {
   margin: 0 0 1rem;
+}
+
+p {
+  max-width: 50em;
 }
 
 pre, code {
