@@ -23,15 +23,15 @@ $legacy-support-for-ie8: true !default;
 @import "utils/color";
 @import "utils/media";
 
-@import "components/demo";
-@import "components/site";
-@import "components/holy-grail";
-@import "components/header";
-@import "components/footer";
 @import "components/button";
 @import "components/media";
 @import "components/grid";
 @import "components/input-add-on";
+@import "components/holy-grail";
+@import "components/demo";
+@import "components/site";
+@import "components/header";
+@import "components/footer";
 
 @import "vendor/highlight";
 @import "vendor/twitter";

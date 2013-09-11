@@ -1,14 +1,15 @@
 .Header {
-  padding: 3em 0;
+  padding: 1.5em;
   background-color: hsla(31, 15%, 50%, 0.1);
   text-align: center;
+  @media (min-width: 768px) {
+    padding: 3em 1.5em;
+  }
 }
 
 .Header-title {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 4em;
+  margin: 0 0 0.15em;
+  font-size: 1.8em;
   line-height: 1;
   word-spacing: 0.08em;
   i {
@@ -18,7 +19,7 @@
     letter-spacing: -0.03em;
   }
   a {
-    border: none;
+    border: 0;
     color: inherit;
     font-weight: inherit;
     &:focus,
@@ -27,35 +28,71 @@
       text-decoration: none;
     }
   }
+  @media (min-width: 768px) {
+    font-size: 4em;
+  }
 }
 
 .Header-subTitle {
-  margin: 0.5em 0 1.5em;
-  font-size: 1.2em;
-  font-weight: 300;
+  margin: 0 0 1.5em;
+  font: 300 0.8em "proxima-nova", sans-serif;
+  white-space: nowrap;
+  @media (min-width: 768px) {
+    margin: 0.5em 0 1.5em;
+    font: 300 1.2em "ff-tisa-web-pro", serif;
+  }
+}
+
+.Header-actions {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  font-size: 0.75em;
+  @media (min-width: 400px) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+  @media (min-width: 768px) {
+    font-size: 0.9em;
+  }
+}
+
+.Header-button {
+  padding: 0.6em 1.5em;
+  &:first-child {
+    margin: 0 0 1em;
+  }
+  @media (min-width: 400px) {
+    &:first-child {
+      margin: 0 1em 0 0;
+    }
+  }
 }
 
 .Header--cozy {
-  display: flex;
-  padding: 1.5em;
-  align-items: center;
-
-  .Header-titles {
+  @media (min-width: 768px) {
     display: flex;
-    align-items: baseline;
-  }
-  .Header-title {
-    font-size: 1.5em;
-  }
-  .Header-subTitle {
-    margin: 0 0 0 1em;
-    font-family: "proxima-nova";
-    font-size: 0.8em;
-    font-weight: 300;
-    color: hsl(0,0%,50%);
-  }
-  .Header-actions {
-    flex: 1;
-    text-align: right;
+    padding: 1.5em;
+    align-items: center;
+    .Header-titles {
+      display: flex;
+      align-items: baseline;
+    }
+    .Header-title {
+      font-size: 1.5em;
+    }
+    .Header-subTitle {
+      margin: 0 0 0 1em;
+      font-family: "proxima-nova";
+      font-size: 0.8em;
+      font-weight: 300;
+      color: hsl(0,0%,50%);
+    }
+    .Header-actions {
+      flex: 1;
+      justify-content: flex-end;
+      font-size: 0.75em;
+    }
   }
 }

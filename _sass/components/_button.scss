@@ -7,10 +7,11 @@
   border: 0;
   border-radius: 2px;
   cursor: pointer;
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: 300;
   line-height: normal;
   text-decoration: none;
+  white-space: nowrap;
   &:focus {
     outline: thin dotted #666;
     text-decoration:none;
@@ -22,10 +23,6 @@
   }
 }
 
-.Button + .Button {
-  margin-left: 0.5em;
-}
-
 .Button--action {
   background-color: hsl(150, 45%, 50%);
   color: #fff;
@@ -34,9 +31,3 @@
   }
 }
 
-.with-Button--cozy {
-  .Button {
-    padding: 0.6em 1.5em;
-    font-size: 0.75em;
-  }
-}
