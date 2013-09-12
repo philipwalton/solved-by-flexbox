@@ -1,21 +1,29 @@
+/*
+
+Make a .Grid modifier that assumes all .Grid-cell items are fluid
+and divide equally to take all all space on the line
+
+*/
+
 .Grid {
   display: flex;
-  @media (max-width: 767px) {
-    display: block;
-  }
+  flex-wrap: wrap;
 }
 
 .Grid-cell {
-  flex: 0 0 auto;
-  @media (max-width: 767px) {
-    width: 100%;
-  }
+  flex: 1;
 }
 
 .Grid--gutters {
   margin-left: -1em;
   .Grid-cell {
     padding-left: 1em;
+  }
+}
+
+.Grid-responsive {
+  .Grid-cell {
+    flex-basis: 100%;
   }
 }
 
