@@ -1,5 +1,5 @@
 .Button {
-  @include transition(background-color 0.2s);
+  transition: background-color 0.2s;
   display: inline-block;
   padding: 0.75em 2em;
   background: hsla(31, 15%, 50%, 0.15);
