@@ -10,7 +10,7 @@ title: Better Grid Systems
 
   <p>Most grid systems today use one of two layout methods: <code>float</code> or <code>inline-block</code>. But neither of these methods were really intended to be used for layout and as a result have pretty significant problems and limitations.</p>
 
-  <p>Using floats requires clearing floats which has a whole host of layout issues, most notoriously when clearing an element forces it below an unrelated part of the page (take this <a href="https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969">Bootstrap issue</a> for example). In addition, clearing floats often necessitates taking up both before and after pseduo-elements.</p>
+  <p>Using floats requires clearing floats which has a whole host of layout issues, most notoriously that clearing an element sometimes forces it below an unrelated part of the page (take this <a href="https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969">Bootstrap issue</a> for example). In addition, clearing floats usually requires using both before and after pseudo-elements, preventing your from using them for something else.</p>
 
   <p>Inline block layouts must address the problem of <a href="http://css-tricks.com/fighting-the-space-between-inline-block-elements/">white-space between inline-block items</a>, and all of the <a href="http://davidwalsh.name/remove-whitespace-inline-block">solutions</a> to that problem are <a href="https://github.com/suitcss/grid/blob/master/grid.css#L44-L45">hacky</a> and <a href="https://twitter.com/thierrykoblentz/status/305152267374428160">annoying</a>.</p>
 
@@ -18,15 +18,15 @@ title: Better Grid Systems
 
   <h2>Features of a Flexbox Grid System</h2>
 
-  <p>Most grid systems offer a bounty of sizing options, but &mdash; in my experience &mdash; the vast majority of the time you just want two or three elements side-by-side.</p>
+  <p>Grid systems usually come with a myriad of sizing options, but &mdash; in my experience &mdash; the vast majority of the time you just want two or three elements side-by-side. Given this, why should we be required to put sizing classes on every single cell?</p>
 
-  <p>With this in mind, I listed out the criteria for my ideal grid system. Fortunately, with Flexbox you get most of these features for free.</p>
+  <p>List below are some criteria for an ideal grid system. Fortunately, with Flexbox you get most of these features for free.</p>
 
   <ul>
     <li>By default, each grid cell is the same width and height as every other cell in the row.</li>
     <li>Grid rows can optionally be responsive so that their cells are stacked vertically and fill the row's width until a minimum viewport width is met. Above that minimum, the grid behaves exactly as outlined above.</li>
     <li>For finer control, you can add individual sizing classes to cells, and cells without sizing classes will simply divide up the remaining space as usual.</li>
-    <li>Grids and be nested inside of grids, as many levels deep as needed.</li>
+    <li>Grids can be nested inside of grids, as many levels deep as needed.</li>
   </ul>
 
   <h3>Basic Grids</h3>
