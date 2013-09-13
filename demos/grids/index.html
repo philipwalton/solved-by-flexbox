@@ -31,7 +31,7 @@ title: Better Grid Systems
 
   <h3>Basic Grids</h3>
 
-  <p>The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. If you resize the browser window you'll see they're fluid too.</p>
+  <p>The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. They're also equal height by default!</p>
 
   <div class="Grid Grid--gutters u-textCenter">
     <div class="Grid-cell">
@@ -54,7 +54,6 @@ title: Better Grid Systems
     </div>
   </div>
 
-
   <div class="Grid Grid--gutters u-textCenter">
     <div class="Grid-cell">
       <div class="Demo">1/4</div>
@@ -67,6 +66,20 @@ title: Better Grid Systems
     </div>
     <div class="Grid-cell">
       <div class="Demo">1/4</div>
+    </div>
+  </div>
+
+  <div class="Grid Grid--gutters Grid--flexCells">
+    <div class="Grid-cell">
+      <div class="Demo">
+        Full-height, even when my content doesn't fill the space.
+      </div>
+    </div>
+
+    <div class="Grid-cell">
+      <div class="Demo">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus, ut scelerisque velit condimentum eu. Maecenas sagittis ante ut turpis varius interdum. Quisque tellus ipsum, eleifend non ipsum id, suscipit ultricies neque.
+      </div>
     </div>
   </div>
 
@@ -161,39 +174,7 @@ title: Better Grid Systems
     </div>
   </div>
 
-
-  <h2>The Code</h2>
-
-<pre class="highlight"><code class="language-xml">&lt;div class="Grid">
-  &lt;div class="Grid-cell">...&lt;/div>
-  &lt;div class="Grid-cell">...&lt;/div>
-  &lt;div class="Grid-cell">...&lt;/div>
-&lt;/div></code></pre>
-
-<pre class="highlight"><code class="language-css">.Grid {
-  display: flex;
-}
-
-.Grid-cell {
-  flex: 1;
-}</code></pre>
-
-  <h2>Additional Features/Variations</h2>
-
-  <h3>Full Height Cells</h3>
-
-  <div class="Grid Grid--gutters Grid--flexCells">
-    <div class="Grid-cell u-size1of3">
-      <div class="Demo">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus, ut scelerisque velit condimentum eu. Maecenas sagittis ante ut turpis varius interdum. Quisque tellus ipsum, eleifend non ipsum id, suscipit ultricies neque.
-      </div>
-    </div>
-    <div class="Grid-cell">
-      <div class="Demo">
-        Full-height, even though I have less content.
-      </div>
-    </div>
-  </div>
+  <h2>Alignment Features</h2>
 
   <h3>Top-aligned Grid Cells</h3>
 
@@ -273,5 +254,69 @@ title: Better Grid Systems
       </div>
     </div>
   </div>
+
+  <h2>The HTML</h2>
+
+<pre class="highlight"><code class="language-xml">&lt;div class="Grid Grid--gutters Grid--responsive">
+  &lt;div class="Grid-cell">...&lt;/div>
+  &lt;div class="Grid-cell">...&lt;/div>
+  &lt;div class="Grid-cell">...&lt;/div>
+&lt;/div></code></pre>
+
+  <h2>The CSS</h2>
+
+  <h3>Basic Grid Styles</h3>
+
+<pre class="highlight"><code class="language-css">.Grid {
+  display: flex;
+}
+
+.Grid-cell {
+  flex: 1;
+}
+</code></pre>
+
+  <h3>Grid Style Modifiers</h3>
+
+<pre class="highlight"><code class="language-css">/* With gutters */
+.Grid--gutters {
+  margin-left: -1em;
+}
+.Grid--gutters .Grid-cell {
+  padding-left: 1em;
+}
+
+/* Responsive */
+.Grid--responsive .Grid-cell {
+  flex-basis: 100%;
+  flex-wrap: wrap;
+}
+@media (min-width: 36em) {
+  .Grid--responsive .Grid-cell {
+    flex-basis: 0;
+  }
+}
+
+/* Alignment per row */
+.Grid--top {
+  align-items: flex-start;
+}
+.Grid--bottom {
+  align-items: flex-end;
+}
+.Grid--center {
+  align-items: center;
+}
+
+/* Alignment per cell */
+.Grid-cell--top {
+  align-self: flex-start;
+}
+.Grid-cell--bottom {
+  align-self: flex-end;
+}
+.Grid-cell--center {
+  align-self: center;
+}</code></pre>
 
 </main>
