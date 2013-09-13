@@ -1,17 +1,168 @@
 ---
 layout: default
-title: Rethinking Grid Systems
+title: Better Grid Systems
 ---
 
 <main class="Site-content">
 
-  <h1>Rethinking Grid Systems</h1>
+  <h1>Better Grid Systems</h1>
 
-  <p>Flexbox will completely change the way you think about grids systems.</p>
 
-  <p>By far, the most common use case for grids in Web developement is to get two pieces of content side by side. Amost every grid system in existence offers endless combinations of ratios and positions, but really you just want to have a few pieces of content in the same horizontal space, spaced evenly.</p>
+  <p>Most grid systems today use one of two layout methods: <code>float</code> or <code>inline-block</code>. But neither of these methods were really intended to be used for layout and as a result have pretty significant problems and limitations.</p>
 
-  <p>With flexbox you pretty much get this by default. A flexbox based grid layout can be as simple as the following HTML and CSS:</p>
+  <p>Using floats requires clearing floats which has a whole host of layout issues, most notoriously when clearing an element forces it below an unrelated part of the page (take this <a href="https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969">Bootstrap issue</a> for example). In addition, clearing floats often necessitates taking up both before and after pseduo-elements.</p>
+
+  <p>Inline block layouts must address the problem of <a href="http://css-tricks.com/fighting-the-space-between-inline-block-elements/">white-space between inline-block items</a>, and all of the <a href="http://davidwalsh.name/remove-whitespace-inline-block">solutions</a> to that problem are <a href="https://github.com/suitcss/grid/blob/master/grid.css#L44-L45">hacky</a> and <a href="https://twitter.com/thierrykoblentz/status/305152267374428160">annoying</a>.</p>
+
+  <p>Flexbox not only eliminate these problems, it opens up an entirely new world of possibilities.</p>
+
+  <h2>Features of a Flexbox Grid System</h2>
+
+  <p>Most grid systems offer a bounty of sizing options, but &mdash; in my experience &mdash; the vast majority of the time you just want two or three elements side-by-side.</p>
+
+  <p>With this in mind, I listed out the criteria for my ideal grid system. Fortunately, with Flexbox you get most of these features for free.</p>
+
+  <ul>
+    <li>By default, each grid cell is the same width and height as every other cell in the row.</li>
+    <li>Grid rows can optionally be responsive so that their cells are stacked vertically and fill the row's width until a minimum viewport width is met. Above that minimum, the grid behaves exactly as outlined above.</li>
+    <li>For finer control, you can add individual sizing classes to cells, and cells without sizing classes will simply divide up the remaining space as usual.</li>
+    <li>Grids and be nested inside of grids, as many levels deep as needed.</li>
+  </ul>
+
+  <h3>Basic Grids</h3>
+
+  <p>The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. If you resize the browser window you'll see they're fluid too.</p>
+
+  <div class="Grid Grid--gutters u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo">1/2</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">1/2</div>
+    </div>
+  </div>
+
+  <div class="Grid Grid--gutters u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo">1/3</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">1/3</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">1/3</div>
+    </div>
+  </div>
+
+
+  <div class="Grid Grid--gutters u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo">1/4</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">1/4</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">1/4</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">1/4</div>
+    </div>
+  </div>
+
+  <h3>Basic Grids + Responsive</h3>
+
+  <p>Responsive Grids contain stacked cells at full-width up until a certain viewport size is met. After that point they behave exactly like the grid cells above.</p>
+
+  <div class="Grid Grid--gutters Grid--responsive u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo">Full / Halves</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">Full / Halves</div>
+    </div>
+  </div>
+
+  <div class="Grid Grid--gutters Grid--responsive u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo">Full / Thirds</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">Full / Thirds</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">Full / Thirds</div>
+    </div>
+  </div>
+
+  <h3>Individual Sizing</h3>
+
+  <p>When equal widths aren't what you want, you can add sizing classes to individual cells. Cells without sizing classes simply divide up the remaining space as normal.</p>
+
+  <div class="Grid Grid--gutters u-textCenter">
+    <div class="Grid-cell u-1of2">
+      <div class="Demo">1/2</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">auto</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">auto</div>
+    </div>
+  </div>
+
+  <div class="Grid Grid--gutters u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo">auto</div>
+    </div>
+    <div class="Grid-cell u-1of3">
+      <div class="Demo">1/3</div>
+    </div>
+  </div>
+
+  <div class="Grid Grid--gutters u-textCenter">
+    <div class="Grid-cell u-1of4">
+      <div class="Demo">1/4</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">auto</div>
+    </div>
+    <div class="Grid-cell u-1of3">
+      <div class="Demo">1/3</div>
+    </div>
+  </div>
+
+  <h3>Grid-ception</h3>
+
+  <div class="Grid Grid--gutters Grid--flexCells u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo">
+        <div class="Grid Grid--gutters u-textCenter">
+          <div class="Grid-cell u-1of3">
+            <div class="Demo u-spaceBN">1/3</div>
+          </div>
+          <div class="Grid-cell">
+            <div class="Demo u-spaceBN">
+              <div class="Grid Grid--gutters u-textCenter">
+                <div class="Grid-cell">
+                  <div class="Demo u-spaceBN">1/2</div>
+                </div>
+                <div class="Grid-cell">
+                  <div class="Demo u-spaceBN">1/2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Grid-cell u-1of3">
+      <div class="Demo">1/3</div>
+    </div>
+  </div>
+
+
+  <h2>The Code</h2>
 
 <pre class="highlight"><code class="language-xml">&lt;div class="Grid">
   &lt;div class="Grid-cell">...&lt;/div>
@@ -27,307 +178,100 @@ title: Rethinking Grid Systems
   flex: 1;
 }</code></pre>
 
-  <p>The above two rules allow you to have a grid row with as many columns as you want, and they'll all be equally wide and equally tall by default.</p>
+  <h2>Additional Features/Variations</h2>
 
-  <p>Here's an example:</p>
-
-  <div class="Grid Grid--gutters Grid--flexCells">
-    <div class="Grid-cell">
-      <div class="Demo">
-        <h3 class="Demo-title">Look Ma!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas semper risus quis erat lacinia aliquam. Nam interdum eros sapien, vel luctus enim vulputate vel.</p>
-      </div>
-    </div>
-    <div class="Grid-cell">
-      <div class="Demo">
-        <h3 class="Demo-title">Equal Widths</h3>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur nec nisl sem. Morbi sit amet consectetur ligula, ac suscipit tortor. Cras auctor vel risus dignissim sagittis. Morbi dictum dignissim mi, a semper metus dictum et. In non velit at nunc ornare viverra.</p>
-      </div>
-    </div>
-    <div class="Grid-cell">
-      <div class="Demo">
-        <h3 class="Demo-title">And Equal Heights!</h3>
-        <p>Suspendisse sit amet urna lectus. Quisque vestibulum enim et felis posuere commodo. Donec iaculis leo suscipit tempus lobortis. Proin pretium ante eu lectus ultrices facilisis.</p>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <p>Almost every CSS framework out there has its own grid system, but all of them have to compromise in some form or another. No grid system has equal height columns, and only a few of them have any kind of vertical alignment.</p>
-
-  <p>The two main methods of laying out grid cells are to either use <code>float</code> or <code>inline-block</code>, both have which have their disadvantages.</p>
-
-  <p>Floats require clearing which has a whole host of <a href="https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969">layout issues</a> especially when grid items are within non-floated content sections on a page with a floated sidebar. In addition, clearing floats often necessitates taking up at least one but usually both of the before/after pseduo-elements.</p>
-
-  <p>Inline block layouts must address the problem of <a href="http://css-tricks.com/fighting-the-space-between-inline-block-elements/">white-space between inline-block items</a>, and all of the <a href="http://davidwalsh.name/remove-whitespace-inline-block">solutions</a> to that problem are <a href="https://github.com/suitcss/grid/blob/master/grid.css#L44-L45">hacky</a> and <a href="https://twitter.com/thierrykoblentz/status/305152267374428160">annoying</a>.</p>
-
-  <p>Flexbox basically eliminates all of the headaches.</p>
-
-  <div class="Grid Grid--gutters Grid-responsive u-textCenter">
-    <div class="Grid-cell u-med-1of2 u-large-1of3">
-      <div class="Demo">1/3</div>
-    </div>
-    <div class="Grid-cell u-med-1of2 u-large-1of3">
-      <div class="Demo">2/3</div>
-    </div>
-    <div class="Grid-cell u-large-1of3">
-      <div class="Demo">1/3</div>
-    </div>
-  </div>
-<!--
-  <div class="Grid Grid--gutters u-textCenter">
-    <div class="Grid-cell u-all-2of3">
-      <div class="Demo">1/3</div>
-    </div>
-    <div class="Grid-cell">
-      <div class="Demo">2/3</div>
-    </div>
-    <div class="Grid-cell">
-      <div class="Demo">2/3</div>
-    </div>
-  </div>
-
-  <div class="Grid Grid--gutters u-textCenter">
-    <div class="Grid-cell">
-      <div class="Demo">1/3</div>
-    </div>
-    <div class="Grid-cell">
-      <div class="Demo">1/3</div>
-    </div>
-    <div class="Grid-cell u-all-1of3">
-      <div class="Demo">2/3</div>
-    </div>
-    <div class="Grid-cell">
-      <div class="Demo">2/3</div>
-    </div>
-    <div class="Grid-cell">
-      <div class="Demo">1/3</div>
-    </div>
-  </div> -->
-
-
-  <h2>Basic Grids</h2>
-
-  <div class="Grid Grid--gutters u-textCenter">
-    <div class="Grid-cell u-size1of2">
-      <div class="Demo">1/2</div>
-    </div>
-    <div class="Grid-cell u-size1of2">
-      <div class="Demo">1/2</div>
-    </div>
-  </div>
-
-  <div class="Grid Grid--gutters u-textCenter">
-    <div class="Grid-cell u-size1of3">
-      <div class="Demo">1/3</div>
-    </div>
-    <div class="Grid-cell u-size1of3">
-      <div class="Demo">1/3</div>
-    </div>
-    <div class="Grid-cell u-size1of3">
-      <div class="Demo">1/3</div>
-    </div>
-  </div>
-
-
-  <div class="Grid Grid--gutters u-textCenter">
-    <div class="Grid-cell u-size1of4">
-      <div class="Demo">1/4</div>
-    </div>
-    <div class="Grid-cell u-size1of4">
-      <div class="Demo">1/4</div>
-    </div>
-    <div class="Grid-cell u-size1of4">
-      <div class="Demo">1/4</div>
-    </div>
-    <div class="Grid-cell u-size1of4">
-      <div class="Demo">1/4</div>
-    </div>
-  </div>
-
-
-  <div class="Grid Grid--gutters u-textCenter">
-    <div class="Grid-cell u-size1of5">
-      <div class="Demo">1/5</div>
-    </div>
-    <div class="Grid-cell u-size1of5">
-      <div class="Demo">1/5</div>
-    </div>
-    <div class="Grid-cell u-size1of5">
-      <div class="Demo">1/5</div>
-    </div>
-    <div class="Grid-cell u-size1of5">
-      <div class="Demo">1/5</div>
-    </div>
-    <div class="Grid-cell u-size1of5">
-      <div class="Demo">1/5</div>
-    </div>
-  </div>
-
-  <div class="Grid Grid--gutters u-textCenter">
-    <div class="Grid-cell u-size1of4">
-      <div class="Demo">1/4</div>
-    </div>
-    <div class="Grid-cell u-size1of2">
-      <div class="Demo">1/2</div>
-    </div>
-    <div class="Grid-cell u-size1of4">
-      <div class="Demo">1/4</div>
-    </div>
-  </div>
-
-  <div class="Grid Grid--gutters u-textCenter">
-    <div class="Grid-cell u-size1of6">
-      <div class="Demo">1/6</div>
-    </div>
-    <div class="Grid-cell u-size1of3">
-      <div class="Demo">1/3</div>
-    </div>
-    <div class="Grid-cell u-size1of6">
-      <div class="Demo">1/6</div>
-    </div>
-    <div class="Grid-cell u-size1of3">
-      <div class="Demo">1/3</div>
-    </div>
-  </div>
-
-  <h2>Grid Cells are Full-Height by Default</h2>
+  <h3>Full Height Cells</h3>
 
   <div class="Grid Grid--gutters Grid--flexCells">
-    <div class="Grid-cell u-size1of6">
-      <div class="Demo">
-        <strong>1/6</strong><br>
-        Full-height, even though I have less content
-      </div>
-    </div>
     <div class="Grid-cell u-size1of3">
       <div class="Demo">
-        <strong>1/3</strong><br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus, ut scelerisque velit condimentum eu. Maecenas sagittis ante ut turpis varius interdum. Quisque tellus ipsum, eleifend non ipsum id, suscipit ultricies neque. Ut pharetra eget lacus nec laoreet. Mauris sed tempor leo. Sed commodo, orci at feugiat vulputate, justo elit iaculis mi, condimentum consequat mauris velit non ligula. Vestibulum nulla eros, sodales ac urna at, ultricies congue quam. In ut lorem augue. Integer euismod ac enim id fermentum. Nunc id dui purus.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus, ut scelerisque velit condimentum eu. Maecenas sagittis ante ut turpis varius interdum. Quisque tellus ipsum, eleifend non ipsum id, suscipit ultricies neque.
       </div>
     </div>
-    <div class="Grid-cell u-size1of6">
+    <div class="Grid-cell">
       <div class="Demo">
-        <strong>1/6</strong><br>
-        Full-height, even though I have less content</div>
-    </div>
-    <div class="Grid-cell u-size1of3">
-      <div class="Demo">
-        <strong>1/3</strong><br>
-        Mauris mattis nibh metus, sit amet iaculis arcu auctor vel. Donec quis lobortis libero. Praesent tempus dictum enim eu rutrum. Donec ut nulla sit amet tellus auctor dictum. Praesent congue augue eu consequat varius. Suspendisse pretium ligula eu lacus adipiscing, sit amet rhoncus mi facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Full-height, even though I have less content.
       </div>
     </div>
   </div>
 
-  <h2>Top-aligned Grid Cells</h2>
+  <h3>Top-aligned Grid Cells</h3>
 
   <div class="Grid Grid--gutters Grid--top">
     <div class="Grid-cell u-size1of4">
       <div class="Demo">
-        <strong>1/4</strong><br>
-        This cell should be top-aligned
+        This cell should be top-aligned.
       </div>
     </div>
     <div class="Grid-cell u-size1of2">
       <div class="Demo">
-        <strong>1/2</strong><br>
-        Pellentesque sagittis vel erat ac laoreet. Phasellus ac aliquet enim, eu aliquet sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar porta leo, eu ultricies nunc sollicitudin vitae. Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh. Ut interdum ligula id metus hendrerit cursus. Integer eu leo felis. Aenean commodo ultrices nunc, sit amet blandit elit gravida in. Sed est ligula, ornare ac nisi adipiscing, iaculis facilisis tellus. Nullam vel facilisis libero. Duis semper lobortis elit, vitae dictum erat.
+        Pellentesque sagittis vel erat ac laoreet. Phasellus ac aliquet enim, eu aliquet sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar porta leo, eu ultricies nunc sollicitudin vitae. Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh.
       </div>
     </div>
     <div class="Grid-cell u-size1of4">
       <div class="Demo">
-        <strong>1/4</strong><br>
-        This cell should be top-aligned
+        This cell should be top-aligned.
       </div>
     </div>
   </div>
 
-  <h2>Bottom-aligned Grid Cells</h2>
+  <h3>Bottom-aligned Grid Cells</h3>
 
   <div class="Grid Grid--gutters Grid--bottom">
     <div class="Grid-cell u-size1of3">
       <div class="Demo">
-        <strong>1/3</strong><br>
-        This cell should be bottom-aligned
+        This cell should be bottom-aligned.
       </div>
     </div>
     <div class="Grid-cell u-size1of3">
       <div class="Demo">
-        <strong>1/3</strong><br>
-        Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh. Ut interdum ligula id metus hendrerit cursus. Integer eu leo felis. Aenean commodo ultrices nunc, sit amet blandit elit gravida in. Sed est ligula, ornare ac nisi adipiscing, iaculis facilisis tellus. Nullam vel facilisis libero.
+        Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh. Ut interdum ligula id metus hendrerit cursus. Integer eu leo felis. Aenean commodo ultrices nunc, sit amet blandit elit gravida in.
       </div>
     </div>
     <div class="Grid-cell u-size1of3">
       <div class="Demo">
-        <strong>1/3</strong><br>
-        This cell should be bottom-aligned
+        This cell should be bottom-aligned.
       </div>
     </div>
   </div>
 
-  <h2>Vertically Centered Grid Cells</h2>
+  <h3>Vertically Centered Grid Cells</h3>
 
   <div class="Grid Grid--gutters Grid--center">
     <div class="Grid-cell u-size1of2">
       <div class="Demo">
-        <strong>1/2</strong><br>
         Pellentesque sagittis vel erat ac laoreet. Phasellus ac aliquet enim, eu aliquet sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar porta leo, eu ultricies nunc sollicitudin vitae.
       </div>
     </div>
     <div class="Grid-cell u-size1of2">
       <div class="Demo">
-        <strong>1/2</strong><br>
         Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh. Ut interdum ligula id metus hendrerit cursus. Integer eu leo felis. Aenean commodo ultrices nunc, sit amet blandit elit gravida in. Sed est ligula, ornare ac nisi adipiscing, iaculis facilisis tellus. Nullam vel facilisis libero. Duis semper lobortis elit, vitae dictum erat.</div>
     </div>
   </div>
 
 
-  <h2>Mixed Vertical Alignment</h2>
+  <h3>Mixed Vertical Alignment</h3>
 
   <div class="Grid Grid--gutters">
     <div class="Grid-cell Grid-cell--top u-size1of4">
       <div class="Demo">
-        <strong>1/4: top-aligned</strong><br>
-        Pellentesque sagittis vel erat ac laoreet. Phasellus ac aliquet enim, eu aliquet sem. Lorem ipsum dolor sit amet.
+        This cell should be top aligned.
       </div>
     </div>
     <div class="Grid-cell u-size1of4">
       <div class="Demo">
-        <strong>1/4: full-height</strong><br>
-        Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh. Ut interdum ligula id metus hendrerit cursus. Integer eu leo felis. Aenean commodo ultrices nunc, sit amet blandit elit gravida in. Sed est ligula, ornare ac nisi adipiscing, iaculis facilisis tellus. Nullam vel facilisis libero. Duis semper lobortis elit, vitae dictum erat.</div>
+        Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh. Ut interdum ligula id metus hendrerit cursus. Integer eu leo felis. Aenean commodo ultrices nunc, sit amet blandit elit gravida in. Sed est ligula, ornare ac nisi adipiscing, iaculis facilisis tellus.</div>
     </div>
     <div class="Grid-cell Grid-cell--center u-size1of4">
       <div class="Demo">
-        <strong>1/4: vertically-centered</strong><br>Sagittis vel erat ac laoreet. Phasellus ac aliquet enim, eu aliquet sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar porta leo, eu ultricies nunc sollicitudin vitae.
+        This cell should be center-aligned.
       </div>
     </div>
     <div class="Grid-cell Grid-cell--bottom u-size1of4">
       <div class="Demo">
-        <strong>1/4: bottom-aligned</strong><br>
-        Sed est ligula, ornare ac nisi adipiscing, iaculis facilisis tellus. Nullam vel facilisis libero. Duis semper lobortis elit, vitae dictum erat.</div>
+        This cell should be bottom-aligned.
+      </div>
     </div>
   </div>
-
-  <h2>The HTML</h2>
-
-<pre class="highlight"><code class="language-xml">&lt;div class="Grid">
-  &lt;div class="Grid-cell u-size1of3">...&lt;/div>
-  &lt;div class="Grid-cell u-size2of3">...&lt;/div>
-&lt;/div></code></pre>
-
-  <h2>And the CSS</h2>
-
-<pre class="highlight"><code class="language-css">.Grid, .Grid-cell {
-  display: flex;
-}
-
-.Grid-cell {
-  flex: 0 0 auto;
-}</code></pre>
-
-<p>Note: for the grid cell widths I'm using the <a href="https://github.com/suitcss/utils-dimension/blob/master/dimension.css#L57-L175">dimension utility classes</a> from the <a href="https://github.com/suitcss/suit">suit.css</a> library.</p>
 
 </main>

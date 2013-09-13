@@ -21,9 +21,12 @@ and divide equally to take all all space on the line
   }
 }
 
-.Grid-responsive {
+.Grid--responsive {
   .Grid-cell {
     flex-basis: 100%;
+    @media (min-width: 36em) {
+      flex-basis: 0;
+    }
   }
 }
 
