@@ -1,13 +1,13 @@
 .Button {
   transition: background-color 0.2s;
   display: inline-block;
-  padding: 0.75em 2em;
+  padding: 0.6em 1em;
   background: hsla(31, 15%, 50%, 0.15);
   color: inherit;
   border: 0;
   border-radius: 2px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 0.8125em;
   font-weight: 300;
   line-height: normal;
   text-decoration: none;
@@ -29,5 +29,10 @@
   &:hover, &:active, &:focus {
     background-color: hsl(150, 45%, 40%);
   }
+}
+
+.Button--wide {
+  padding-right: 1.5em;
+  padding-left: 1.5em;
 }
 

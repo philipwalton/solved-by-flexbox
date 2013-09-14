@@ -47,19 +47,18 @@
   display: flex;
   align-items: stretch;
   flex-direction: column;
-  font-size: 0.75em;
+  font-size: 0.9em;
   @media (min-width: 400px) {
     align-items: center;
     flex-direction: row;
     justify-content: center;
   }
   @media (min-width: 768px) {
-    font-size: 0.9em;
+    font-size: 1.1em;
   }
 }
 
 .Header-button {
-  padding: 0.6em 1.5em;
   &:first-child {
     margin: 0 0 1em;
   }
@@ -92,7 +91,7 @@
     .Header-actions {
       flex: 1;
       justify-content: flex-end;
-      font-size: 0.75em;
+      font-size: 0.9em;
     }
   }
 }
