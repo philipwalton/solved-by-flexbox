@@ -1,0 +1,16 @@
+.Image {
+  display: block;
+  width: 40px;
+  height: auto;
+  margin-top: 0.2em;
+}
+
+.Image--tiny {
+  width: 30px;
+}
+
+@media (min-width: 570px) {
+  .Image, .Image--tiny {
+    width: auto;
+  }
+}

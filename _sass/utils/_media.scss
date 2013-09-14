@@ -1,17 +1,3 @@
-.u-handImgSmall {
-  @include breakpoint(hand) {
-    width: 40px;
-    height: auto;
-  }
-}
-
-.u-handImgTiny {
-  @include breakpoint(hand) {
-    width: 30px;
-    height: auto;
-  }
-}
-
 $media-size-list: (
   "all" "",
   "(min-width: 570px)" "med",
