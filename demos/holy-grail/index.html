@@ -31,8 +31,8 @@ title: Holy Grail Layout
   &lt;header>...&lt;/header>
   &lt;div class="HolyGrail-body">
     &lt;main class="HolyGrail-content">...&lt;/main>
-    &lt;nav class="HolyGrail-leftSidebar">...&lt;/nav>
-    &lt;aside class="HolyGrail-rightSidebar">...&lt;/aside>
+    &lt;nav class="HolyGrail-nav">...&lt;/nav>
+    &lt;aside class="HolyGrail-ads">...&lt;/aside>
   &lt;/div>
   &lt;footer>...&lt;/footer>
 &lt;/body></code></pre>
@@ -56,24 +56,24 @@ title: Holy Grail Layout
   flex: 1;
 }
 
-.HolyGrail-leftSidebar, .HolyGrail-rightSidebar {
+.HolyGrail-nav, .HolyGrail-ads {
   /* 15em is the width of the columns */
   flex: 0 0 15em;
 }
 
-.HolyGrail-leftSidebar {
+.HolyGrail-nav {
   /* put the nav on the left */
   order: -1;
 }</code></pre>
 
   </article>
 
-  <nav class="HolyGrail-leftSidebar">
-    <h3>Navigation</h3>
+  <nav class="HolyGrail-nav u-textCenter">
+    <h3 class="u-spaceBN">Navigation</h3>
   </nav>
 
-  <aside class="HolyGrail-rightSidebar">
-    <h3>Advertisements</h3>
+  <aside class="HolyGrail-ads u-textCenter">
+    <h3 class="u-spaceBN">Advertisements</h3>
   </aside>
 
 </div>

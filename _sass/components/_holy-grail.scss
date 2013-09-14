@@ -5,23 +5,35 @@
 
 .HolyGrail-body {
   display: flex;
-  flex: 1;
+  flex-direction: column;
   padding: 1.5em;
 }
 
 .HolyGrail-content {
-  flex: 1;
-  padding: 0 1.5em;
+  margin: 1.5em 0;
 }
 
-.HolyGrail-leftSidebar {
+.HolyGrail-nav {
   order: -1;
 }
 
-.HolyGrail-leftSidebar, .HolyGrail-rightSidebar {
-  flex: 0 0 15em;
+.HolyGrail-nav, .HolyGrail-ads {
   padding: 1em;
   border-radius: 3px;
   background: hsla(31, 15%, 50%, 0.1);
 }
 
+@media (min-width: 768px) {
+  .HolyGrail-body {
+    flex-direction: row;
+    flex: 1;
+  }
+  .HolyGrail-content {
+    flex: 1;
+    padding: 0 1.5em;
+    margin: 0;
+  }
+  .HolyGrail-nav, .HolyGrail-ads {
+    flex: 0 0 12em;
+  }
+}
