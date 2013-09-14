@@ -54,14 +54,11 @@ pre > code {
   color: inherit;
 }
 
-
-
 a {
   border-bottom: 1px dotted hsla(150, 45%, 50%, 0.5);
   color: hsl(150, 45%, 50%);
-  font-weight: 400;
   text-decoration: none;
   &:hover, &:focus {
-    border-bottom: 1px dotted hsl(150, 45%, 50%);
+    border-bottom: 1px solid hsl(150, 45%, 50%);
   }
 }

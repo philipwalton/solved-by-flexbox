@@ -13,7 +13,7 @@
   line-height: 1;
   word-spacing: 0.08em;
   i {
-    font-family: "tisa-web-pro";
+    font-family: serif;
     font-style: italic;
     font-weight: 400;
     letter-spacing: -0.03em;
@@ -38,8 +38,8 @@
   font: 300 0.8em "proxima-nova", sans-serif;
   white-space: nowrap;
   @media (min-width: 768px) {
-    margin: 0.5em 0 1.5em;
-    font: 300 1.2em "ff-tisa-web-pro", serif;
+    margin: 1em 0 1.75em;
+    font-size: 1.1em;
   }
 }
 
