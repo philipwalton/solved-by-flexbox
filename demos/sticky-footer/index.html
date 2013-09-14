@@ -13,11 +13,19 @@ title: Sticky Footer
 
   <div id="collapsable-content">
 
+    <p>Geting your footer to sticky to the bottom of a page with sparse content is something every Web developer has probably tried to tackle at some point in their career. And, for the most part, it's a solved problem. Yet all the <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">existing</a> <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">solutions</a> have one significant shortcoming &mdash; they don't work if the height of your footer can change.</p>
+
+    <p>Flexbox solves this problem and is really an idea solution for it. Flexbox is known for helping with layout in the horizontal direction, but it's just as good at helping with layout in the vertical direction. All you have to do is wrap the vertical sections in a flex container and choose which ones you want to flex. They'll automatically take up all the available space.</p>
+
+    <h2>The HTML</h2>
+
 <pre class="highlight"><code class="language-xml">&lt;body class="Site">
   &lt;header>...&lt;/header>
   &lt;main class="Site-content">...&lt;/main>
   &lt;footer>...&lt;/footer>
 &lt;/body></code></pre>
+
+    <h2>The CSS</h2>
 
 <pre class="highlight"><code class="language-css">.Site {
   display: flex;
