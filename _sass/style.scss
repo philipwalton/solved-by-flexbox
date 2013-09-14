@@ -2,7 +2,7 @@
 // https://github.com/chriseppstein/sass-css-importer
 @import "CSS:normalize-css/normalize";
 @import "CSS:suit-utils-text/text";
-// @import "CSS:suit-utils-dimension/dimension";
+@import "CSS:suit-utils-state/state";
 
 @import "variables";
 @import "breakpoints";

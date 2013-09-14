@@ -7,6 +7,10 @@ title: Sticky Footer
 
   <h1>Sticky Footer</h1>
 
+  <button id="collapse-trigger">Toggle Contents</button>
+
+  <div id="collapsable-content">
+
 <pre class="highlight"><code class="language-xml">&lt;body class="Site">
   &lt;header>...&lt;/header>
   &lt;main class="Site-content">...&lt;/main>
@@ -22,5 +26,23 @@ title: Sticky Footer
 .Site-content {
   flex: 1;
 }</code></pre>
+
+  </div>
+
+  <script>
+    (function() {
+      var collapseTrigger = document.getElementById("collapse-trigger")
+        , collapseableContent = document.getElementById("collapsable-content")
+        , isCollapsed = false
+      collapseTrigger.addEventListener("click", function() {
+        if (isCollapsed) {
+          collapseableContent.classList.remove("u-isHidden")
+        } else {
+          collapseableContent.classList.add("u-isHidden")
+        }
+        isCollapsed = !isCollapsed
+      }, false)
+    }())
+  </script>
 
 </main>
