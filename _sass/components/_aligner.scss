@@ -9,3 +9,11 @@
   margin: 1em;
   max-width: 50%;
 }
+
+.Aligner-item--top {
+  align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+  align-self: flex-end;
+}

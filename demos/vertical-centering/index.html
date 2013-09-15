@@ -24,5 +24,51 @@ title: Vertical Centering
 
   </div>
 
+  <p>Unlike some of the existing vertical alignment techniques, it the presence of sibling elements doesn't affect their ability to be aligned.</p>
+
+  <div class="Demo Aligner">
+
+    <div class="Demo Aligner-item Aligner-item--top">
+      <h3 class="Demo-title">Top</h3>
+    </div>
+    <div class="Demo Aligner-item">
+      <h3 class="Demo-title">Centered</h3>
+    </div>
+    <div class="Demo Aligner-item Aligner-item--bottom">
+      <h3 class="Demo-title">Bottom</h3>
+    </div>
+
+  </div>
+
+  <h2>The HTML</h2>
+
+<pre class="highlight"><code class="language-xml">&lt;div class="Aligner">
+  &lt;div class="Aligner-item Aligner-item--top">...&lt;/div>
+  &lt;div class="Aligner-item">...&lt;/div>
+  &lt;div class="Aligner-item Aligner-item--bottom">...&lt;/div>
+&lt;/div></code></pre>
+
+  <h2>The CSS</h2>
+
+<pre class="highlight"><code class="language-css">.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20em;
+}
+
+.Aligner-item {
+  margin: 1em;
+  max-width: 50%;
+}
+
+.Aligner-item--top {
+  align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+  align-self: flex-end;
+}</code></pre>
+
 
 </main>
