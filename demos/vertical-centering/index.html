@@ -13,9 +13,16 @@ title: Vertical Centering
 
   <p>The current landscape of <a href="http://css-tricks.com/centering-in-the-unknown/">vertical centering options</a> ranges from negative margins to <code>display:table-cell</code> to ridiculous hacks involving full-height pseudo-elements. But even though these techniques do often get the job done, they don't work in every situation. What if the thing you want to center is of unknown dimensions and isn't the first-child of it's parent? Or what is you could use the pseudo-element hack, but you need that pseudo-element for something else?</p>
 
-  <p>With Flexbox, you can stop worrying. You can align anything (vertically or horizontally) quite painlessly with the <code>align-items</code> property.</p>
+  <p>With Flexbox, you can stop worrying. You can align anything (vertically or horizontally) quite painlessly with the <code>align-items</code>, <code>align-self</code>, and <code>justify-content</code> properties.</p>
 
+  <div class="Demo CenteredBox">
 
+    <div class="Demo CenteredBox-item">
+      <h3 class="Demo-title">I'm Centered!</h3>
+      <p contenteditable="true">This block is both vertically and horizontally centered. Even if the text in this box changes to make it wider or taller, the box will still be centered. Go ahead, give it a try by clicking to edit the text.</p>
+    </div>
+
+  </div>
 
 
 </main>
