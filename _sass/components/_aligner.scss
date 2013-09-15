@@ -1,11 +1,11 @@
-.CenteredBox {
+.Aligner {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 20em;
 }
 
-.CenteredBox-item {
+.Aligner-item {
   margin: 1em;
   max-width: 50%;
 }
