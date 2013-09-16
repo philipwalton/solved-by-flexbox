@@ -1,0 +1,21 @@
+.Showcase {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+
+  li {
+    border: 5px solid hsl(0,0%,95%);
+    border-radius: 2px;
+    margin-left: 1em;
+    :first-child {
+      margin-left: 0;
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 240px;
+    border: 1px solid hsl(0,0%,75%);
+  }
+}
