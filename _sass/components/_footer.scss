@@ -1,5 +1,6 @@
 .Footer {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -15,28 +16,30 @@
       border-color: #fff;
     }
   }
+  @include breakpoint("large") {
+    flex-direction: row;
+  }
 }
 
 .Footer-credits {
   margin: 0;
   padding: 0;
+  text-align: center;
   li {
     display: inline-block;
     margin: 0 0.5rem;
     line-height: 1.5;
   }
+  @include breakpoint("large") {
+    text-align: left;
+    order: -1;
+  }
 }
 
 .Footer-social {
   max-height: 20px;
-}
-
-@media (max-width: 720px) {
-  .Footer {
-    flex-direction: column;
-  }
-  .Footer-credits {
-    text-align: center;
-    margin-bottom: 1em;
+  margin-bottom: 1em;
+  @include breakpoint("large") {
+    margin: 0;
   }
 }
