@@ -1,39 +1,13 @@
-/*
-
-Make a .Grid modifier that assumes all .Grid-cell items are fluid
-and divide equally to take all all space on the line
-
-*/
-
 .Grid {
   display: flex;
   flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .Grid-cell {
   flex: 1;
-}
-
-.Grid--gutters {
-  margin-left: -1em;
-  .Grid-cell {
-    padding-left: 1em;
-  }
-}
-
-.Grid--responsive {
-  .Grid-cell {
-    flex-basis: 100%;
-    @media (min-width: 36em) {
-      flex-basis: 0;
-    }
-  }
-}
-
-.Grid--flexCells {
-  .Grid-cell {
-    display: flex;
-  }
 }
 
 .Grid--top {
@@ -58,4 +32,61 @@ and divide equally to take all all space on the line
 
 .Grid-cell--center {
   align-self: center;
+}
+
+.Grid--responsive {
+  .Grid-cell {
+    flex-basis: 100%;
+    @media (min-width: 36em) {
+      flex-basis: 0;
+    }
+  }
+}
+
+.Grid--flexCells {
+  .Grid-cell {
+    display: flex;
+  }
+}
+
+@mixin grid-gutters($name: "") {
+  $sep: "-";
+  @if $name == "" {
+    $sep: "";
+  }
+  .#{$name}#{$sep}Grid--gutters {
+    margin-left: -1em;
+    .Grid-cell {
+      padding-left: 1em;
+    }
+  }
+  .#{$name}#{$sep}Grid--guttersLarge {
+    margin-left: -1.5em;
+    .Grid-cell {
+      padding-left: 1.5em;
+    }
+  }
+  .#{$name}#{$sep}Grid--gutters2x {
+    margin-left: -2em;
+    .Grid-cell {
+      padding-left: 3em;
+    }
+  }
+  .#{$name}#{$sep}Grid--gutters3x {
+    margin-left: -3em;
+    .Grid-cell {
+      padding-left: 3em;
+    }
+  }
+}
+
+// create the default grid-gutters modifiers
+@include grid-gutters();
+
+// create grid-gutters modifiers for each breakpoint
+@each $breakpoint in $breakpoints {
+  $name: nth($breakpoint, 2);
+  @include breakpoint($name) {
+    @include grid-gutters($name);
+  }
 }
