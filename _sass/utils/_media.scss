@@ -1,4 +1,4 @@
-@mixin sizes($name) {
+@mixin sizes($name: "") {
   $sep: "-";
   @if $name == "" {
     $sep: "";
@@ -30,7 +30,7 @@
 };
 
 // create global sizes
-@include sizes("");
+@include sizes();
 
 // create sizes for each breakpoint
 @each $breakpoint in $breakpoints {
