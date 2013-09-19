@@ -2,7 +2,7 @@
   padding: 1.5em;
   background-color: hsla(31, 15%, 50%, 0.1);
   text-align: center;
-  @media (min-width: 768px) {
+  @include breakpoint("large") {
     padding: 3em 1.5em;
   }
 }
@@ -28,7 +28,7 @@
       text-decoration: none;
     }
   }
-  @media (min-width: 768px) {
+  @include breakpoint("large") {
     font-size: 4em;
   }
 }
@@ -37,7 +37,7 @@
   margin: 0 0 1.5em;
   font: 300 0.8em "proxima-nova", sans-serif;
   white-space: nowrap;
-  @media (min-width: 768px) {
+  @include breakpoint("large") {
     margin: 1em 0 1.75em;
     font-size: 1.1em;
   }
@@ -48,12 +48,12 @@
   align-items: stretch;
   flex-direction: column;
   font-size: 0.9em;
-  @media (min-width: 400px) {
+  @include breakpoint("small") {
     align-items: center;
     flex-direction: row;
     justify-content: center;
   }
-  @media (min-width: 768px) {
+  @include breakpoint("large") {
     font-size: 1.1em;
   }
 }
@@ -62,7 +62,7 @@
   &:first-child {
     margin: 0 0 1em;
   }
-  @media (min-width: 400px) {
+  @include breakpoint("small") {
     &:first-child {
       margin: 0 1em 0 0;
     }
@@ -70,7 +70,7 @@
 }
 
 .Header--cozy {
-  @media (min-width: 768px) {
+  @include breakpoint("large") {
     display: flex;
     padding: 1.5em;
     align-items: center;
