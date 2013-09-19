@@ -1,16 +1,26 @@
 .Feature {
+  margin-bottom: 1.5em;
+}
+
+.Feature-figure {
+  margin-bottom: 0.5em;
   border: 5px solid hsl(0,0%,95%);
   border-radius: 2px;
-  flex: 1 1 0;
-  display: flex;
-  margin-bottom: 1.5em;
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    border: 1px solid hsl(0,0%,75%);
-  }
-  @include breakpoint("large") {
-    margin-bottom: 3em;
-  }
+}
+
+.Feature-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid hsl(0,0%,75%);
+}
+
+.Feature-title {
+  margin-bottom: 0.25em;
+}
+
+.Feature-description {
+  margin: 0;
+  font-size: 0.8em;
+  color: #808080;
 }
