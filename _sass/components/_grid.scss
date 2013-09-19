@@ -34,18 +34,18 @@
   align-self: center;
 }
 
-.Grid--responsive {
-  .Grid-cell {
-    flex-basis: 100%;
-    @media (min-width: 36em) {
-      flex-basis: 0;
-    }
-  }
-}
-
 .Grid--flexCells {
   .Grid-cell {
     display: flex;
+  }
+}
+
+.Grid--responsive {
+  .Grid-cell {
+    flex-basis: 100%;
+    @include breakpoint("med") {
+      flex-basis: 0;
+    }
   }
 }
 
