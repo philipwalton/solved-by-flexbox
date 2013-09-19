@@ -1,48 +1,41 @@
-$media-size-list: (
-  "all" "",
-  "(min-width: 570px)" "med",
-  "(min-width: 768px)" "large"
-);
-
-@mixin sizes($media-name) {
+@mixin sizes($name) {
   $sep: "-";
-  @if $media-name == "" {
+  @if $name == "" {
     $sep: "";
   }
-  .u-#{$media-name}#{$sep}full {
+  .u-#{$name}#{$sep}full {
     width: 100% !important;
     flex: none !important;
   }
-  .u-#{$media-name}#{$sep}1of2 {
+  .u-#{$name}#{$sep}1of2 {
     width: 50% !important;
     flex: none !important;
   }
-  .u-#{$media-name}#{$sep}1of3 {
+  .u-#{$name}#{$sep}1of3 {
     width: 33.3333% !important;
     flex: none !important;
   }
-  .u-#{$media-name}#{$sep}2of3 {
+  .u-#{$name}#{$sep}2of3 {
     width: 66.6667% !important;
     flex: none !important;
   }
-  .u-#{$media-name}#{$sep}1of4 {
+  .u-#{$name}#{$sep}1of4 {
     width: 25% !important;
     flex: none !important;
   }
-  .u-#{$media-name}#{$sep}3of4 {
+  .u-#{$name}#{$sep}3of4 {
     width: 75% !important;
     flex: none !important;
   }
 };
 
-@each $media-size in $media-size-list {
-  $query: nth($media-size, 1);
-  $name: nth($media-size, 2);
-  @if ($query == "all") {
+// create global sizes
+@include sizes("");
+
+// create sizes for each breakpoint
+@each $breakpoint in $breakpoints {
+  $name: nth($breakpoint, 2);
+  @include breakpoint($name) {
     @include sizes($name);
-  } @else {
-    @media #{$query} {
-      @include sizes($name);
-    }
   }
 }
