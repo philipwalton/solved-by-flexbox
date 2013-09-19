@@ -23,7 +23,7 @@
   background: hsla(31, 15%, 50%, 0.1);
 }
 
-@media (min-width: 768px) {
+@include breakpoint("large") {
   .HolyGrail-body {
     flex-direction: row;
     flex: 1;
