@@ -9,7 +9,7 @@
   width: 30px;
 }
 
-@media (min-width: 570px) {
+@include breakpoint("med") {
   .Image, .Image--tiny {
     width: auto;
   }
