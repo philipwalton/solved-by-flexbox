@@ -1,0 +1,22 @@
+.BrowserMatrix {
+  display: flex;
+  justify-content: center;
+}
+
+.BrowserMatrix-item {
+  max-width: 10em;
+  margin: 0 1.5em 1.5em;
+  text-align: center;
+}
+
+.BrowserMatrix-title {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.BrowserMatrix-description {
+  margin: 0 0 0.5em;
+  color: #808080;
+  font-size: 0.8em;
+  white-space: nowrap;
+}
