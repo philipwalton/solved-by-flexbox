@@ -1,11 +1,13 @@
 .BrowserMatrix {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 .BrowserMatrix-item {
   max-width: 10em;
-  margin: 0 1.5em 1.5em;
+  min-width: 4em;
+  margin: 0.5em 1.5em;
   text-align: center;
 }
 
