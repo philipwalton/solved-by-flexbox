@@ -1,7 +1,7 @@
 .Feature {
-  padding: .75em;
+  // padding: .75em;
   margin-bottom: 2em;
-  background: hsl(0,0%,95%);
+  // background: hsla(31, 15%, 50%, 0.1);
 }
 
 .Feature-figure {
@@ -12,7 +12,10 @@
   display: block;
   max-width: 100%;
   height: auto;
-  border: 1px solid hsl(0,0%,75%);
+  // border: 1px solid hsl(0,0%,75%);
+
+  border: 5px solid hsl(0, 100%, 100%);
+  box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.5);
 }
 
 .Feature-title {
