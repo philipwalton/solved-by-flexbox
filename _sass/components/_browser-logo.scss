@@ -1,0 +1,27 @@
+.BrowserLogo {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  background: url("../images/browser-logos.jpg") no-repeat 0 0;
+  background-size: auto 100%;
+}
+
+.BrowserLogo--chrome {
+  background-position: 0 0;
+}
+
+.BrowserLogo--opera {
+  background-position: -64px 0;
+}
+
+.BrowserLogo--firefox {
+  background-position: -128px 0;
+}
+
+.BrowserLogo--safari {
+  background-position: -192px 0;
+}
+
+.BrowserLogo--ie {
+  background-position: -256px 0;
+}
