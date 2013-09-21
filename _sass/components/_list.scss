@@ -1,0 +1,11 @@
+.List {
+  list-style: square;
+  margin: 0 0 1em;
+  padding: 0 0 0 1.5em;
+}
+
+.List--centered {
+  padding: 0;
+  text-align: center;
+  list-style-position: inside;
+}
