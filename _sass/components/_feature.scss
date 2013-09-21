@@ -1,29 +1,43 @@
 .Feature {
-  // padding: .75em;
   margin-bottom: 2em;
-  // background: hsla(31, 15%, 50%, 0.1);
+  text-align: center;
 }
 
 .Feature-figure {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.75em;
 }
 
 .Feature-image {
   display: block;
   max-width: 100%;
   height: auto;
-  // border: 1px solid hsl(0,0%,75%);
-
   border: 5px solid hsl(0, 100%, 100%);
-  box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.5);
+  box-shadow: 0 0 2px 0px hsla(0, 0%, 0%, 0.5);
+  transition: box-shadow 0.2s;
 }
 
 .Feature-title {
-  margin-bottom: 0.25em;
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+  color: hsl(0, 0%, 25%);
+  transition: color 0.2s;
 }
 
 .Feature-description {
-  margin: 0;
+  margin: 0 0.75em;
   font-size: 0.8em;
   color: #808080;
+}
+
+.Feature a {
+  &:hover,
+  &:active,
+  &:focus {
+    .Feature-image {
+      box-shadow: 0 0 2px hsl(150, 45%, 50%);
+    }
+    .Feature-title {
+      color: hsl(150, 45%, 50%);
+    }
+  }
 }
