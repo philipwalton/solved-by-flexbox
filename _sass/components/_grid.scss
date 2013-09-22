@@ -90,3 +90,15 @@
     @include grid-gutters($name);
   }
 }
+
+// Firefox doesn't yet support multiline Flexboxes
+// so we have to fake it with inline-block
+@supports not (flex-wrap: wrap) {
+  .Grid--ffMultilineSupport {
+    display: block;
+    .Grid-cell {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}

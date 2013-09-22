@@ -7,6 +7,6 @@ group :development do
   gem 'compass'
   gem 'liquid'
   gem "sass-css-importer", "~> 1.0.0.beta.0"
-  # gem 'autoprefixer-rails'
-  # gem 'csso-rails'
+  gem 'autoprefixer-rails'
+  gem 'csso-rails'
 end
