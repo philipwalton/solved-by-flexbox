@@ -3,43 +3,45 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 1rem 1.5rem 1rem 1rem;
+  padding: 1.5rem 1.5rem;
   background: hsl(0, 0, 25%);
-  color: hsl(0, 0, 75%);
-  font-size: 0.8em;
+  color: hsl(0, 0, 60%);
+  font-size: 0.85em;
+  text-align: center;
   a {
-    color: inherit;
-    border-color: hsl(0, 0, 50%);
+    padding-bottom: 1px;
+    border: 0;
+    color: hsl(0, 0, 90%);
     &:hover, &:focus, &:active {
       color: #fff;
-      border-color: #fff;
+      text-decoration: underline;
     }
-  }
-  @include breakpoint("large") {
-    flex-direction: row;
   }
 }
 
 .Footer-credits {
   margin: 0;
   padding: 0;
-  text-align: center;
-  li {
+}
+
+.Footer-credit {
+  display: block;
+  margin: 0;
+  @include breakpoint("med") {
     display: inline-block;
-    margin: 0 0.5rem;
-    line-height: 1.5;
-  }
-  @include breakpoint("large") {
-    text-align: left;
-    order: -1;
+    margin: 0 0.25em;
   }
 }
 
-.Footer-social {
-  max-height: 20px;
-  margin-bottom: 1em;
-  @include breakpoint("large") {
-    margin: 0;
+.Footer-creditSeparator {
+  display: none;
+  @include breakpoint("med") {
+    display: inline-block;
+    padding: 0 0.25em;
   }
+}
+
+.Footer-social iframe {
+  display: inline-block;
+  margin: 0 0 1em;
 }
