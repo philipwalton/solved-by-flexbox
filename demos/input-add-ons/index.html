@@ -11,7 +11,7 @@ title: Input Add-ons
 
   <p>The only existing way to do this is to know the width of the input, or to use something like <code>display:table-cell</code>, which has its own set of problems, most notably the need to position anything absolutely inside of the add-on.</p>
 
-  <p>With Flexbox, all these problems go away, and the code is trivially simple.</p>
+  <p>With Flexbox, all these problems go away, and the code is trivially simple. In addition, you get the input field and the input add-on to be the same height without any extra code.</p>
 
   <div class="Grid Grid--gutters">
     <div class="Grid-cell u-size1of2">
@@ -56,7 +56,7 @@ title: Input Add-ons
     </div>
   </div>
 
-  <h2>The Markup</h2>
+  <h2>The HTML</h2>
 
 <pre class="highlight"><code>&lt;!-- appending -->
 &lt;div class="InputAddOn">
@@ -94,6 +94,8 @@ title: Input Add-ons
 }
 
 </code></pre>
+
+  <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_input-add-on.scss">source code</a> for the input add-on component on Github.</p>
 
 
 </main>
