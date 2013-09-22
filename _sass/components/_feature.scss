@@ -1,6 +1,5 @@
 .Feature {
   margin-bottom: 2em;
-  text-align: center;
 }
 
 .Feature-figure {
@@ -18,8 +17,9 @@
 
 .Feature-title {
   margin-bottom: 0.5em;
-  font-size: 1.1em;
   color: hsl(0, 0%, 25%);
+  font-size: 1.1em;
+  text-align: center;
   transition: color 0.1s;
 }
 
