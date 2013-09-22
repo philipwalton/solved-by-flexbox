@@ -16,7 +16,8 @@ exclude:
 - Gemfile.lock
 - bower.json
 - bower_components
-
+- LICENSE-GPL
+- LICENSE-MIT
 
 # Vendor Settings
 google_analytics_tracking_id: UA-40829935-1
