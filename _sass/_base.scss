@@ -46,7 +46,7 @@ pre > code {
 }
 
 a {
-  border-bottom: 1px dotted hsla(150, 45%, 50%, 0.5);
+  border-bottom: 1px dashed hsla(150, 45%, 50%, 0.5);
   color: hsl(150, 45%, 50%);
   text-decoration: none;
   &:hover, &:focus {
