@@ -41,7 +41,11 @@
   }
 }
 
-.Footer-social iframe {
-  display: inline-block;
-  margin: 0 0 1em;
+.Footer-social {
+  a, // for if loading the social button fails
+  iframe {
+    display: inline-block;
+    margin: 0 0 1em;
+    vertical-align: top;
+  }
 }
