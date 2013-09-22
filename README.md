@@ -1,12 +1,5 @@
 # Solved by Flexbox
 
-* Fluid, Full Width Horizontal Navigation
-  - unknown number of items
-  - previously required a table
+A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox.
 
-* Media Object
-* Grid System
-* Sticky Footer
-* Holy Grail Layout
-* Input Add-ons
-* Vertically Centered Boxes
+[http://philipwalton.github.io/solved-by-flexbox/](http://philipwalton.github.io/solved-by-flexbox/)
