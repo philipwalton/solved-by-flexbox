@@ -11,11 +11,11 @@ title: Media Object
 
   <p>But like most CSS layout techniques, the media object must resort to tricks and hacks to accomplish its goals.</p>
 
-  <p>The media block body must prevent text from wrapping below the image by either creating a <a href="http://www.stubbornella.org/content/2013/07/31/re-visiting-the-secret-power-of-block-fomatting-context/">block formatting context</a> or using a left margin/padding equal to the width of the image. The media object must also clearfix its body which requires either <code>overflow:hidden</code> or having to use the pseudo-elements.</p>
+  <p>The media object's body must prevent text from wrapping below the image by either creating a <a href="http://www.stubbornella.org/content/2013/07/31/re-visiting-the-secret-power-of-block-fomatting-context/">block formatting context</a> or using a left margin/padding equal to the width of the image. The media object must also clearfix its body which requires either <code>overflow:hidden</code> or having to use the pseudo-elements.</p>
 
-  <p>With flexbox these problems are solved. In addition, flexbox allows us to vertically align the media object figure however we want. We can also easily align the figure to the right without have alter the source order.</p>
+  <p>With Flexbox these problems are solved. In addition, Flexbox allows us to vertically align the media object figure however we want. We can also easily align the figure to the right without needing to change the source order.</p>
 
-  <h2>Examples</h2>
+  <h2>Basic Examples</h2>
 
   <div class="Grid Grid--gutters">
     <div class="Grid-cell u-full u-large-1of2">
@@ -70,7 +70,7 @@ title: Media Object
         <div class="Media Media--center">
           <figure class="Media-figure"><span class="icon-info-sign icon-big"></span></figure>
           <div class="Media-body">
-            <h3 class="Demo-title">Vertically centered icon</h3>
+            <h3 class="Demo-title">Vertically Centering the Figure</h3>
             <p>Nunc nec fermentum dolor. Duis at iaculis turpis. Sed rutrum elit ac egestas dapibus. Duis nec consequat enim.</p>
           </div>
         </div>
@@ -165,5 +165,7 @@ title: Media Object
   flex: 1;
 }
 </code></pre>
+
+  <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_media.scss">source</a> for the <code>Media</code> component used in this demo on Github.</p>
 
 </main>
