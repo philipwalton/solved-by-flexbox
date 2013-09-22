@@ -40,7 +40,7 @@ task :deploy => [:generate] do
 
   cd "_tmp" do
     system "git init"
-    system "git remote add origin git@github.com:philipwalton/blog.git"
+    system "git remote add origin git@github.com:philipwalton/solved-by-flexbox.git"
     system "git pull origin gh-pages"
     system "rm -rf *" # remove all files
     system "cp -r ../_site/ ./" # copy over all the newly deployed files
