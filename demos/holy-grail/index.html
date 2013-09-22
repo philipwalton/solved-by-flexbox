@@ -23,9 +23,9 @@ title: Holy Grail Layout
       <li>have the footer "stick" to the bottom of the page if there's not enough content</li>
     </ul>
 
-    <p>However, because of the nature of these goals and the original limitations of CSS, none of the classic solutions to this problem were ever able to meet all of them.</p>
+    <p>Unfortunately, because of the nature of these goals and the original limitations of CSS, none of the classic solutions to this problem were ever able to meet all of them.</p>
 
-    <p>With Flexbox, a solution that meets all of these goals is trivial.</p>
+    <p>With Flexbox, a solution that fulfills all of them is trivial.</p>
 
     <h2>The HTML</h2>
 
@@ -54,7 +54,7 @@ title: Holy Grail Layout
   flex: 1;
 }</code></pre>
 
-  <p>Three equal-height columns with a fluid center and fixed-width sidebars is just as easy:</p>
+  <p>Styling three equal-height columns with a fluid center and fixed-width sidebars is just as easy:</p>
 
 <pre class="highlight"><code class="language-css">.HolyGrail-content {
   flex: 1;
@@ -72,11 +72,11 @@ title: Holy Grail Layout
 
     <h3>Being Responsive</h3>
 
-    <p>The Holy Grail layout come from an era of Web design when pretty much everyone was browing on a computer. with the increasing number of mobile devises and the rising popularity of responsive design, the Holy Grail layout is mostly out of fashion.</p>
+    <p>The Holy Grail layout came from an era of Web design when pretty much everyone was browsing on a computer. But with the increasing number of mobile devices and the rising popularity of responsive design, the Holy Grail layout has gone mostly out of fashion.</p>
 
-    <p>However, with Flexbox, creating a mobile-first and mobile-friendly version of the Holy Grail layout is easy. The gist it to simply make the center section <code>flex-direction:column</code> by default and then <code>flex-direction:column</code> for larger screens.</p>
+    <p>Either way, with Flexbox, creating a mobile-first and mobile-friendly version of the Holy Grail layout is easy. The gist it to simply make the center section <code>flex-direction:column</code> by default and then <code>flex-direction:row</code> for larger screens.</p>
 
-    <p>Here's a complete example that is responsive and mobile-first:</p>
+    <p>Here's a complete example that is responsive and mobile-first. You can also resize this browser window to see it in action.</p>
 
 <pre class="highlight u-spaceBN"><code class="language-css">.HolyGrail {
   display: flex;
