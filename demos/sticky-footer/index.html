@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Sticky Footer &mdash; Solved By Flexbox</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="Demonstrating how previously hard or impossible CSS problems can now be solved trivially with flexbox.">
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://philipwalton.github.io/solved-by-flexbox/css/style.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" src="//use.typekit.net/ldu6hoj.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+  <body class="Site">
+  
+<header class="Header Header--cozy with-Button--cozy" role="banner">
+  <div class="Header-titles">
+    <h1 class="Header-title"><a href="http://philipwalton.github.io/solved-by-flexbox/">Solved <i>by</i> Flexbox</a></h1>
+    <h2 class="Header-subTitle">Cleaner, hack-free CSS</h2>
+  </div>
+  <div class="Header-actions">
+    <a href="http://github.com/philipwalton/solved-by-flexbox" class="Header-button Button Button--action Button--wide"><span class="icon-github icon-large"></span>&nbsp; View Project Source</a>
+
+    
+    <a href="http://twitter.com/intent/tweet?text=A%20showcase%20of%20traditionally%20hard%20CSS%20problems,%20easily%20solved%20using%20flexbox.&url=http://philipwalton.github.com/solved-by-flexbox&via=philwalton" class="Header-button Button Button--wide"><span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word</a>
+  </div>
+</header>
+
+  <main class="Site-content Container">
+
+  <h1>Sticky Footer</h1>
+
+  <div class="Demo">
+    <p>Click the button below to hide the contents of this page. Notice how the footer sticks to the bottom of the window even when there's not enough content to fill the page.</p>
+    <button id="collapse-trigger" class="Button"><span class="icon-refresh u-spaceRS"></span> Toggle Contents</button>
+  </div>
+
+  <div id="collapsable-content">
+
+    <p>Getting the footer to stick to the bottom of pages with sparse content is something just about every Web developer has tried to tackle at some point in their career. And, for the most part, it's a solved problem. Yet all the <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">existing</a> <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">solutions</a> have one significant shortcoming &mdash; they don't work if the height of your footer can change.</p>
+
+    <p>Flexbox is really a perfect fit for this type of problem. While mostly known for laying out content in the horizontal direction, Flexbox actually works just as well for vertical layout problems. All you have to do is wrap the vertical sections in a flex container and choose which ones you want to expand. They'll automatically take up all the available space.</p>
+
+    <h2>The HTML</h2>
+
+<pre class="highlight"><code class="language-xml">&lt;body class="Site">
+  &lt;header>...&lt;/header>
+  &lt;main class="Site-content">...&lt;/main>
+  &lt;footer>...&lt;/footer>
+&lt;/body></code></pre>
+
+    <h2>The CSS</h2>
+
+<pre class="highlight"><code class="language-css">.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}</code></pre>
+
+  </div>
+
+  <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_site.scss">source</a> for the <code>Site</code> component used in this demo on Github.</p>
+
+  <script>
+    (function() {
+      var collapseTrigger = document.getElementById("collapse-trigger")
+        , collapseableContent = document.getElementById("collapsable-content")
+        , isCollapsed = false
+      collapseTrigger.addEventListener("click", function() {
+        if (isCollapsed) {
+          collapseableContent.classList.remove("u-isHidden")
+        } else {
+          collapseableContent.classList.add("u-isHidden")
+        }
+        isCollapsed = !isCollapsed
+      }, false)
+    }())
+  </script>
+
+</main>
+  <footer class="Footer">
+  <span class="Footer-social">
+    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=philipwalton&repo=solved-by-flexbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="85px" height="20px"></iframe>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Solved by Flexbox" data-url="http://philipwalton.github.io/solved-by-flexbox/" data-count="horizontal" data-via="philwalton" data-related="philwalton:Creator of Solved by Flexbox">Tweet</a>
+    <a href="https://twitter.com/philwalton" class="twitter-follow-button" data-show-count="true" data-lang="en">@philwalton</a>
+  </span>
+  <div class="Footer-credits">
+    <span class="Footer-credit">Created and maintained by <a href="http://philipwalton.com">Philip Walton</a> &copy; 2013.</span>
+
+    <span class="Footer-credit">Source code and examples dual licensed under <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-MIT">MIT</a> and <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-GPL">GPL</a>.</span>
+
+    <span class="Footer-credit">Website and documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</span>
+  </div>
+</footer>
+
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+
+  
+
+  
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-40829935-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+      // track clicks on outbound hyperlinks
+      (function() {
+
+        var links = document.getElementsByTagName("a")
+          , link
+          , i = 0
+
+        function isLink(el) {
+          return el.nodeName.toLowerCase() == "a" && el.href
+        }
+
+        function isExternalLink(el) {
+          return el.href.indexOf(location.host) < 0
+        }
+
+        function getLinkAncestor(el) {
+          if (isLink(el)) return el
+          while (el.parentNode && el.parentNode.nodeType == 1) {
+            if (isLink(el)) return el
+            el = el.parentNode
+          }
+        }
+
+        function logExternalClicks(event) {
+          var e = event || window.event
+            , target = e.target || e.srcElement
+            , link = getLinkAncestor(target)
+          if (link && isExternalLink(link)) {
+            _gaq.push(['_trackEvent', 'Outbound Link', link.href]);
+          }
+        }
+
+        // add target="_blank" to external links
+        while(link = links[i++]) {
+          if (link.target != "_blank" && isExternalLink(link)) {
+            link.target = "_blank"
+          }
+        }
+
+        // register logging on click events
+        if (document.addEventListener) {
+          document.addEventListener("click", logExternalClicks)
+        }
+        else if (document.attachEvent) {
+          document.attachEvent("onclick", logExternalClicks)
+        }
+
+      }())
+    </script>
+
+  
+
+
+  <script src="http://philipwalton.github.io/solved-by-flexbox/scripts/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+
+</body>
+</html>

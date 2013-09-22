@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Vertical Centering &mdash; Solved By Flexbox</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="Demonstrating how previously hard or impossible CSS problems can now be solved trivially with flexbox.">
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://philipwalton.github.io/solved-by-flexbox/css/style.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" src="//use.typekit.net/ldu6hoj.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+  <body class="Site">
+  
+<header class="Header Header--cozy with-Button--cozy" role="banner">
+  <div class="Header-titles">
+    <h1 class="Header-title"><a href="http://philipwalton.github.io/solved-by-flexbox/">Solved <i>by</i> Flexbox</a></h1>
+    <h2 class="Header-subTitle">Cleaner, hack-free CSS</h2>
+  </div>
+  <div class="Header-actions">
+    <a href="http://github.com/philipwalton/solved-by-flexbox" class="Header-button Button Button--action Button--wide"><span class="icon-github icon-large"></span>&nbsp; View Project Source</a>
+
+    
+    <a href="http://twitter.com/intent/tweet?text=A%20showcase%20of%20traditionally%20hard%20CSS%20problems,%20easily%20solved%20using%20flexbox.&url=http://philipwalton.github.com/solved-by-flexbox&via=philwalton" class="Header-button Button Button--wide"><span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word</a>
+  </div>
+</header>
+
+  <main class="Site-content Container">
+
+  <h1>Vertical Centering</h1>
+
+  <p>The lack of good ways to vertically center elements with CSS has been a dark blemish on its reputation for pretty much its entire existence.</p>
+
+  <p>What makes matters worse is the techniques that do work for vertical centering are obscure and unintuitive, while the obvious choices (like <code>vertical-align:middle</code>) never seem to work when you need them.</p>
+
+  <p>The current landscape of <a href="http://css-tricks.com/centering-in-the-unknown/">vertical centering options</a> ranges from negative margins to <code>display:table-cell</code> to ridiculous hacks involving full-height pseudo-elements. Yet even though these techniques sometimes get the job done, they don't work in every situation. What if the thing you want to center is of unknown dimensions and isn't the only of its parent? What if you could use the pseudo-element hack, but you need those pseudo-elements for something else?</p>
+
+  <p>With Flexbox, you can stop worrying. You can align anything (vertically or horizontally) quite painlessly with the <code>align-items</code>, <code>align-self</code>, and <code>justify-content</code> properties.</p>
+
+  <div class="Demo Aligner">
+
+    <div class="Demo Aligner-item">
+      <h3 class="Demo-title">I'm Centered!</h3>
+      <p contenteditable="true">This block is both vertically and horizontally centered. Even if the text in this box changes to make it wider or taller, the box will still be centered. Go ahead, give it a try. Just click to edit the text.</p>
+    </div>
+
+  </div>
+
+  <p>Unlike some of the existing vertical alignment techniques, the presence of sibling elements doesn't affect their ability to be aligned.</p>
+
+  <div class="Demo Aligner">
+
+    <div class="Demo Aligner-item Aligner-item--top">
+      <h3 class="Demo-title">Top</h3>
+    </div>
+    <div class="Demo Aligner-item">
+      <h3 class="Demo-title">Centered</h3>
+    </div>
+    <div class="Demo Aligner-item Aligner-item--bottom">
+      <h3 class="Demo-title">Bottom</h3>
+    </div>
+
+  </div>
+
+  <h2>The HTML</h2>
+
+<pre class="highlight"><code class="language-xml">&lt;div class="Aligner">
+  &lt;div class="Aligner-item Aligner-item--top">...&lt;/div>
+  &lt;div class="Aligner-item">...&lt;/div>
+  &lt;div class="Aligner-item Aligner-item--bottom">...&lt;/div>
+&lt;/div></code></pre>
+
+  <h2>The CSS</h2>
+
+<pre class="highlight"><code class="language-css">.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20em;
+}
+
+.Aligner-item {
+  max-width: 50%;
+}
+
+.Aligner-item--top {
+  align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+  align-self: flex-end;
+}</code></pre>
+
+<p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss">source</a> for the <code>Aligner</code> component used in this demo on Github.</p>
+
+</main>
+
+
+  <footer class="Footer">
+  <span class="Footer-social">
+    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=philipwalton&repo=solved-by-flexbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="85px" height="20px"></iframe>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Solved by Flexbox" data-url="http://philipwalton.github.io/solved-by-flexbox/" data-count="horizontal" data-via="philwalton" data-related="philwalton:Creator of Solved by Flexbox">Tweet</a>
+    <a href="https://twitter.com/philwalton" class="twitter-follow-button" data-show-count="true" data-lang="en">@philwalton</a>
+  </span>
+  <div class="Footer-credits">
+    <span class="Footer-credit">Created and maintained by <a href="http://philipwalton.com">Philip Walton</a> &copy; 2013.</span>
+
+    <span class="Footer-credit">Source code and examples dual licensed under <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-MIT">MIT</a> and <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-GPL">GPL</a>.</span>
+
+    <span class="Footer-credit">Website and documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</span>
+  </div>
+</footer>
+
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+
+  
+
+  
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-40829935-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+      // track clicks on outbound hyperlinks
+      (function() {
+
+        var links = document.getElementsByTagName("a")
+          , link
+          , i = 0
+
+        function isLink(el) {
+          return el.nodeName.toLowerCase() == "a" && el.href
+        }
+
+        function isExternalLink(el) {
+          return el.href.indexOf(location.host) < 0
+        }
+
+        function getLinkAncestor(el) {
+          if (isLink(el)) return el
+          while (el.parentNode && el.parentNode.nodeType == 1) {
+            if (isLink(el)) return el
+            el = el.parentNode
+          }
+        }
+
+        function logExternalClicks(event) {
+          var e = event || window.event
+            , target = e.target || e.srcElement
+            , link = getLinkAncestor(target)
+          if (link && isExternalLink(link)) {
+            _gaq.push(['_trackEvent', 'Outbound Link', link.href]);
+          }
+        }
+
+        // add target="_blank" to external links
+        while(link = links[i++]) {
+          if (link.target != "_blank" && isExternalLink(link)) {
+            link.target = "_blank"
+          }
+        }
+
+        // register logging on click events
+        if (document.addEventListener) {
+          document.addEventListener("click", logExternalClicks)
+        }
+        else if (document.attachEvent) {
+          document.attachEvent("onclick", logExternalClicks)
+        }
+
+      }())
+    </script>
+
+  
+
+
+  <script src="http://philipwalton.github.io/solved-by-flexbox/scripts/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+
+</body>
+</html>

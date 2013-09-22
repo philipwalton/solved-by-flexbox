@@ -1,1 +1,259 @@
-My GitHub Page
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Home &mdash; Solved By Flexbox</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="Demonstrating how previously hard or impossible CSS problems can now be solved trivially with flexbox.">
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://philipwalton.github.io/solved-by-flexbox/css/style.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" src="//use.typekit.net/ldu6hoj.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+  <body class="Site">
+  
+<header class="Header" role="banner">
+  <div class="Header-titles">
+    <h1 class="Header-title"><a href="http://philipwalton.github.io/solved-by-flexbox/">Solved <i>by</i> Flexbox</a></h1>
+    <h2 class="Header-subTitle">Cleaner, hack-free CSS</h2>
+  </div>
+  <div class="Header-actions">
+    <a href="http://github.com/philipwalton/solved-by-flexbox" class="Header-button Button Button--action Button--wide"><span class="icon-github icon-large"></span>&nbsp; View Project Source</a>
+
+    
+    <a href="http://twitter.com/intent/tweet?text=A%20showcase%20of%20traditionally%20hard%20CSS%20problems,%20easily%20solved%20using%20flexbox.&url=http://philipwalton.github.com/solved-by-flexbox&via=philwalton" class="Header-button Button Button--wide"><span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word</a>
+  </div>
+</header>
+
+  <main class="Site-content">
+
+  <section class="Section Container">
+    <h2 class="PromoHeading">Introduction</h2>
+    <p>CSS has been lacking proper layout mechanisms for far too long. Transitions, animations, filters, all of these are great, but they don't address the major problems that Web developers have been complaining about for what seems like an eternity.</p>
+    <p>Finally, thanks to <a href="http://www.w3.org/TR/css3-flexbox/">Flexbox</a>, we have a solution.</p>
+    <p>This site is not another CSS framework. It's purpose is to showcase problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox. And with Internet Explorer 11 and Safari 6.1 now in beta, Flexbox will soon be available in every modern browser.
+    <p>Check out the demos below. View the styles in the Web inspector or dive into <a href="https://github.com/philipwalton/solved-by-flexbox">the source</a> to see just how easy CSS layout will become once Flexbox hits mainstream.</p>
+  </section>
+
+  <section class="Section Section--striped">
+    <div class="Container">
+      <h2 class="PromoHeading">Showcase</h2>
+      <ul class="Grid Grid--guttersLarge Grid--ffMultilineSupport large-Grid--gutters2x">
+        <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
+          <div class="Feature">
+            <a href="http://philipwalton.github.io/solved-by-flexbox/demos/grids/">
+              <figure class="Feature-figure">
+                <img class="Feature-image" src="http://philipwalton.github.io/solved-by-flexbox/images/grids.jpg">
+              </figure>
+              <h3 class="Feature-title">Better, Simplier Grids</h3>
+            </a>
+            <p class="Feature-description">Flexbox gives us most of the features we want from a grid system out of the box. And sizing and alignment are just one or two properties away.</p>
+          </div>
+        <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
+          <div class="Feature">
+            <a href="http://philipwalton.github.io/solved-by-flexbox/demos/media-object/">
+              <figure class="Feature-figure">
+                <img class="Feature-image" src="http://philipwalton.github.io/solved-by-flexbox/images/media-object.jpg">
+              </figure>
+              <h3 class="Feature-title">The Media Object</h3>
+            </a>
+            <p class="Feature-description">Create media objects with fixed or varying figure sizes without worrying about overflow, clearfix, or block formatting context hacks.</p>
+          </div>
+        <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
+          <div class="Feature">
+            <a href="http://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/">
+              <figure class="Feature-figure">
+                <img class="Feature-image" src="http://philipwalton.github.io/solved-by-flexbox/images/input-add-on.jpg">
+              </figure>
+              <h3 class="Feature-title">Input Add-ons</h3>
+            </a>
+            <p class="Feature-description">Creating fluid input-button pairs of unknown sizes has been impossible for most of the history of CSS. With Flexbox it couldn't be easier.</p>
+          </div>
+        <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
+          <div class="Feature">
+            <a href="http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/">
+              <figure class="Feature-figure">
+                <img class="Feature-image" src="http://philipwalton.github.io/solved-by-flexbox/images/sticky-footer.jpg">
+              </figure>
+              <h3 class="Feature-title">Sticky Footer</h3>
+            </a>
+            <p class="Feature-description">Getting your footer to stick to the bottom of sparsely contented pages has always been tricky. If the footer's height is unknown, it's basically impossible. Not so anymore.</p>
+          </div>
+
+        <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
+          <div class="Feature">
+            <a href="http://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/">
+              <figure class="Feature-figure">
+                <img class="Feature-image" src="http://philipwalton.github.io/solved-by-flexbox/images/holy-grail.jpg">
+              </figure>
+              <h3 class="Feature-title">Holy Grail Layout</h3>
+            </a>
+            <p class="Feature-description">This classic problem has been challenging CSS hackers for years, yet none of the proposed solutions solve all problems. With Flexbox, it's finally possible.</p>
+          </div>
+        <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
+          <div class="Feature">
+            <a href="http://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/">
+              <figure class="Feature-figure">
+                <img class="Feature-image" src="http://philipwalton.github.io/solved-by-flexbox/images/vertical-centering.jpg">
+              </figure>
+              <h3 class="Feature-title">Vertical Centering</h3>
+            </a>
+            <p class="Feature-description">A lack of proper vertical centering has been the butt of almost every CSS joke ever told. It's always been possible, but never intuitive. Now it is.</p>
+          </div>
+      </ul>
+    </div>
+  </section>
+
+  <section class="Section Container">
+    <h2 class="PromoHeading">Browser Support</h2>
+    <ul class="BrowserMatrix">
+      <li class="BrowserMatrix-item">
+        <span class="BrowserLogo BrowserLogo--chrome"></span>
+        <p class="BrowserMatrix-title">Chrome</p>
+        <p class="BrowserMatrix-description">21+</p>
+      <li class="BrowserMatrix-item">
+        <span class="BrowserLogo BrowserLogo--opera"></span>
+        <p class="BrowserMatrix-title">Opera</p>
+        <p class="BrowserMatrix-description">12.1+</p>
+      <li class="BrowserMatrix-item">
+        <span class="BrowserLogo BrowserLogo--firefox"></span>
+        <p class="BrowserMatrix-title">Firefox</p>
+        <p class="BrowserMatrix-description">22+</p>
+      <li class="BrowserMatrix-item">
+        <span class="BrowserLogo BrowserLogo--ie"></span>
+        <p class="BrowserMatrix-title">IE</p>
+        <p class="BrowserMatrix-description">11+ <em>(beta)</em></p>
+      <li class="BrowserMatrix-item">
+        <span class="BrowserLogo BrowserLogo--safari"></span>
+        <p class="BrowserMatrix-title">Safari</p>
+        <p class="BrowserMatrix-description">6.1+ <em>(beta)</em></p>
+    </ul>
+
+    <h3 class="PromoSubheading">Caveats and Known Issues</h3>
+    <ul class="List List--centered">
+      <li>IE10 has some flexbox support, but for an <a href="http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/">older version</a> of the current spec (<code>display:flexbox</code>).</li>
+      <li>Safari 6 and below support the <a href="http://www.w3.org/TR/2009/WD-css3-flexbox-20090723/">older and now obsolete</a> syntax (<code>display:box</code>).</li>
+      <li>Firefox does not support multi-line flexboxes. See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=702508">this bug</a> for more details.</li>
+      <li>Opera, IE, and Safari still require vendor prefixes. See <a href="">caniuse.com</a> for more details.</li>
+    </ul>
+  </section>
+
+  <section class="Section Section--striped Section--last">
+    <div class="Container">
+      <h2 class="PromoHeading">About the Code</h2>
+
+      <p>In addition to showcasing the power of Flexbox, this site also aims to be an example of the CSS design and architectual practices I've long promoted. Namely, modular, reuseble style rules built on a predicatble and testable naming convention.</p>
+
+      <p>All of the CSS code in these examples make use of the <a href="https://github.com/suitcss/suit">SUIT</a> naming conventions developed by <a href="http://nicolasgallagher.com/">Nicolas Gallagher</a> and based on OOCSS and BEM methodologies. Each example includes one or more reuseable CSS components allowing you to make use of these patterns in your own projects. Links are provided to their respective components on each example page.</p>
+
+      <p>This site also uses the excellent <a href="https://github.com/ai/autoprefixer">autoprefixer</a> tool by <a href="http://sitnik.ru">Andrey Sitnik</a>, which takes care of vendor prefixing my CSS so I don't have to think about it.</p>
+
+      <p>If you'd like to suggest an additional Flexbox example or contribute your own, feel free to open an issue or submit pull request on <a href="https://github.com/philipwalton/solved-by-flexbox">Github</a>.</p>
+
+    </div>
+  </section>
+
+</main>
+
+  <footer class="Footer">
+  <span class="Footer-social">
+    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=philipwalton&repo=solved-by-flexbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="85px" height="20px"></iframe>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Solved by Flexbox" data-url="http://philipwalton.github.io/solved-by-flexbox/" data-count="horizontal" data-via="philwalton" data-related="philwalton:Creator of Solved by Flexbox">Tweet</a>
+    <a href="https://twitter.com/philwalton" class="twitter-follow-button" data-show-count="true" data-lang="en">@philwalton</a>
+  </span>
+  <div class="Footer-credits">
+    <span class="Footer-credit">Created and maintained by <a href="http://philipwalton.com">Philip Walton</a> &copy; 2013.</span>
+
+    <span class="Footer-credit">Source code and examples dual licensed under <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-MIT">MIT</a> and <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-GPL">GPL</a>.</span>
+
+    <span class="Footer-credit">Website and documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</span>
+  </div>
+</footer>
+
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+
+  
+
+  
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-40829935-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+      // track clicks on outbound hyperlinks
+      (function() {
+
+        var links = document.getElementsByTagName("a")
+          , link
+          , i = 0
+
+        function isLink(el) {
+          return el.nodeName.toLowerCase() == "a" && el.href
+        }
+
+        function isExternalLink(el) {
+          return el.href.indexOf(location.host) < 0
+        }
+
+        function getLinkAncestor(el) {
+          if (isLink(el)) return el
+          while (el.parentNode && el.parentNode.nodeType == 1) {
+            if (isLink(el)) return el
+            el = el.parentNode
+          }
+        }
+
+        function logExternalClicks(event) {
+          var e = event || window.event
+            , target = e.target || e.srcElement
+            , link = getLinkAncestor(target)
+          if (link && isExternalLink(link)) {
+            _gaq.push(['_trackEvent', 'Outbound Link', link.href]);
+          }
+        }
+
+        // add target="_blank" to external links
+        while(link = links[i++]) {
+          if (link.target != "_blank" && isExternalLink(link)) {
+            link.target = "_blank"
+          }
+        }
+
+        // register logging on click events
+        if (document.addEventListener) {
+          document.addEventListener("click", logExternalClicks)
+        }
+        else if (document.attachEvent) {
+          document.attachEvent("onclick", logExternalClicks)
+        }
+
+      }())
+    </script>
+
+  
+
+
+  <script src="http://philipwalton.github.io/solved-by-flexbox/scripts/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+
+</body>
+</html>

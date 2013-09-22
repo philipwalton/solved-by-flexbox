@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Media Object &mdash; Solved By Flexbox</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="Demonstrating how previously hard or impossible CSS problems can now be solved trivially with flexbox.">
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://philipwalton.github.io/solved-by-flexbox/css/style.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" src="//use.typekit.net/ldu6hoj.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+  <body class="Site">
+  
+<header class="Header Header--cozy with-Button--cozy" role="banner">
+  <div class="Header-titles">
+    <h1 class="Header-title"><a href="http://philipwalton.github.io/solved-by-flexbox/">Solved <i>by</i> Flexbox</a></h1>
+    <h2 class="Header-subTitle">Cleaner, hack-free CSS</h2>
+  </div>
+  <div class="Header-actions">
+    <a href="http://github.com/philipwalton/solved-by-flexbox" class="Header-button Button Button--action Button--wide"><span class="icon-github icon-large"></span>&nbsp; View Project Source</a>
+
+    
+    <a href="http://twitter.com/intent/tweet?text=A%20showcase%20of%20traditionally%20hard%20CSS%20problems,%20easily%20solved%20using%20flexbox.&url=http://philipwalton.github.com/solved-by-flexbox&via=philwalton" class="Header-button Button Button--wide"><span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word</a>
+  </div>
+</header>
+
+  <main class="Site-content Container">
+
+  <h1>The Media Object</h1>
+
+  <p>The <a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code">media object</a> is the poster-child of Object Oriented CSS</a> (OOCSS). Its simplicity and utility have converted many a CSS developer (myself included) to the OOCSS methodology.</p>
+
+  <p>But like most CSS layout techniques, the media object must resort to tricks and hacks to accomplish its goals.</p>
+
+  <p>The media object's body must prevent text from wrapping below the image by either creating a <a href="http://www.stubbornella.org/content/2013/07/31/re-visiting-the-secret-power-of-block-fomatting-context/">block formatting context</a> or using a left margin/padding equal to the width of the image. The media object must also clearfix its body which requires either <code>overflow:hidden</code> or having to use the pseudo-elements.</p>
+
+  <p>With Flexbox these problems are solved. In addition, Flexbox allows us to vertically align the media object figure however we want. We can also easily align the figure to the right without needing to change the source order.</p>
+
+  <h2>Basic Examples</h2>
+
+  <div class="Grid Grid--gutters">
+    <div class="Grid-cell u-full u-large-1of2">
+      <div class="Demo">
+        <div class="Media">
+          <img class="Media-figure Image" src="http://placekitten.com/70/70" alt="Kitten">
+          <div class="Media-body">
+            <h3 class="Demo-title">Standard Media Object</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar augue.</p>
+          </div>
+        </div>
+      </div>
+      <div class="Demo">
+        <div class="Media">
+          <img class="Media-figure Image" src="http://placekitten.com/70/70" alt="Kitten">
+          <div class="Media-body">
+            <h3 class="Demo-title">Standard Media Object</h3>
+            <p>Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Grid-cell u-full u-large-1of2">
+      <div class="Demo">
+        <div class="Media Media--reverse">
+          <img class="Media-figure Image" src="http://placekitten.com/70/70" alt="Kitten">
+          <div class="Media-body">
+            <h3 class="Demo-title">Media Object Reversed</h3>
+            <p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut. Integer gravida pharetra cursus. Nunc in suscipit nunc.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Non-images</h2>
+
+  <div class="Grid Grid--gutters">
+    <div class="Grid-cell u-full u-large-1of2">
+      <div class="Demo">
+        <div class="Media">
+          <figure class="Media-figure"><span class="icon-comments icon-big"></span></figure>
+          <div class="Media-body">
+            <h3 class="Demo-title">Using Icons</h3>
+            <p>Donec imperdiet sem leo, id rutrum risus aliquam vitae. Vestibulum ac turpis non lacus dignissim dignissim eu sed dui.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Grid-cell u-full u-large-1of2">
+      <div class="Demo">
+        <div class="Media Media--center">
+          <figure class="Media-figure"><span class="icon-info-sign icon-big"></span></figure>
+          <div class="Media-body">
+            <h3 class="Demo-title">Vertically Centering the Figure</h3>
+            <p>Nunc nec fermentum dolor. Duis at iaculis turpis. Sed rutrum elit ac egestas dapibus. Duis nec consequat enim.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Nested Media Objects</h2>
+
+  <div class="Grid Grid--gutters">
+    <div class="Grid-cell u-full u-large-1of2">
+      <div class="Demo">
+        <div class="Media">
+          <img class="Media-figure Image" src="http://placekitten.com/70/70" alt="Kitten">
+          <div class="Media-body">
+            <p><strong>Media Object Title</strong><br>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo.</p>
+            <div class="Demo u-smaller">
+              <div class="Media">
+                <figure class="Media-figure">
+                  <img class="Image Image--tiny" src="http://placekitten.com/40/40" alt="Kitten">
+                </figure>
+                <p class="Media-body">
+                  Mauris porta arcu id magna adipiscing lacinia at congue lacus. Vivamus blandit quam quis tincidunt egestas. Etiam posuere lectus sed sapien malesuada molestie.
+                </p>
+              </div>
+            </div>
+            <div class="Demo u-smaller">
+              <div class="Media">
+                <figure class="Media-figure">
+                  <img class="Image Image--tiny" src="http://placekitten.com/40/40" alt="Kitten">
+                </figure>
+                <div class="Media-body">
+                  <p>Vestibulum ac turpis non lacus dignissim dignissim eu sed dui. Proin a ligula sit amet massa malesuada mattis eu a ante. Nunc porttitor sed quam quis sollicitudin. Vestibulum ac turpis non lacus dignissim dignissim eu sed dui.</p>
+                  <div class="Media Media--center">
+                    <span class="Media-figure icon-thumbs-up-alt"></span>
+                    <p class="Media-body">Rutrum risus aliquam vitae.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="Grid-cell u-full u-large-1of2">
+      <div class="Demo">
+        <div class="Media">
+          <img class="Media-figure Image" src="http://placekitten.com/70/70" alt="Kitten">
+          <div class="Media-body">
+            <p><strong>Media Object Title</strong><br>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut.</p>
+            <div class="Media Media--center u-smaller">
+              <span class="Media-figure icon-thumbs-up-alt"></span>
+              <p class="Media-body">Donec imperdiet sem leo, id rutrum risus aliquam vitae.</p>
+            </div>
+            <div class="Demo u-smaller">
+              <div class="Media">
+                <figure class="Media-figure">
+                  <img class="Image Image--tiny" src="http://placekitten.com/40/40" alt="Kitten">
+                </figure>
+                <p class="Media-body">
+                  Mauris porta arcu id magna adipiscing lacinia at congue lacus. Vivamus blandit quam quis tincidunt egestas. Etiam posuere lectus sed sapien malesuada molestie. Aliquam vitae pharetra dolor. Nullam non mattis nunc.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h2>The HTML</h2>
+
+<pre class="highlight"><code class="language-xml">&lt;div class="Media">
+  &lt;img class="Media-figure" src="" alt="">
+  &lt;p class="Media-body">...&lt;/p>
+&lt;/div></code></pre>
+
+  <h2>The CSS</h2>
+
+<pre class="highlight"><code class="language-css">.Media {
+  display: flex;
+  align-items: flex-start;
+}
+
+.Media-figure {
+  margin-right: 1em;
+}
+
+.Media-body {
+  flex: 1;
+}
+</code></pre>
+
+  <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_media.scss">source</a> for the <code>Media</code> component used in this demo on Github.</p>
+
+</main>
+
+  <footer class="Footer">
+  <span class="Footer-social">
+    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=philipwalton&repo=solved-by-flexbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="85px" height="20px"></iframe>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Solved by Flexbox" data-url="http://philipwalton.github.io/solved-by-flexbox/" data-count="horizontal" data-via="philwalton" data-related="philwalton:Creator of Solved by Flexbox">Tweet</a>
+    <a href="https://twitter.com/philwalton" class="twitter-follow-button" data-show-count="true" data-lang="en">@philwalton</a>
+  </span>
+  <div class="Footer-credits">
+    <span class="Footer-credit">Created and maintained by <a href="http://philipwalton.com">Philip Walton</a> &copy; 2013.</span>
+
+    <span class="Footer-credit">Source code and examples dual licensed under <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-MIT">MIT</a> and <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-GPL">GPL</a>.</span>
+
+    <span class="Footer-credit">Website and documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</span>
+  </div>
+</footer>
+
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+
+  
+
+  
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-40829935-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+      // track clicks on outbound hyperlinks
+      (function() {
+
+        var links = document.getElementsByTagName("a")
+          , link
+          , i = 0
+
+        function isLink(el) {
+          return el.nodeName.toLowerCase() == "a" && el.href
+        }
+
+        function isExternalLink(el) {
+          return el.href.indexOf(location.host) < 0
+        }
+
+        function getLinkAncestor(el) {
+          if (isLink(el)) return el
+          while (el.parentNode && el.parentNode.nodeType == 1) {
+            if (isLink(el)) return el
+            el = el.parentNode
+          }
+        }
+
+        function logExternalClicks(event) {
+          var e = event || window.event
+            , target = e.target || e.srcElement
+            , link = getLinkAncestor(target)
+          if (link && isExternalLink(link)) {
+            _gaq.push(['_trackEvent', 'Outbound Link', link.href]);
+          }
+        }
+
+        // add target="_blank" to external links
+        while(link = links[i++]) {
+          if (link.target != "_blank" && isExternalLink(link)) {
+            link.target = "_blank"
+          }
+        }
+
+        // register logging on click events
+        if (document.addEventListener) {
+          document.addEventListener("click", logExternalClicks)
+        }
+        else if (document.attachEvent) {
+          document.attachEvent("onclick", logExternalClicks)
+        }
+
+      }())
+    </script>
+
+  
+
+
+  <script src="http://philipwalton.github.io/solved-by-flexbox/scripts/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+
+</body>
+</html>
