@@ -10,7 +10,7 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-  <meta name="description" content="Demonstrating how previously hard or impossible CSS problems can now be solved trivially with flexbox.">
+  <meta name="description" content="A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox.">
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
   <link href="http://philipwalton.github.io/solved-by-flexbox/css/style.css" rel="stylesheet" type="text/css">
@@ -49,9 +49,9 @@
 
   <section class="Section Container">
     <h2 class="PromoHeading">Introduction</h2>
-    <p>CSS has been lacking proper layout mechanisms for far too long. Transitions, animations, filters, all of these are great, but they don't address the major problems that Web developers have been complaining about for what seems like an eternity.</p>
+    <p>CSS has been lacking proper layout mechanisms for far too long. Transitions, animations, filters, all of these are great and usefull additions to the language, but they don't address the major problems that Web developers have been complaining about for what seems like an eternity.</p>
     <p>Finally, thanks to <a href="http://www.w3.org/TR/css3-flexbox/">Flexbox</a>, we have a solution.</p>
-    <p>This site is not another CSS framework. It's purpose is to showcase problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox. And with Internet Explorer 11 and Safari 6.1 now in beta, Flexbox will soon be available in every modern browser.
+    <p>This site is not another CSS framework. Instead, its purpose is to showcase problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox. And with Internet Explorer 11 and Safari 6.1 now in beta, Flexbox will soon be supported in every modern browser.
     <p>Check out the demos below. View the styles in the Web inspector or dive into <a href="https://github.com/philipwalton/solved-by-flexbox">the source</a> to see just how easy CSS layout will become once Flexbox hits mainstream.</p>
   </section>
 
@@ -77,7 +77,7 @@
               </figure>
               <h3 class="Feature-title">The Media Object</h3>
             </a>
-            <p class="Feature-description">Create media objects with fixed or varying figure sizes without worrying about overflow, clearfix, or block formatting context hacks.</p>
+            <p class="Feature-description">Create media objects with fixed or varying figure sizes without worrying about overflow, clearfixing, or block formatting context hacks.</p>
           </div>
         <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
           <div class="Feature">
@@ -118,14 +118,14 @@
               </figure>
               <h3 class="Feature-title">Vertical Centering</h3>
             </a>
-            <p class="Feature-description">A lack of proper vertical centering has been the butt of almost every CSS joke ever told. It's always been possible, but never intuitive. Now it is.</p>
+            <p class="Feature-description">A lack of proper vertical centering has been the butt of almost every CSS joke ever told. While it's technically always been mostly possible, it's never been very intuitive &mdash; until now.</p>
           </div>
       </ul>
     </div>
   </section>
 
   <section class="Section Container">
-    <h2 class="PromoHeading">Browser Support</h2>
+    <h2 class="PromoHeading">Flexbox Browser Support</h2>
     <ul class="BrowserMatrix">
       <li class="BrowserMatrix-item">
         <span class="BrowserLogo BrowserLogo--chrome"></span>
@@ -151,10 +151,10 @@
 
     <h3 class="PromoSubheading">Caveats and Known Issues</h3>
     <ul class="List List--centered">
-      <li>IE10 has some flexbox support, but for an <a href="http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/">older version</a> of the current spec (<code>display:flexbox</code>).</li>
-      <li>Safari 6 and below support the <a href="http://www.w3.org/TR/2009/WD-css3-flexbox-20090723/">older and now obsolete</a> syntax (<code>display:box</code>).</li>
+      <li>IE10 does have Flexbox support, but for an <a href="http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/">older version</a> of the current spec (<code>display:flexbox</code>).</li>
+      <li>Safari 6 and below support the <a href="http://www.w3.org/TR/2009/WD-css3-flexbox-20090723/">original and now obsolete</a> Flexbox syntax (<code>display:box</code>).</li>
       <li>Firefox does not support multi-line flexboxes. See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=702508">this bug</a> for more details.</li>
-      <li>Opera, IE, and Safari still require vendor prefixes. See <a href="">caniuse.com</a> for more details.</li>
+      <li>Opera, IE, and Safari require vendor prefixes. See <a href="">caniuse.com</a> for more details.</li>
     </ul>
   </section>
 
@@ -162,13 +162,13 @@
     <div class="Container">
       <h2 class="PromoHeading">About the Code</h2>
 
-      <p>In addition to showcasing the power of Flexbox, this site also aims to be an example of the CSS design and architectual practices I've long promoted. Namely, modular, reuseble style rules built on a predicatble and testable naming convention.</p>
+      <p>In addition to showcasing the power of Flexbox, this site also aims to be an example of modern CSS design and architectual practices. Namely modular, reuseble style rules built on a predicatble and testable naming convention.</p>
 
-      <p>All of the CSS code in these examples make use of the <a href="https://github.com/suitcss/suit">SUIT</a> naming conventions developed by <a href="http://nicolasgallagher.com/">Nicolas Gallagher</a> and based on OOCSS and BEM methodologies. Each example includes one or more reuseable CSS components allowing you to make use of these patterns in your own projects. Links are provided to their respective components on each example page.</p>
+      <p>All of the CSS code in these examples make use of the <a href="https://github.com/suitcss/suit">SUIT</a> naming conventions developed by <a href="http://nicolasgallagher.com/">Nicolas Gallagher</a> and based on OOCSS and BEM methodologies. Each example includes one or more reuseable CSS components allowing you to adapt or copy these patterns in your own projects. Links are provided to their respective components on each example page.</p>
 
-      <p>This site also uses the excellent <a href="https://github.com/ai/autoprefixer">autoprefixer</a> tool by <a href="http://sitnik.ru">Andrey Sitnik</a>, which takes care of vendor prefixing my CSS so I don't have to think about it.</p>
+      <p>This site also uses the excellent <a href="https://github.com/ai/autoprefixer">autoprefixer</a> library by <a href="http://sitnik.ru">Andrey Sitnik</a>, which takes care of vendor prefixing my CSS so I don't have to think about it.</p>
 
-      <p>If you'd like to suggest an additional Flexbox example or contribute your own, feel free to open an issue or submit pull request on <a href="https://github.com/philipwalton/solved-by-flexbox">Github</a>.</p>
+      <p>If you find a mistake or would like to suggest an additional example, feel free to open an issue or submit pull request on <a href="https://github.com/philipwalton/solved-by-flexbox">Github</a>.</p>
 
     </div>
   </section>

@@ -10,7 +10,7 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-  <meta name="description" content="Demonstrating how previously hard or impossible CSS problems can now be solved trivially with flexbox.">
+  <meta name="description" content="A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox.">
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
   <link href="http://philipwalton.github.io/solved-by-flexbox/css/style.css" rel="stylesheet" type="text/css">
@@ -56,9 +56,11 @@
 
   <div id="collapsable-content">
 
-    <p>Getting the footer to stick to the bottom of pages with sparse content is something just about every Web developer has tried to tackle at some point in their career. And, for the most part, it's a solved problem. Yet all the <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">existing</a> <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">solutions</a> have one significant shortcoming &mdash; they don't work if the height of your footer can change.</p>
+    <p>Getting the footer to stick to the bottom of pages with sparse content is something just about every Web developer has tried to tackle at some point in his or her career. And, for the most part, it's a solved problem. Yet all the <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">existing</a> <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">solutions</a> have one significant shortcoming &mdash; they don't work if the height of your footer is unknown.</p>
 
     <p>Flexbox is really a perfect fit for this type of problem. While mostly known for laying out content in the horizontal direction, Flexbox actually works just as well for vertical layout problems. All you have to do is wrap the vertical sections in a flex container and choose which ones you want to expand. They'll automatically take up all the available space.</p>
+
+    <p>In the example below, the container is set to the height of the window, and the content area is told to expand as needed.</p>
 
     <h2>The HTML</h2>
 
@@ -80,9 +82,9 @@
   flex: 1;
 }</code></pre>
 
-  </div>
+    <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_site.scss">source</a> for the <code>Site</code> component used in this demo on Github.</p>
 
-  <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_site.scss">source</a> for the <code>Site</code> component used in this demo on Github.</p>
+  </div>
 
   <script>
     (function() {
