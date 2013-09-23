@@ -41,8 +41,12 @@
 }
 
 .Grid--responsive {
+  display: block;
+  @include breakpoint("med") {
+    display: flex;
+  }
   .Grid-cell {
-    flex-basis: 100%;
+    display: block;
     @include breakpoint("med") {
       flex-basis: 0;
     }
