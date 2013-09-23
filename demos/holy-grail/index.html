@@ -11,21 +11,21 @@ title: Holy Grail Layout
 
     <p>The <a href="http://en.wikipedia.org/wiki/Holy_Grail_(web_design)">Holy Grail Layout</a> is a classic CSS problem with various solutions presented over time. If you're unfamiliar with the history of the Holy Grail layout, this <a href="http://alistapart.com/article/holygrail">A List Apart article</a> offers a pretty good summary and links to a few of the more well-known solutions.</p>
 
-    <p>At its core, the Holy Grail Layout is a page with a header, footer, and three columns. The center column contains the main content, and the left and right columns contain supplamental content like ads or navigation.</p>
+    <p>At its core, the Holy Grail Layout is a page with a header, footer, and three columns. The center column contains the main content, and the left and right columns contain supplemental content like ads or navigation.</p>
 
     <p>Most CSS solutions to this problem aim to meet a few goals:</p>
 
     <ul class="List">
-      <li>have a fluid center with fixed-width sidebars</li>
-      <li>the center column (main content) should appear first in the HTML source</li>
-      <li>all columns should be the same height, regardless of which column is actually the tallest</li>
-      <li>require minimal markup</li>
-      <li>have the footer "stick" to the bottom of the page if there's not enough content</li>
+      <li>They should have a fluid center with fixed-width sidebars.</li>
+      <li>The center column (main content) should appear first in the HTML source.</li>
+      <li>All columns should be the same height, regardless of which column is actually the tallest.</li>
+      <li>They should require minimal markup.</li>
+      <li>The footer should "stick" to the bottom of the page when content is sparse.</li>
     </ul>
 
-    <p>Unfortunately, because of the nature of these goals and the original limitations of CSS, none of the classic solutions to this problem were ever able to meet all of them.</p>
+    <p>Unfortunately, because of the nature of these goals and the original limitations of CSS, none of the classic solutions to this problem were ever able to satisfy all of them.</p>
 
-    <p>With Flexbox, a solution that fulfills all of them is trivial.</p>
+    <p>With Flexbox, a complete solution is finally possible.</p>
 
     <h2>The HTML</h2>
 
@@ -41,7 +41,7 @@ title: Holy Grail Layout
 
     <h2>The CSS</h2>
 
-  <p>Geting the center content row to stretch and the footer to stick to the bottom is solved with the same technique shown in the <a href="{{ '/demos/sticky-footer/' | absolute }}">Sticky Footer</a> example. The only difference is the center row of the Holy Grail layout (<code>.HolyGrail-body</code>) needs to be <code>display:flex</code> in order to arrange its children.</p>
+  <p>Geting the center content row to stretch and the footer to stick to the bottom is solved with the same technique shown in the <a href="{{ '/demos/sticky-footer/' | absolute }}">Sticky Footer</a> example. The only difference is the center row of the Holy Grail layout (<code>.HolyGrail-body</code>) needs to be <code>display:flex</code> in order to properly arrange its children.</p>
 
 <pre class="highlight"><code class="language-css">.HolyGrail {
   display: flex;
@@ -74,7 +74,7 @@ title: Holy Grail Layout
 
     <p>The Holy Grail layout came from an era of Web design when pretty much everyone was browsing on a computer. But with the increasing number of mobile devices and the rising popularity of responsive design, the Holy Grail layout has gone mostly out of fashion.</p>
 
-    <p>Either way, with Flexbox, creating a mobile-first and mobile-friendly version of the Holy Grail layout is easy. The gist it to simply make the center section <code>flex-direction:column</code> by default and then <code>flex-direction:row</code> for larger screens.</p>
+    <p>Either way, with Flexbox, creating a mobile-first and mobile-friendly version of the Holy Grail layout is easy. The gist is to simply make the center section <code>flex-direction:column</code> by default and then <code>flex-direction:row</code> for larger screens.</p>
 
     <p>Here's a complete example that is responsive and mobile-first. You can also resize this browser window to see it in action.</p>
 
