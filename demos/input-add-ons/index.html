@@ -54,10 +54,10 @@
 
   <p>The only existing way to do this is to either know the exact width of the input, or to use something like <code>display:table-cell</code>, which has its own set of problems, most notably the difficultly with positioning anything absolutely inside of the add-on in certain browsers.</p>
 
-  <p>With Flexbox, all these problems go away, and the code is trivially simple. In addition, you get the input field and the input add-on to be the same height for free.</p>
+  <p>With Flexbox, all these problems go away, and the code is trivially simple. In addition, you get the input field anzd the input add-on to be the same height for free.</p>
 
-  <div class="Grid Grid--gutters">
-    <div class="Grid-cell u-size1of2">
+  <div class="Grid Grid--gutters Grid--full med-Grid--fit">
+    <div class="Grid-cell">
       <h2>Add-on Prepended</h2>
       <div class="InputAddOn">
         <span class="InputAddOn-item">Amount</span>
@@ -68,7 +68,7 @@
         <input class="InputAddOn-field">
       </div>
     </div>
-    <div class="Grid-cell u-size1of2">
+    <div class="Grid-cell">
       <h2>Add-on Appended</h2>
       <div class="InputAddOn">
         <input class="InputAddOn-field">
@@ -82,15 +82,15 @@
   </div>
 
   <h2>Appended and Prepended Add-ons</h2>
-  <div class="Grid Grid--gutters">
-    <div class="Grid-cell u-size1of2">
+  <div class="Grid Grid--gutters Grid--full med-Grid--fit">
+    <div class="Grid-cell">
       <div class="InputAddOn">
         <span class="InputAddOn-item"><span class="icon icon-envelope"></span></span>
         <input class="InputAddOn-field" placeholder="Example One">
         <button class="InputAddOn-item">Send</button>
       </div>
     </div>
-    <div class="Grid-cell u-size1of2">
+    <div class="Grid-cell">
       <div class="InputAddOn">
         <span class="InputAddOn-item"><span class="icon icon-lock"></span></span>
         <input class="InputAddOn-field" placeholder="Example One">
