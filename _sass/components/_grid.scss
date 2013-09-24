@@ -10,6 +10,12 @@
   flex: 1;
 }
 
+.Grid--flexCells {
+  .Grid-cell {
+    display: flex;
+  }
+}
+
 .Grid--top {
   align-items: flex-start;
 }
@@ -34,22 +40,36 @@
   align-self: center;
 }
 
-.Grid--flexCells {
-  .Grid-cell {
-    display: flex;
+@mixin grid-sizing($name: "") {
+  $sep: "-";
+  @if $name == "" {
+    $sep: "";
+  }
+  .#{$name}#{$sep}Grid--fit > .Grid-cell {
+    flex: 1;
+  }
+  .#{$name}#{$sep}Grid--full > .Grid-cell {
+    flex: 0 0 100%;
+  }
+  .#{$name}#{$sep}Grid--1of2 > .Grid-cell {
+    flex: 0 0 50%
+  }
+  .#{$name}#{$sep}Grid--1of3 > .Grid-cell {
+    flex: 0 0 33.3333%
+  }
+  .#{$name}#{$sep}Grid--1of4 > .Grid-cell {
+    flex: 0 0 25%
   }
 }
 
-.Grid--responsive {
-  display: block;
-  @include breakpoint("med") {
-    display: flex;
-  }
-  .Grid-cell {
-    display: block;
-    @include breakpoint("med") {
-      flex-basis: 0;
-    }
+// create the default grid-sizing modifiers
+@include grid-sizing();
+
+// create grid-sizing modifiers for each breakpoint
+@each $breakpoint in $breakpoints {
+  $name: nth($breakpoint, 2);
+  @include breakpoint($name) {
+    @include grid-sizing($name);
   }
 }
 
@@ -60,25 +80,25 @@
   }
   .#{$name}#{$sep}Grid--gutters {
     margin-left: -1em;
-    .Grid-cell {
+    & > .Grid-cell {
       padding-left: 1em;
     }
   }
   .#{$name}#{$sep}Grid--guttersLarge {
     margin-left: -1.5em;
-    .Grid-cell {
+    & > .Grid-cell {
       padding-left: 1.5em;
     }
   }
   .#{$name}#{$sep}Grid--gutters2x {
     margin-left: -2em;
-    .Grid-cell {
+    & > .Grid-cell {
       padding-left: 2em;
     }
   }
   .#{$name}#{$sep}Grid--gutters3x {
     margin-left: -3em;
-    .Grid-cell {
+    & > .Grid-cell {
       padding-left: 3em;
     }
   }
@@ -95,14 +115,40 @@
   }
 }
 
-// Firefox doesn't yet support multiline Flexboxes
-// so we have to fake it with inline-block
+// Firefox doesn't yet support multiline Flexboxes so we
+// have to fake it. Remove this once this bug is resolved
+// https://bugzilla.mozilla.org/show_bug.cgi?id=702508
 @supports not (flex-wrap: wrap) {
   .Grid--ffMultilineSupport {
     display: block;
     .Grid-cell {
       display: inline-block;
       vertical-align: top;
+    }
+  }
+  @mixin grid-sizing($name: "") {
+    $sep: "-";
+    @if $name == "" {
+      $sep: "";
+    }
+    .#{$name}#{$sep}Grid--full {
+      display: block;
+      & > .Grid-cell {
+        display: block;
+      }
+    }
+    .#{$name}#{$sep}Grid--fit,
+    .#{$name}#{$sep}Grid--1of2,
+    .#{$name}#{$sep}Grid--1of3,
+    .#{$name}#{$sep}Grid--1of4 {
+      display: flex;
+    }
+  }
+  @include grid-sizing();
+  @each $breakpoint in $breakpoints {
+    $name: nth($breakpoint, 2);
+    @include breakpoint($name) {
+      @include grid-sizing($name);
     }
   }
 }
