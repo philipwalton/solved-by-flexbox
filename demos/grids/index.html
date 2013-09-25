@@ -66,8 +66,11 @@
 
   <ul class="List">
     <li>By default, each grid cell is the same width and height as every other cell in the row. Basically they all size to fit by default.</li>
-    <li>For finer control and responsive layouts, you can add individual sizing and media classes to grids and/or their cells. Without these classes, Grid cells will simply divide up the remaining space as usual.</li>
-    <li>When you want all of the cells in a grid to have the same sizing/media concerns. You should be able to add a single class to the container to avoid unnecessary repetition.</li>
+    <li>For finer control, you can add sizing classes to individual grid cells. Without these classes, the grid cells simply divide up the available space as usual.</li>
+    <li>For responsive grids, you can add media query-specific classes to the cells.</li>
+    <li>Individual cells can be aligned vertically to the top, bottom, or middle.</li>
+    <li>When you want all of the cells in a grid to have the same sizing, media, or alignment values, you should be able to just add a single class to the container to avoid unnecessary repetition.</li>
+
     <li>Grids can be nested as many levels deep as needed.</li>
   </ul>
 
@@ -125,31 +128,6 @@
     </div>
   </div>
 
-  <h3>Basic Grids + Responsive</h3>
-
-  <p>Responsive Grids work by adding media classes to the Grid cells or containers. When those media values are met, the grids automatically adjust accordingly. Resize your browser to see them in action.</p>
-
-  <div class="Grid Grid--gutters Grid--full med-Grid--fit u-textCenter">
-    <div class="Grid-cell">
-      <div class="Demo">Full / Halves</div>
-    </div>
-    <div class="Grid-cell">
-      <div class="Demo">Full / Halves</div>
-    </div>
-  </div>
-
-  <div class="Grid Grid--gutters Grid--full med-Grid--fit u-textCenter">
-    <div class="Grid-cell">
-      <div class="Demo">Full / Thirds</div>
-    </div>
-    <div class="Grid-cell">
-      <div class="Demo">Full / Thirds</div>
-    </div>
-    <div class="Grid-cell">
-      <div class="Demo">Full / Thirds</div>
-    </div>
-  </div>
-
   <h3>Individual Sizing</h3>
 
   <p>When equal widths aren't what you want, you can add sizing classes to individual cells. Cells without sizing classes simply divide up the remaining space as normal. The cells below labeled "auto" do not have sizing classes specified.</p>
@@ -184,6 +162,32 @@
     </div>
     <div class="Grid-cell u-1of3">
       <div class="Demo">1/3</div>
+    </div>
+  </div>
+
+  <h3>Responsive</h3>
+
+  <p>Responsive Grids work by adding media classes to the Grid cells or containers. When those media values are met, the grids automatically adjust accordingly.</p>
+
+  <p>The cells below should be full width by default and scaled to fit above <code>48em</code>. Resize your browser to see them in action.</p>
+
+  <div class="Grid Grid--gutters Grid--full large-Grid--fit u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo">Full / Halves</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">Full / Halves</div>
+    </div>
+  </div>
+  <div class="Grid Grid--gutters Grid--full large-Grid--fit u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo">Full / Thirds</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">Full / Thirds</div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo">Full / Thirds</div>
     </div>
   </div>
 
@@ -326,19 +330,8 @@
 .Grid--gutters {
   margin-left: -1em;
 }
-.Grid--gutters .Grid-cell {
+.Grid--gutters > .Grid-cell {
   padding-left: 1em;
-}
-
-/* Responsive */
-.Grid--responsive .Grid-cell {
-  flex-basis: 100%;
-  flex-wrap: wrap;
-}
-@media (min-width: 36em) {
-  .Grid--responsive .Grid-cell {
-    flex-basis: 0;
-  }
 }
 
 /* Alignment per row */
@@ -361,6 +354,63 @@
 }
 .Grid-cell--center {
   align-self: center;
+}</code></pre>
+
+  <h3>Responsive Modifiers (a mobile-first approach)</h3>
+
+<pre class="highlight"><code class="language-css">/* Base classes for all media */
+.Grid--fit > .Grid-cell {
+  flex: 1;
+}
+.Grid--full > .Grid-cell {
+  flex: 0 0 100%;
+}
+.Grid--1of2 > .Grid-cell {
+  flex: 0 0 50%
+}
+.Grid--1of3 > .Grid-cell {
+  flex: 0 0 33.3333%
+}
+.Grid--1of4 > .Grid-cell {
+  flex: 0 0 25%
+}
+
+/* Small to medium screens */
+@media (min-width: 24em) {
+  .small-Grid--fit > .Grid-cell {
+    flex: 1;
+  }
+  .small-Grid--full > .Grid-cell {
+    flex: 0 0 100%;
+  }
+  .small-Grid--1of2 > .Grid-cell {
+    flex: 0 0 50%
+  }
+  .small-Grid--1of3 > .Grid-cell {
+    flex: 0 0 33.3333%
+  }
+  .small-Grid--1of4 > .Grid-cell {
+    flex: 0 0 25%
+  }
+}
+
+/* Large screens */
+@media (min-width: 48em) {
+  .large-Grid--fit > .Grid-cell {
+    flex: 1;
+  }
+  .large-Grid--full > .Grid-cell {
+    flex: 0 0 100%;
+  }
+  .large-Grid--1of2 > .Grid-cell {
+    flex: 0 0 50%
+  }
+  .large-Grid--1of3 > .Grid-cell {
+    flex: 0 0 33.3333%
+  }
+  .large-Grid--1of4 > .Grid-cell {
+    flex: 0 0 25%
+  }
 }</code></pre>
 
   <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_grid.scss">source</a> for the <code>Grid</code> component used in this demo on Github.</p>
