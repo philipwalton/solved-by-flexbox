@@ -1,34 +1,27 @@
 {% env dev %}
 
-  <script src="http://localhost:1234/dist/html-inspector.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html-inspector/0.5.0/html-inspector.js"></script>
 
   <script>
 
-    /*
-    // add Twitter generated classes to the unused-classes rule whitelist
     HTMLInspector.rules.extend("unused-classes", function(config) {
       config.whitelist = config.whitelist.concat([
-        "dsq-brlink",
-        "logo-disqus",
-        "twitter-follow-button",
-        "codepen"
+        // "twitter-follow-button",
+        /^icon\-/,
+        /^wf-/
       ])
       return config
     })
 
-    // use the inuit BEM convention until I convert fully to suit
-    HTMLInspector.rules.extend("bem-conventions", {
-      methodology: "inuit"
-    })
-    */
-
-    // ignore iframes since I don't control twitter and disqus
-    HTMLInspector.setConfig({
-      excludeElements: ["svg", "iframe"]
+    HTMLInspector.rules.extend("script-placement", function(config) {
+      config.whitelist = config.whitelist.concat([".js-allow-in-head"])
+      return config
     })
 
     // start the inspection
-    setTimeout(function() { HTMLInspector.inspect() }, 1000)
+    HTMLInspector.inspect({
+      excludeElements: ["svg", "iframe"]
+    })
 
   </script>
 
