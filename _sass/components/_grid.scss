@@ -11,7 +11,7 @@
 }
 
 .Grid--flexCells {
-  .Grid-cell {
+  & > .Grid-cell {
     display: flex;
   }
 }
@@ -121,7 +121,7 @@
 @supports not (flex-wrap: wrap) {
   .Grid--ffMultilineSupport {
     display: block;
-    .Grid-cell {
+    & > .Grid-cell {
       display: inline-block;
       vertical-align: top;
     }
