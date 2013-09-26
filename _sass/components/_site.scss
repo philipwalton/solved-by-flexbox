@@ -5,7 +5,7 @@
 }
 
 .Site-content {
-  flex: 1;
+  flex: 1 1 auto;
   width: 100%;
   padding: 1.5em;
   @include breakpoint("large") {

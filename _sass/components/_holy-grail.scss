@@ -27,10 +27,10 @@
 @include breakpoint("large") {
   .HolyGrail-body {
     flex-direction: row;
-    flex: 1;
+    flex: 1 1 auto;
   }
   .HolyGrail-content {
-    flex: 1;
+    flex: 1 1 auto;
     padding: 0 1.5em;
     margin: 0;
   }
