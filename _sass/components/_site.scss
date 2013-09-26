@@ -5,9 +5,13 @@
 }
 
 .Site-content {
-  flex: 1 1 auto;
+  flex: 1;
   width: 100%;
   padding: 1.5em;
+
+  /* stupid IE10 tweener syntax */
+  -ms-flex-preferred-size: auto;
+
   @include breakpoint("large") {
     padding-top: 2em;
   }
