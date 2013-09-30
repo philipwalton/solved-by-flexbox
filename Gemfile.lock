@@ -31,6 +31,7 @@ GEM
       pygments.rb (~> 0.5.0)
       safe_yaml (~> 0.7.0)
     kramdown (1.0.2)
+    libv8 (3.16.14.3)
     liquid (2.5.0)
     maruku (0.6.1)
       syntax (>= 1.0.0)
@@ -40,11 +41,15 @@ GEM
       yajl-ruby (~> 1.1.0)
     rake (10.0.4)
     rdiscount (2.1.6)
+    ref (1.0.5)
     safe_yaml (0.7.1)
     sass (3.2.9)
     sass-css-importer (1.0.0.beta.0)
       sass (>= 3.1)
     syntax (1.0.0)
+    therubyracer (0.12.0)
+      libv8 (~> 3.16.14.0)
+      ref
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -59,3 +64,4 @@ DEPENDENCIES
   rake
   rdiscount
   sass-css-importer (~> 1.0.0.beta.0)
+  therubyracer
