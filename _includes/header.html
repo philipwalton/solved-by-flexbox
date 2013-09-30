@@ -1,4 +1,4 @@
-{% capture header_cls %}{% if page.title == "Home" %}{{ "Header" }}{% else %}{{ "Header Header--cozy" }}{% endif %}{% endcapture %}
+{% capture header_cls %}{% unless page.title %}{{ "Header" }}{% else %}{{ "Header Header--cozy" }}{% endunless %}{% endcapture %}
 <header class="{{ header_cls }}" role="banner">
   <div class="Header-titles">
     <h1 class="Header-title"><a href="{{ '/' | absolute }}">Solved <i>by</i> Flexbox</a></h1>
