@@ -2,7 +2,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  // height is needed for IE10-11 for this bug
+  // http://bit.ly/16b1Xhx
   height: 24em;
+  // other browsers use min-height
+  @supports not (-ms-flex: 1) {
+    height: auto;
+    min-height: 24em;
+  }
 }
 
 .Aligner-item {
