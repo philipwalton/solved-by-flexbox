@@ -1,9 +1,14 @@
 require "rubygems"
 require "rake"
 require 'fileutils'
+require 'uglifier'
+require 'pry-debugger'
 
 desc "Load a local server and watch for any changes"
 task :preview, :port do |t, args|
+
+  # TODO: run this task in a watcher to autoupdate
+  Rake.application['uglify'].invoke
 
   port = args.port || 4000
   annotate "Starting server on port #{port} and watching for changes."
@@ -17,11 +22,31 @@ task :preview, :port do |t, args|
   }
 
   [jekyll_pid, compass_pid].each { |pid| Process.wait(pid) }
+end
+
+desc "Concat and uglify JavaScript"
+task :uglify do
+
+  annotate "Concatenating and minifying scripts"
+
+  scripts = [
+    "scripts/track-events.js",
+    "scripts/highlight.js",
+    "scripts/flexbox-detect.js",
+  ]
+
+  files = scripts.map do |file|
+    File.read(file)
+  end
+
+  File.open("scripts/scripts.min.js", "w") do |file|
+    file.write Uglifier.new.compile(files.join)
+  end
 
 end
 
 desc "Compile and generate all site files"
-task :generate do
+task :generate => [:uglify] do
 
   annotate "Compiling Sass"
   system "compass compile ."

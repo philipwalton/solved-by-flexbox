@@ -4,6 +4,7 @@
   var links = document.getElementsByTagName("a")
     , link
     , i = 0
+    , ga = window.ga
 
   function isLink(el) {
     return el.nodeName.toLowerCase() == "a" && el.href
@@ -26,7 +27,7 @@
       , target = e.target || e.srcElement
       , link = getLinkAncestor(target)
     if (link && isExternalLink(link)) {
-      ga("send", "event", "Outbound Link", link.href);
+      ga && ga("send", "event", "Outbound Link", link.href);
     }
   }
 

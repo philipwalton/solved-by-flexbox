@@ -10,4 +10,10 @@ group :development do
   gem 'autoprefixer-rails'
   gem 'csso-rails'
   gem 'therubyracer'
+  gem 'uglifier'
+
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
 end

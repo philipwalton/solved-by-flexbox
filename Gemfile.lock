@@ -3,10 +3,14 @@ GEM
   specs:
     autoprefixer-rails (0.8.20130919)
       execjs
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     chunky_png (1.2.8)
     classifier (1.3.3)
       fast-stemmer (>= 1.0.0)
+    coderay (1.0.9)
     colorator (0.1)
+    columnize (0.3.6)
     commander (4.1.3)
       highline (~> 1.6.11)
     compass (0.12.2)
@@ -15,6 +19,13 @@ GEM
       sass (~> 3.1)
     csso-rails (0.3.2)
       execjs (>= 1)
+    debug_inspector (0.0.2)
+    debugger (1.6.2)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     directory_watcher (1.4.1)
     execjs (2.0.1)
     fast-stemmer (1.0.2)
@@ -35,7 +46,22 @@ GEM
     liquid (2.5.0)
     maruku (0.6.1)
       syntax (>= 1.0.0)
+    method_source (0.8.2)
+    multi_json (1.8.0)
     posix-spawn (0.3.6)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-debugger (0.2.2)
+      debugger (~> 1.3)
+      pry (~> 0.9.10)
+    pry-remote (0.1.7)
+      pry (~> 0.9)
+      slop (~> 3.0)
+    pry-stack_explorer (0.4.9.1)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     pygments.rb (0.5.0)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
@@ -46,10 +72,14 @@ GEM
     sass (3.2.9)
     sass-css-importer (1.0.0.beta.0)
       sass (>= 3.1)
+    slop (3.4.6)
     syntax (1.0.0)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
+    uglifier (2.2.1)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -61,7 +91,12 @@ DEPENDENCIES
   csso-rails
   jekyll
   liquid
+  pry
+  pry-debugger
+  pry-remote
+  pry-stack_explorer
   rake
   rdiscount
   sass-css-importer (~> 1.0.0.beta.0)
   therubyracer
+  uglifier
