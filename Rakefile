@@ -7,9 +7,6 @@ require 'pry-debugger'
 desc "Load a local server and watch for any changes"
 task :preview, :port do |t, args|
 
-  # TODO: run this task in a watcher to autoupdate
-  Rake.application['uglify'].invoke
-
   port = args.port || 4000
   annotate "Starting server on port #{port} and watching for changes."
 
@@ -27,6 +24,7 @@ end
 desc "Concat and uglify JavaScript"
 task :uglify do
 
+  # TODO: figure out a way to do this within Jekyll nicely
   annotate "Concatenating and minifying scripts"
 
   scripts = [
@@ -46,7 +44,7 @@ task :uglify do
 end
 
 desc "Compile and generate all site files"
-task :generate => [:uglify] do
+task :generate do
 
   annotate "Compiling Sass"
   system "compass compile ."
