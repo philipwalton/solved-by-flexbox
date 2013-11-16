@@ -33,7 +33,13 @@
     -ms-flex-preferred-size: auto;
   }
   .HolyGrail-content {
-    flex: 1;
+    // flex: 1;
+    // the `flex` rule above should be applied but it's causing
+    // problems in IE10 and IE11. Not specifying a `flex` property
+    // and using the `-ms-flex` property here seems to make it
+    // work in all browsers for whatever reason
+    -ms-flex: 1 1 auto;
+
     padding: 0 1.5em;
     margin: 0;
   }
