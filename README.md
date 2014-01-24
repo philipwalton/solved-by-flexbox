@@ -8,7 +8,7 @@ A showcase of problems once hard or impossible to solve with CSS alone, now made
 
 The Solved by Flexbox site is built with [Jekyll](http://jekyllrb.com/) and depends on several other Ruby gems (e.g. [Sass](http://sass-lang.com/) and [Autoprefixer](https://github.com/ai/autoprefixer)).
 
-There are also a few client-side dependencies, which are managed with [Bower[(http://bower.io).
+There are also a few client-side dependencies, which are managed with [Bower](http://bower.io).
 
 To install all the dependencies simply run the commands:
 
