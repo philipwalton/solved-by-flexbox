@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source 'https://rubygems.org'
 
 group :development do
   gem 'rake'
@@ -6,14 +6,9 @@ group :development do
   gem 'rdiscount'
   gem 'compass'
   gem 'liquid'
-  gem "sass-css-importer", "~> 1.0.0.beta.0"
+  gem 'sass-css-importer', '~> 1.0.0.beta.0'
   gem 'autoprefixer-rails'
   gem 'csso-rails'
   gem 'therubyracer'
   gem 'uglifier'
-
-  gem 'pry'
-  gem 'pry-remote'
-  gem 'pry-stack_explorer'
-  gem 'pry-debugger'
 end
