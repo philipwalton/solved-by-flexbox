@@ -1,8 +1,7 @@
-require "rubygems"
-require "rake"
+require 'rubygems'
+require 'rake'
 require 'fileutils'
 require 'uglifier'
-require 'pry-debugger'
 
 desc "Load a local server and watch for any changes"
 task :preview, :port do |t, args|
@@ -44,7 +43,7 @@ task :uglify do
 end
 
 desc "Compile and generate all site files"
-task :generate do
+task :generate => [:uglify] do
 
   annotate "Compiling Sass"
   system "compass compile ."
