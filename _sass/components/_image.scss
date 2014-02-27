@@ -10,7 +10,11 @@
 }
 
 @include breakpoint("med") {
-  .Image, .Image--tiny {
-    width: auto;
+  .Image {
+    width: 70px;
+  }
+
+  .Image--tiny {
+    width: 40px;
   }
 }
