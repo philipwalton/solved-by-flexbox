@@ -1,8 +1,8 @@
 // A special imported is needed for plain CSS files at the moment
 // https://github.com/chriseppstein/sass-css-importer
 @import "CSS:normalize-css/normalize";
-@import "CSS:suit-utils-text/text";
-@import "CSS:suit-utils-state/state";
+@import "CSS:suit-utils-text/lib/text";
+@import "CSS:suit-utils-display/lib/display";
 
 @import "variables";
 @import "breakpoints";

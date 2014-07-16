@@ -14,7 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-css": "*",
-    "suit": "*"
+    "normalize-css": "3.0.1",
+    "suit": "0.6.0"
   }
 }
