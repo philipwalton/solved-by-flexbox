@@ -25,7 +25,7 @@
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-40829935-1', 'philipwalton.github.io');
+      ga('create', 'UA-40829935-1', 'auto');
       ga('send', 'pageview');
     </script>
   
@@ -95,9 +95,9 @@
         , isCollapsed = false
       collapseTrigger.addEventListener("click", function() {
         if (isCollapsed) {
-          collapseableContent.classList.remove("u-isHidden")
+          collapseableContent.classList.remove("u-hidden")
         } else {
-          collapseableContent.classList.add("u-isHidden")
+          collapseableContent.classList.add("u-hidden")
         }
         isCollapsed = !isCollapsed
       }, false)
