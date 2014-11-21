@@ -9,9 +9,7 @@
 }
 
 .Media-body {
-  // `flex: 1` is all that shoule be needed, but `flex: 1 1 0%` is used to
-  // make nested media objects work in IE.
-  flex: 1 1 0%;
+  flex: 1;
   &, & :last-child {
     margin-bottom: 0;
   }

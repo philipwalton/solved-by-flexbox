@@ -33,10 +33,7 @@
     flex-direction: row;
   }
   .HolyGrail-content {
-    // `flex: 1` is all that shoule be needed, but `flex: 1 1 auto` is used to
-    // make IE play nice.
-    flex: 1 1 auto;
-
+    flex: 1;
     padding: 0 1.5em;
     margin: 0;
   }
