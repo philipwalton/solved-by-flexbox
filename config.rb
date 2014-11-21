@@ -4,7 +4,7 @@ require 'csso'
 on_stylesheet_saved do |file|
   css = File.read(file)
   File.open(file, 'w') do |io|
-    io << Csso.optimize( AutoprefixerRails.compile(css) )
+    io << Csso.optimize( AutoprefixerRails.process(css).css )
   end
 end
 
