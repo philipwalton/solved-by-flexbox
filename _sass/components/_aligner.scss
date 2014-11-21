@@ -14,10 +14,7 @@
 }
 
 .Aligner-item {
-  // `flex: 1` is all that shoule be needed, but `flex: 1 1 auto` is used to
-  // make IE play nice.
-  flex: 1 1 auto;
-  max-width: 50%;
+  flex: 1;
 }
 
 .Aligner-item--top {
@@ -26,4 +23,9 @@
 
 .Aligner-item--bottom {
   align-self: flex-end;
+}
+
+.Aligner-item--fixed {
+  flex: none;
+  max-width: 50%;
 }
