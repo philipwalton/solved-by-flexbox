@@ -26,19 +26,16 @@
 
 @include breakpoint("large") {
   .HolyGrail-body {
-    flex-direction: row;
-    flex: 1;
+    // `flex: 1` is all that shoule be needed, but `flex: 1 1 auto` is used to
+    // make IE play nice.
+    flex: 1 1 auto;
 
-    /* stupid IE10 tweener syntax */
-    -ms-flex-preferred-size: auto;
+    flex-direction: row;
   }
   .HolyGrail-content {
-    // flex: 1;
-    // the `flex` rule above should be applied but it's causing
-    // problems in IE10 and IE11. Not specifying a `flex` property
-    // and using the `-ms-flex` property here seems to make it
-    // work in all browsers for whatever reason
-    -ms-flex: 1 1 auto;
+    // `flex: 1` is all that shoule be needed, but `flex: 1 1 auto` is used to
+    // make IE play nice.
+    flex: 1 1 auto;
 
     padding: 0 1.5em;
     margin: 0;
