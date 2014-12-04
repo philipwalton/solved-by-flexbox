@@ -16,3 +16,20 @@
     padding-top: 2em;
   }
 }
+
+/*
+ * When a user agent cannot parse the selector (i.e., it is not valid CSS 2.1),
+ * it must ignore the selector and the following declaration block (if any) as well.
+ * See: http://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11
+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /**
+   * The <body> on IE must be height: 100% in order
+   * for this to work.
+   *
+   * If you're not using this class in the <body>
+   */
+  .Site {
+    height: 100%;
+  }
+}
