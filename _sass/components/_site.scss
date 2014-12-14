@@ -2,34 +2,21 @@
   display: flex;
   flex-direction: column;
   min-height: 100%;
-}
 
-.Site-content {
-  flex: 1;
-  width: 100%;
-  padding: 1.5em;
-
-  /* stupid IE10 tweener syntax */
-  -ms-flex-preferred-size: auto;
-
-  @include breakpoint("large") {
-    padding-top: 2em;
+  @include ie-only {
+    // `height: 100%` is needed for IE because of the `min-height` flexbox bug.
+    height: 100%;
   }
 }
 
-/*
- * When a user agent cannot parse the selector (i.e., it is not valid CSS 2.1),
- * it must ignore the selector and the following declaration block (if any) as well.
- * See: http://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11
- */
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  /**
-   * The <body> on IE must be height: 100% in order
-   * for this to work.
-   *
-   * If you're not using this class in the <body>
-   */
-  .Site {
-    height: 100%;
+.Site-content {
+  // `flex-shrink: 0` and `flex-basis: auto` are need to work around
+  // Flexbox issues in IE 10-11.
+  flex: 1 0 auto;
+  width: 100%;
+  padding: 1.5em;
+
+  @include breakpoint("large") {
+    padding-top: 2em;
   }
 }

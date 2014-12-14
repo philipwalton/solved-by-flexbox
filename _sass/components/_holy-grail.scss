@@ -2,6 +2,11 @@
   display: flex;
   min-height: 100%;
   flex-direction: column;
+
+  @include ie-only {
+    // `height: 100%` is needed for IE because of the `min-height` flexbox bug.
+    height: 100%;
+  }
 }
 
 .HolyGrail-body {
@@ -26,8 +31,8 @@
 
 @include breakpoint("large") {
   .HolyGrail-body {
-    // `flex: 1` is all that shoule be needed, but `flex: 1 1 auto` is used to
-    // make IE play nice.
+    // `flex-shrink: 0` and `flex-basis: auto` are need to work around
+    // Flexbox issues in IE 10-11.
     flex: 1 1 auto;
 
     flex-direction: row;
