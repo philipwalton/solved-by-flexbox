@@ -11,6 +11,9 @@
 
 .HolyGrail-body {
   display: flex;
+  // `flex-shrink: 0` and `flex-basis: auto` are need to work around
+  // Flexbox issues in IE 10-11.
+  flex: 1 0 auto;
   flex-direction: column;
   padding: 1.5em;
 }
@@ -31,10 +34,6 @@
 
 @include breakpoint("large") {
   .HolyGrail-body {
-    // `flex-shrink: 0` and `flex-basis: auto` are need to work around
-    // Flexbox issues in IE 10-11.
-    flex: 1 0 auto;
-
     flex-direction: row;
   }
   .HolyGrail-content {
