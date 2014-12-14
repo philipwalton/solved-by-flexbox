@@ -33,7 +33,7 @@
   .HolyGrail-body {
     // `flex-shrink: 0` and `flex-basis: auto` are need to work around
     // Flexbox issues in IE 10-11.
-    flex: 1 1 auto;
+    flex: 1 0 auto;
 
     flex-direction: row;
   }
