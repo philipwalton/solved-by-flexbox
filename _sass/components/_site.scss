@@ -10,11 +10,9 @@
 }
 
 .Site-content {
-  // `flex-shrink: 0` and `flex-basis: auto` are need to work around
-  // Flexbox issues in IE 10-11.
   flex: 1 0 auto;
-  width: 100%;
   padding: 1.5em;
+  width: 100%;
 
   @include breakpoint("large") {
     padding-top: 2em;
