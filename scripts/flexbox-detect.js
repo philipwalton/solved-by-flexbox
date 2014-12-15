@@ -1,5 +1,5 @@
 ;(function(body, div) {
-  if (!('flexBasis' in style || 'msFlexAlign' in style)) {
+  if (!('flexBasis' in body.style || 'msFlexAlign' in body.style)) {
     div = document.createElement("div")
     div.className = "Error"
     div.innerHTML = "Your browser does not support Flexbox. Parts of this site may not appear as expected."
