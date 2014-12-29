@@ -13,7 +13,7 @@
 
 .Site-header,
 .Site-footer {
-  flex-shrink: 0; /* 2 */
+  flex: none; /* 2 */
 }
 
 .Site-content {

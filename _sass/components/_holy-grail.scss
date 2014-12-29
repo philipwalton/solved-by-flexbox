@@ -13,7 +13,7 @@
 
 .HolyGrail-header,
 .HolyGrail-footer {
-  flex-shrink: 0; /* 2 */
+  flex: none; /* 2 */
 }
 
 .HolyGrail-body {
