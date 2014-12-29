@@ -13,12 +13,3 @@ $breakpoints: (
     }
   }
 }
-
-@mixin ie-only {
-  // A media query to target just IE10+
-  // See: http://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    @content
-  }
-}
-
