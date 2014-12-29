@@ -1,20 +1,23 @@
+/**
+ * 1. Avoid the IE 10-11 `min-height` bug.
+ * 2. Set `flex-shrink` to `0` to prevent Chrome/Safari from letting these
+ *    items shrink to smaller than their content's default minimum size.
+ * 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safair.
+ */
+
 .Site {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  height: 100%; /* 1, 3 */
+}
 
-  @include ie-only {
-    // `height: 100%` is needed for IE because of the `min-height` flexbox bug.
-    height: 100%;
-  }
+.Site-header,
+.Site-footer {
+  flex-shrink: 0; /* 2 */
 }
 
 .Site-content {
-  flex: 1 0 auto;
+  flex: 1 0 auto; /* 2 */
   padding: 1.5em;
   width: 100%;
-
-  @include breakpoint("large") {
-    padding-top: 2em;
-  }
 }
