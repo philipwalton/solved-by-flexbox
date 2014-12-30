@@ -3,60 +3,58 @@ layout: default
 title: Input Add-ons
 ---
 
-<main class="Site-content Container">
+<h1>Input Add-ons</h1>
 
-  <h1>Input Add-ons</h1>
+<p>Because of the way input sizing works in CSS, it's almost impossible to append or prepend another element to it and have the input field behave fluidly and take up the remaining space.</p>
 
-  <p>Because of the way input sizing works in CSS, it's almost impossible to append or prepend another element to it and have the input field behave fluidly and take up the remaining space.</p>
+<p>The only existing way to do this is to either know the exact width of the input, or to use something like <code>display:table-cell</code>, which has its own set of problems, most notably the difficulty with positioning anything absolutely inside of the add-on in certain browsers.</p>
 
-  <p>The only existing way to do this is to either know the exact width of the input, or to use something like <code>display:table-cell</code>, which has its own set of problems, most notably the difficulty with positioning anything absolutely inside of the add-on in certain browsers.</p>
+<p>With Flexbox, all these problems go away, and the code is trivially simple. In addition, you get the input field and the input add-on to be the same height for free.</p>
 
-  <p>With Flexbox, all these problems go away, and the code is trivially simple. In addition, you get the input field and the input add-on to be the same height for free.</p>
-
-  <div class="Grid Grid--gutters Grid--full med-Grid--fit">
-    <div class="Grid-cell">
-      <h2>Add-on Prepended</h2>
-      <div class="InputAddOn">
-        <span class="InputAddOn-item">Amount</span>
-        <input class="InputAddOn-field">
-      </div>
-      <div class="InputAddOn">
-        <button class="InputAddOn-item"><span class="icon icon-search"></span></button>
-        <input class="InputAddOn-field">
-      </div>
+<div class="Grid Grid--gutters Grid--full med-Grid--fit">
+  <div class="Grid-cell">
+    <h2>Add-on Prepended</h2>
+    <div class="InputAddOn">
+      <span class="InputAddOn-item">Amount</span>
+      <input class="InputAddOn-field">
     </div>
-    <div class="Grid-cell">
-      <h2>Add-on Appended</h2>
-      <div class="InputAddOn">
-        <input class="InputAddOn-field">
-        <button class="InputAddOn-item">Go</button>
-      </div>
-      <div class="InputAddOn">
-        <input class="InputAddOn-field">
-        <button class="InputAddOn-item"><span class="icon icon-star"></span></button>
-      </div>
+    <div class="InputAddOn">
+      <button class="InputAddOn-item"><span class="icon icon-search"></span></button>
+      <input class="InputAddOn-field">
     </div>
   </div>
-
-  <h2>Appended and Prepended Add-ons</h2>
-  <div class="Grid Grid--gutters Grid--full med-Grid--fit">
-    <div class="Grid-cell">
-      <div class="InputAddOn">
-        <span class="InputAddOn-item"><span class="icon icon-envelope"></span></span>
-        <input class="InputAddOn-field" placeholder="Example One">
-        <button class="InputAddOn-item">Send</button>
-      </div>
+  <div class="Grid-cell">
+    <h2>Add-on Appended</h2>
+    <div class="InputAddOn">
+      <input class="InputAddOn-field">
+      <button class="InputAddOn-item">Go</button>
     </div>
-    <div class="Grid-cell">
-      <div class="InputAddOn">
-        <span class="InputAddOn-item"><span class="icon icon-lock"></span></span>
-        <input class="InputAddOn-field" placeholder="Example One">
-        <button class="InputAddOn-item">Encrypt</button>
-      </div>
+    <div class="InputAddOn">
+      <input class="InputAddOn-field">
+      <button class="InputAddOn-item"><span class="icon icon-star"></span></button>
     </div>
   </div>
+</div>
 
-  <h2>The HTML</h2>
+<h2>Appended and Prepended Add-ons</h2>
+<div class="Grid Grid--gutters Grid--full med-Grid--fit">
+  <div class="Grid-cell">
+    <div class="InputAddOn">
+      <span class="InputAddOn-item"><span class="icon icon-envelope"></span></span>
+      <input class="InputAddOn-field" placeholder="Example One">
+      <button class="InputAddOn-item">Send</button>
+    </div>
+  </div>
+  <div class="Grid-cell">
+    <div class="InputAddOn">
+      <span class="InputAddOn-item"><span class="icon icon-lock"></span></span>
+      <input class="InputAddOn-field" placeholder="Example One">
+      <button class="InputAddOn-item">Encrypt</button>
+    </div>
+  </div>
+</div>
+
+<h2>The HTML</h2>
 
 <pre class="highlight"><code>&lt;!-- appending -->
 &lt;div class="InputAddOn">
@@ -78,7 +76,7 @@ title: Input Add-ons
 &lt;/div>
 </code></pre>
 
-  <h2>The CSS</h2>
+<h2>The CSS</h2>
 
 <pre class="highlight"><code>.InputAddOn {
   display: flex;
@@ -95,7 +93,4 @@ title: Input Add-ons
 
 </code></pre>
 
-  <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_input-add-on.scss">source</a> for the <code>InputAddOn</code> component used in this demo on Github.</p>
-
-
-</main>
+<p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_input-add-on.scss">source</a> for the <code>InputAddOn</code> component used in this demo on Github.</p>

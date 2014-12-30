@@ -1,15 +1,10 @@
-<header class="{{ layout_base_cls }}-header">
-  {% capture header_cls %}{% unless page.title %}{{ "Header" }}{% else %}{{ "Header Header--cozy" }}{% endunless %}{% endcapture %}
-  <div class="{{ header_cls }}" role="banner">
-    <div class="Header-titles">
-      <h1 class="Header-title"><a href="{{ '/' | absolute }}">Solved <i>by</i> Flexbox</a></h1>
-      <h2 class="Header-subTitle">Cleaner, hack-free CSS</h2>
-    </div>
-    <div class="Header-actions">
-      <a href="https://github.com/philipwalton/solved-by-flexbox" class="Header-button Button Button--action Button--wide"><span class="icon-github icon-large"></span>&nbsp; View Project Source</a>
+<div class="Header-titles">
+  <h1 class="Header-title"><a href="{{ '/' | absolute }}">Solved <i>by</i> Flexbox</a></h1>
+  <h2 class="Header-subTitle">Cleaner, hack-free CSS</h2>
+</div>
+<div class="Header-actions">
+  <a href="https://github.com/philipwalton/solved-by-flexbox" class="Header-button Button Button--action Button--wide"><span class="icon-github icon-large"></span>&nbsp; View Project Source</a>
 
-      {% capture twitter_share_link %}http://twitter.com/intent/tweet?text={{ 'A showcase of traditionally hard CSS problems, easily solved using flexbox.' }}&url={{ 'http://philipwalton.github.com/solved-by-flexbox/' }}&via=philwalton{% endcapture %}
-      <a href="{{ twitter_share_link | uri_escape }}" class="Header-button Button Button--wide"><span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word</a>
-    </div>
-  </div>
-</header>
+  {% capture twitter_share_link %}http://twitter.com/intent/tweet?text={{ 'A showcase of traditionally hard CSS problems, easily solved using flexbox.' }}&url={{ 'http://philipwalton.github.com/solved-by-flexbox/' }}&via=philwalton{% endcapture %}
+  <a href="{{ twitter_share_link | uri_escape }}" class="Header-button Button Button--wide"><span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word</a>
+</div>
