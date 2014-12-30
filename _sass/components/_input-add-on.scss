@@ -20,7 +20,8 @@
   font-weight: normal;
 }
 
-.InputAddOn-field, .InputAddOn-item {
+.InputAddOn-field,
+.InputAddOn-item {
   border: 1px solid hsla(31, 15%, 50%, 0.25);
   padding: 0.5em 0.75em;
   &:first-child {
