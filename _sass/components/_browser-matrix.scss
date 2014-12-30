@@ -5,10 +5,13 @@
 }
 
 .BrowserMatrix-item {
-  max-width: 10em;
-  min-width: 4em;
-  margin: 0.5em 1.5em;
+  flex: none;
+  margin: 0.5em 1em;
   text-align: center;
+
+  @include breakpoint("large") {
+    margin: 0.5em 1.5em;
+  }
 }
 
 .BrowserMatrix-title {
@@ -23,16 +26,3 @@
   white-space: nowrap;
 }
 
-
-// Firefox doesn't yet support multiline Flexboxes
-// so we have to fake it with inline-block
-@supports not (flex-wrap: wrap) {
-  .BrowserMatrix {
-    display: block;
-    text-align: center;
-    .BrowserMatrix-item {
-      display: inline-block;
-      vertical-align: top;
-    }
-  }
-}
