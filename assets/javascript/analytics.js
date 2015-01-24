@@ -1,5 +1,3 @@
-/* global ga */
-
 var linkClicked = require('./link-clicked');
 var parseUrl = require('./parse-url');
 
@@ -44,8 +42,6 @@ function trackBreakpoints() {
 
 function trackOutboundLinks() {
   linkClicked(function() {
-
-    debugger;
 
     // Ignore outbound links on social buttons.
     if (this.getAttribute('data-social-network')) return;
