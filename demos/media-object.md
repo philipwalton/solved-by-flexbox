@@ -1,5 +1,5 @@
 ---
-layout: default
+template: default.html
 title: Media Object
 ---
 
@@ -19,7 +19,7 @@ title: Media Object
   <div class="Grid-cell">
     <div class="Demo">
       <div class="Media">
-        <img class="Media-figure Image" src="{{ '/images/kitten.jpg' | absolute }}" alt="Kitten">
+        <img class="Media-figure Image" src="/images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
           <h3 class="Demo-title">Standard Media Object</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar augue.</p>
@@ -28,7 +28,7 @@ title: Media Object
     </div>
     <div class="Demo">
       <div class="Media">
-        <img class="Media-figure Image" src="{{ '/images/kitten.jpg' | absolute }}" alt="Kitten">
+        <img class="Media-figure Image" src="/images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
           <h3 class="Demo-title">Standard Media Object</h3>
           <p>Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.</p>
@@ -39,7 +39,7 @@ title: Media Object
   <div class="Grid-cell">
     <div class="Demo">
       <div class="Media Media--reverse">
-        <img class="Media-figure Image" src="{{ '/images/kitten.jpg' | absolute }}" alt="Kitten">
+        <img class="Media-figure Image" src="/images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
           <h3 class="Demo-title">Media Object Reversed</h3>
           <p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut. Integer gravida pharetra cursus. Nunc in suscipit nunc.</p>
@@ -82,13 +82,13 @@ title: Media Object
   <div class="Grid-cell">
     <div class="Demo">
       <div class="Media">
-        <img class="Media-figure Image" src="{{ '/images/kitten.jpg' | absolute }}" alt="Kitten">
+        <img class="Media-figure Image" src="/images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
           <p><strong>Media Object Title</strong><br>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo.</p>
           <div class="Demo u-smaller">
             <div class="Media">
               <figure class="Media-figure">
-                <img class="Image Image--tiny" src="{{ '/images/kitten.jpg' | absolute }}" alt="Kitten">
+                <img class="Image Image--tiny" src="/images/kitten.jpg" alt="Kitten">
               </figure>
               <p class="Media-body">
                 Mauris porta arcu id magna adipiscing lacinia at congue lacus. Vivamus blandit quam quis tincidunt egestas. Etiam posuere lectus sed sapien malesuada molestie.
@@ -98,7 +98,7 @@ title: Media Object
           <div class="Demo u-smaller">
             <div class="Media">
               <figure class="Media-figure">
-                <img class="Image Image--tiny" src="{{ '/images/kitten.jpg' | absolute }}" alt="Kitten">
+                <img class="Image Image--tiny" src="/images/kitten.jpg" alt="Kitten">
               </figure>
               <div class="Media-body">
                 <p>Vestibulum ac turpis non lacus dignissim dignissim eu sed dui. Proin a ligula sit amet massa malesuada mattis eu a ante. Nunc porttitor sed quam quis sollicitudin. Vestibulum ac turpis non lacus dignissim dignissim eu sed dui.</p>
@@ -117,7 +117,7 @@ title: Media Object
   <div class="Grid-cell">
     <div class="Demo">
       <div class="Media">
-        <img class="Media-figure Image" src="{{ '/images/kitten.jpg' | absolute }}" alt="Kitten">
+        <img class="Media-figure Image" src="/images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
           <p><strong>Media Object Title</strong><br>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut.</p>
           <div class="Media Media--center u-smaller">
@@ -127,7 +127,7 @@ title: Media Object
           <div class="Demo u-smaller">
             <div class="Media">
               <figure class="Media-figure">
-                <img class="Image Image--tiny" src="{{ '/images/kitten.jpg' | absolute }}" alt="Kitten">
+                <img class="Image Image--tiny" src="/images/kitten.jpg" alt="Kitten">
               </figure>
               <p class="Media-body">
                 Mauris porta arcu id magna adipiscing lacinia at congue lacus. Vivamus blandit quam quis tincidunt egestas. Etiam posuere lectus sed sapien malesuada molestie. Aliquam vitae pharetra dolor. Nullam non mattis nunc.
@@ -142,14 +142,17 @@ title: Media Object
 
 <h2>The HTML</h2>
 
-<pre class="highlight"><code class="language-xml">&lt;div class="Media">
-  &lt;img class="Media-figure" src="" alt="">
-  &lt;p class="Media-body">...&lt;/p>
-&lt;/div></code></pre>
+```xml
+<div class="Media">
+  <img class="Media-figure" src="" alt="">
+  <p class="Media-body">...</p>
+</div>
+```
 
 <h2>The CSS</h2>
 
-<pre class="highlight"><code class="language-css">.Media {
+```css
+.Media {
   display: flex;
   align-items: flex-start;
 }
@@ -161,6 +164,6 @@ title: Media Object
 .Media-body {
   flex: 1;
 }
-</code></pre>
+```
 
 <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_media.scss">source</a> for the <code>Media</code> component used in this demo on Github.</p>

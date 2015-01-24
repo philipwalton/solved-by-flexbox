@@ -1,5 +1,5 @@
 ---
-layout: default
+template: default.html
 title: Vertical Centering
 ---
 
@@ -40,15 +40,18 @@ title: Vertical Centering
 
 <h2>The HTML</h2>
 
-<pre class="highlight"><code class="language-xml">&lt;div class="Aligner">
-  &lt;div class="Aligner-item Aligner-item--top">...&lt;/div>
-  &lt;div class="Aligner-item">...&lt;/div>
-  &lt;div class="Aligner-item Aligner-item--bottom">...&lt;/div>
-&lt;/div></code></pre>
+```xml
+<div class="Aligner">
+  <div class="Aligner-item Aligner-item--top">...</div>
+  <div class="Aligner-item">...</div>
+  <div class="Aligner-item Aligner-item--bottom">...</div>
+</div>
+```
 
 <h2>The CSS</h2>
 
-<pre class="highlight"><code class="language-css">.Aligner {
+```css
+.Aligner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,6 +67,7 @@ title: Vertical Centering
 
 .Aligner-item--bottom {
   align-self: flex-end;
-}</code></pre>
+}
+```
 
 <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss">source</a> for the <code>Aligner</code> component used in this demo on Github.</p>

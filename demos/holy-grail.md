@@ -1,5 +1,5 @@
 ---
-layout: holy-grail
+template: holy-grail.html
 title: Holy Grail Layout
 ---
 
@@ -25,21 +25,24 @@ title: Holy Grail Layout
 
 <h2>The HTML</h2>
 
-<pre class="highlight"><code class="language-xml">&lt;body class="HolyGrail">
-  &lt;header>...&lt;/header>
-  &lt;div class="HolyGrail-body">
-    &lt;main class="HolyGrail-content">...&lt;/main>
-    &lt;nav class="HolyGrail-nav">...&lt;/nav>
-    &lt;aside class="HolyGrail-ads">...&lt;/aside>
-  &lt;/div>
-  &lt;footer>...&lt;/footer>
-&lt;/body></code></pre>
+```html
+<body class="HolyGrail">
+  <header>...</header>
+  <div class="HolyGrail-body">
+    <main class="HolyGrail-content">...</main>
+    <nav class="HolyGrail-nav">...</nav>
+    <aside class="HolyGrail-ads">...</aside>
+  </div>
+  <footer>...</footer>
+</body>
+```
 
 <h2>The CSS</h2>
 
-<p>Geting the center content row to stretch and the footer to stick to the bottom is solved with the same technique shown in the <a href="{{ '/demos/sticky-footer/' | absolute }}">Sticky Footer</a> example. The only difference is the center row of the Holy Grail layout (<code>.HolyGrail-body</code>) needs to be <code>display:flex</code> in order to properly arrange its children.</p>
+<p>Geting the center content row to stretch and the footer to stick to the bottom is solved with the same technique shown in the <a href="/demos/sticky-footer/">Sticky Footer</a> example. The only difference is the center row of the Holy Grail layout (<code>.HolyGrail-body</code>) needs to be <code>display:flex</code> in order to properly arrange its children.</p>
 
-<pre class="highlight"><code class="language-css">.HolyGrail {
+```css
+.HolyGrail {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -48,11 +51,13 @@ title: Holy Grail Layout
 .HolyGrail-body {
   display: flex;
   flex: 1;
-}</code></pre>
+}
+```
 
 <p>Styling three equal-height columns with a fluid center and fixed-width sidebars is just as easy:</p>
 
-<pre class="highlight"><code class="language-css">.HolyGrail-content {
+```css
+.HolyGrail-content {
   flex: 1;
 }
 
@@ -64,7 +69,8 @@ title: Holy Grail Layout
 .HolyGrail-nav {
   /* put the nav on the left */
   order: -1;
-}</code></pre>
+}
+```
 
 <h3>Being Responsive</h3>
 
@@ -74,7 +80,8 @@ title: Holy Grail Layout
 
 <p>Here's a complete example that is responsive and mobile-first. You can also resize this browser window to see it in action.</p>
 
-<pre class="highlight"><code class="language-css">.HolyGrail,
+```css
+.HolyGrail,
 .HolyGrail-body {
   display: flex;
   flex-direction: column;
@@ -97,6 +104,7 @@ title: Holy Grail Layout
     flex: 0 0 12em;
   }
 }
-</code></pre>
+
+```
 
 <p class="u-smaller u-spaceBN">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_holy-grail.scss">source</a> for the <code>HolyGrail</code> component used in this demo on Github.</p>

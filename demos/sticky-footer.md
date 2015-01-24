@@ -1,5 +1,5 @@
 ---
-layout: default
+template: default.html
 title: Sticky Footer
 ---
 
@@ -20,15 +20,18 @@ title: Sticky Footer
 
   <h2>The HTML</h2>
 
-<pre class="highlight"><code class="language-xml">&lt;body class="Site">
-  &lt;header>...&lt;/header>
-  &lt;main class="Site-content">...&lt;/main>
-  &lt;footer>...&lt;/footer>
-&lt;/body></code></pre>
+```xml
+<body class="Site">
+  <header>...</header>
+  <main class="Site-content">...</main>
+  <footer>...</footer>
+</body>
+```
 
-  <h2>The CSS</h2>
+<h2>The CSS</h2>
 
-<pre class="highlight"><code class="language-css">.Site {
+```css
+.Site {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -36,7 +39,8 @@ title: Sticky Footer
 
 .Site-content {
   flex: 1;
-}</code></pre>
+}
+```
 
   <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_site.scss">source</a> for the <code>Site</code> component used in this demo on Github.</p>
 
@@ -44,16 +48,16 @@ title: Sticky Footer
 
 <script>
   (function() {
-    var collapseTrigger = document.getElementById("collapse-trigger")
-      , collapseableContent = document.getElementById("collapsable-content")
-      , isCollapsed = false
+    var collapseTrigger = document.getElementById("collapse-trigger");
+    var collapseableContent = document.getElementById("collapsable-content");
+    var isCollapsed = false;
     collapseTrigger.addEventListener("click", function() {
       if (isCollapsed) {
-        collapseableContent.classList.remove("u-hidden")
+        collapseableContent.classList.remove("u-hidden");
       } else {
-        collapseableContent.classList.add("u-hidden")
+        collapseableContent.classList.add("u-hidden");
       }
-      isCollapsed = !isCollapsed
-    }, false)
-  }())
+      isCollapsed = !isCollapsed;
+    }, false);
+  }());
 </script>

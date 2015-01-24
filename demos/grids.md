@@ -1,8 +1,7 @@
 ---
-layout: default
+template: default.html
 title: Better, Simpler Grid Systems
 ---
-
 
 <h1>Better, Simpler Grid Systems</h1>
 
@@ -263,28 +262,33 @@ title: Better, Simpler Grid Systems
 
 <h2>The HTML</h2>
 
-<pre class="highlight"><code class="language-xml">&lt;div class="Grid">
-  &lt;div class="Grid-cell">...&lt;/div>
-  &lt;div class="Grid-cell">...&lt;/div>
-  &lt;div class="Grid-cell">...&lt;/div>
-&lt;/div></code></pre>
+```html
+<div class="Grid">
+  <div class="Grid-cell">...</div>
+  <div class="Grid-cell">...</div>
+  <div class="Grid-cell">...</div>
+</div>
+```
 
 <h2>The CSS</h2>
 
 <h3>Basic Grid Styles</h3>
 
-<pre class="highlight"><code class="language-css">.Grid {
+```css
+.Grid {
   display: flex;
 }
 
 .Grid-cell {
   flex: 1;
 }
-</code></pre>
+
+```
 
 <h3>Grid Style Modifiers</h3>
 
-<pre class="highlight"><code class="language-css">/* With gutters */
+```css
+/* With gutters */
 .Grid--gutters {
   margin-left: -1em;
 }
@@ -312,11 +316,13 @@ title: Better, Simpler Grid Systems
 }
 .Grid-cell--center {
   align-self: center;
-}</code></pre>
+}
+```
 
 <h3>Responsive Modifiers (a mobile-first approach)</h3>
 
-<pre class="highlight"><code class="language-css">/* Base classes for all media */
+```css
+/* Base classes for all media */
 .Grid--fit > .Grid-cell {
   flex: 1;
 }
@@ -369,6 +375,7 @@ title: Better, Simpler Grid Systems
   .large-Grid--1of4 > .Grid-cell {
     flex: 0 0 25%
   }
-}</code></pre>
+}
+```
 
 <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_grid.scss">source</a> for the <code>Grid</code> component used in this demo on Github.</p>

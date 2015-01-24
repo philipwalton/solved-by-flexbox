@@ -1,5 +1,5 @@
 ---
-layout: default
+template: default.html
 title: Input Add-ons
 ---
 
@@ -56,29 +56,31 @@ title: Input Add-ons
 
 <h2>The HTML</h2>
 
-<pre class="highlight"><code>&lt;!-- appending -->
-&lt;div class="InputAddOn">
-  &lt;input class="InputAddOn-field">
-  &lt;button class="InputAddOn-item">...&lt;/button>
-&lt;/div>
+```html
+<!-- appending -->
+<div class="InputAddOn">
+  <input class="InputAddOn-field">
+  <button class="InputAddOn-item">...</button>
+</div>
 
-&lt;!-- prepending -->
-&lt;div class="InputAddOn">
-  &lt;span class="InputAddOn-item">...&lt;/span>
-  &lt;input class="InputAddOn-field">
-&lt;/div>
+<!-- prepending -->
+<div class="InputAddOn">
+  <span class="InputAddOn-item">...</span>
+  <input class="InputAddOn-field">
+</div>
 
-&lt;!-- both -->
-&lt;div class="InputAddOn">
-  &lt;span class="InputAddOn-item">...&lt;/span>
-  &lt;input class="InputAddOn-field">
-  &lt;button class="InputAddOn-item">...&lt;/button>
-&lt;/div>
-</code></pre>
+<!-- both -->
+<div class="InputAddOn">
+  <span class="InputAddOn-item">...</span>
+  <input class="InputAddOn-field">
+  <button class="InputAddOn-item">...</button>
+</div>
+```
 
 <h2>The CSS</h2>
 
-<pre class="highlight"><code>.InputAddOn {
+```css
+.InputAddOn {
   display: flex;
 }
 
@@ -91,6 +93,6 @@ title: Input Add-ons
   /* item styles */
 }
 
-</code></pre>
+```
 
 <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_input-add-on.scss">source</a> for the <code>InputAddOn</code> component used in this demo on Github.</p>
