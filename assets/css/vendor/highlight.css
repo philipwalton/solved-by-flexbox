@@ -1,0 +1,9 @@
+@import "highlight.js/styles/github";
+
+pre {
+  padding: 1em 1.5em;
+  margin: 0 0 1em;
+  border-radius: 3px;
+  background: hsla(31, 15%, 50%, 0.1);
+  font-size: 0.85em;
+}

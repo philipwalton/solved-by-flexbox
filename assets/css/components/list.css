@@ -1,0 +1,18 @@
+@import '../base/breakpoints';
+
+.List {
+  list-style: square;
+  margin: 0 0 1em;
+  padding: 0 0 0 1.5em;
+}
+.List li {
+  margin-bottom: 0.2em;
+}
+
+@media (--break-md) {
+  .List--centered {
+    padding: 0;
+    text-align: center;
+    list-style-position: inside;
+  }
+}

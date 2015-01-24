@@ -1,0 +1,54 @@
+@import '../base/breakpoints';
+
+.Footer {
+  padding: 1.5rem 1.5rem;
+  background: gray(25%);
+  color: gray(60%);
+  font-size: 0.85em;
+  text-align: center;
+}
+
+.Footer a {
+  padding-bottom: 1px;
+  border: 0;
+  color: gray(90%);
+}
+.Footer a:focus,
+.Footer a:active,
+.Footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.Footer-credits {
+  margin: 0;
+  padding: 0;
+}
+
+.Footer-credit {
+  display: block;
+  margin: 0;
+}
+
+.Footer-creditSeparator {
+  display: none;
+}
+
+/* If loading the social button fails */
+.Footer-social a,
+.Footer-social iframe {
+  display: inline-block;
+  margin: 0 0 1em;
+  vertical-align: top;
+}
+
+@media (--break-md) {
+  .Footer-credit {
+    display: inline-block;
+    margin: 0 0.25em;
+  }
+  .Footer-creditSeparator {
+    display: inline-block;
+    padding: 0 0.25em;
+  }
+}

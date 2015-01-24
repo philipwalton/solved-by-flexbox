@@ -1,0 +1,105 @@
+@import '../base/breakpoints';
+
+.Header {
+  padding: 1.5em;
+  background-color: rgba(147, 128, 108, 0.1);
+  text-align: center;
+}
+@media (--break-lg) {
+  .Header {
+    padding: 3em 1.5em;
+  }
+}
+
+.Header-title {
+  margin: 0 0 0.15em;
+  font-size: 1.8em;
+  line-height: 1;
+  word-spacing: 0.08em;
+}
+.Header-title i {
+  font-family: serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+.Header-title a {
+  border: 0;
+  color: inherit;
+  font-weight: inherit;
+}
+.Header-title a:focus, .Header-title a:hover, .Header-title a:active {
+  text-decoration: none;
+}
+@media (--break-lg) {
+  .Header-title {
+    font-size: 4em;
+  }
+}
+
+.Header-subTitle {
+  margin: 0 0 1.5em;
+  font: 300 0.8em "proxima-nova", sans-serif;
+  white-space: nowrap;
+}
+@media (--break-lg) {
+  .Header-subTitle {
+    margin: 1em 0 1.75em;
+    font-size: 1.1em;
+  }
+}
+
+.Header-actions {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  font-size: 0.9em;
+}
+@media (--break-sm) {
+  .Header-actions {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+@media (--break-lg) {
+  .Header-actions {
+    font-size: 1.1em;
+  }
+}
+
+.Header-button:first-child {
+  margin: 0 0 1em;
+}
+@media (--break-sm) {
+  .Header-button:first-child {
+    margin: 0 1em 0 0;
+  }
+}
+
+@media (--break-lg) {
+  .Header--cozy {
+    display: flex;
+    padding: 1.5em;
+    align-items: center;
+  }
+  .Header--cozy .Header-titles {
+    display: flex;
+    align-items: baseline;
+  }
+  .Header--cozy .Header-title {
+    font-size: 1.5em;
+  }
+  .Header--cozy .Header-subTitle {
+    margin: 0 0 0 1em;
+    font-family: "proxima-nova";
+    font-size: 0.8em;
+    font-weight: 300;
+    color: gray;
+  }
+  .Header--cozy .Header-actions {
+    flex: 1;
+    justify-content: flex-end;
+    font-size: 0.9em;
+  }
+}
