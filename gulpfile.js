@@ -11,6 +11,7 @@ var gulpIf = require('gulp-if');
 var gutil = require('gulp-util');
 var he = require('he');
 var hljs = require('highlight.js');
+var htmlmin = require('gulp-htmlmin');
 var jshint = require('gulp-jshint');
 var nunjucks = require('nunjucks');
 var path = require('path');
@@ -130,6 +131,17 @@ gulp.task('pages', function() {
           path.basename = 'index';
           path.extname = '.html';
         }
+      }))
+      .pipe(htmlmin({
+        removeComments: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        minifyJS: true,
+        minifyCSS: true
       }))
       .pipe(gulp.dest(buildDir));
 });
