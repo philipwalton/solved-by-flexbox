@@ -1,3 +1,4 @@
+var argv = require('yargs').argv;
 var assign = require('object-assign');
 var buffer = require('vinyl-buffer');
 var browserify = require('browserify');
@@ -178,7 +179,9 @@ gulp.task('default', ['clean', 'css', 'images', 'javascript', 'pages']);
 
 
 gulp.task('serve', ['default'], function() {
-  connect().use(serveStatic(buildDir)).listen(3000);
+  var port = argv.port || argv.p || 4000;
+  connect().use(serveStatic(buildDir)).listen(port);
+
   gulp.watch('./assets/css/**/*.css', ['css']);
   gulp.watch('./assets/images/*', ['images']);
   gulp.watch('./assets/javascript/*', ['javascript']);
