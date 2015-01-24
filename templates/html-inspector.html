@@ -1,0 +1,16 @@
+{% if env == 'dev' %}
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html-inspector/0.8.1/html-inspector.js"></script>
+  <script>
+    HTMLInspector.rules.extend('unused-classes', function(config) {
+      config.whitelist = config.whitelist.concat([/^icon/, /^wf-/, /^hljs-/]);
+      return config;
+    })
+
+    HTMLInspector.rules.extend('script-placement', function(config) {
+      config.whitelist = config.whitelist.concat(['.js-allow-before-footer']);
+      return config;
+    });
+
+    HTMLInspector.inspect({excludeElements: ['svg', 'iframe']});
+  </script>
+{% endif %}

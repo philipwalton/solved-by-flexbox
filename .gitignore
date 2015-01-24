@@ -1,25 +1,9 @@
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.orig
-*.log
-*.rej
-*.swo
-*.swp
-*.vi
-*~
-*.sass-cache
-
-# Ignore bower componnents
-bower_components
-
 # OS or Editor folders
 .DS_Store
-Thumbs.db
-.cache
+
+# Node modules
+node_modules
+npm-debug.log
 
 # Static site output
-_site
-
-# Don't track the main CSS file
-css
+build

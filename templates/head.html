@@ -1,0 +1,35 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}Solved By Flexbox &mdash; Cleaner, hack-free CSS</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox.">
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/main.css" rel="stylesheet" type="text/css">
+
+  <script class="js-allow-before-footer" src="//use.typekit.net/txx2jfv.js"></script>
+  <script class="js-allow-before-footer">try{Typekit.load();}catch(e){}</script>
+
+  <script class="js-allow-before-footer">
+    // Google Analytics async snippet:
+    // http://goo.gl/3FPNDx
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-21292978-1', 'auto');
+
+    {% if env == 'dev' %}
+      // In non-production mode, simply log GA hits to the console.
+      // Note, tasks must be set before sending the first hit
+      ga(function(tracker) {
+        tracker.set('sendHitTask', function() {
+          // Throw to stop subsequent tasks.
+          throw 'Abort tracking in non-production environments.'
+        });
+      });
+    {% endif %}
+  </script>
+</head>

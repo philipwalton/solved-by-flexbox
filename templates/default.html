@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include 'head.html' %}
+  <body class="Site">
+    <header class="Site-header">
+      <div class="Header Header--cozy" role="banner">
+        {% include 'header.html' %}
+      </div>
+    </header>
+    <main class="Site-content">
+      <div class="Container">
+        <h1>{{ title }}</h1>
+        {{ content }}
+      </div>
+    </main>
+    <footer class="Site-footer">
+      <div class="Footer">
+        {% include 'footer.html' %}
+      </div>
+    </footer>
+    {% include 'scripts.html' %}
+  </body>
+</html>

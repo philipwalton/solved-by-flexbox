@@ -1,0 +1,41 @@
+.Button {
+  transition: background-color 0.2s;
+  display: inline-block;
+  padding: 0.6em 1em;
+  background: hsla(31, 15%, 50%, 0.15);
+  color: inherit;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 0.8125em;
+  font-weight: 300;
+  line-height: normal;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.Button:focus {
+  outline: thin dotted #666;
+  text-decoration:none;
+}
+.Button:active,
+.Button:focus,
+.Button:hover {
+  border: 0;
+  background: hsla(31, 15%, 50%, 0.25);
+  text-decoration:none;
+}
+
+.Button--action {
+  background-color: hsl(150, 45%, 50%);
+  color: #fff;
+}
+.Button--action:active,
+.Button--action:focus,
+.Button--action:hover {
+  background-color: hsl(150, 45%, 40%);
+}
+
+.Button--wide {
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+}
