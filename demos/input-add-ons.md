@@ -3,13 +3,13 @@ template: default.html
 title: Input Add-ons
 ---
 
-<h1>Input Add-ons</h1>
+# Input Add-ons
 
-<p>Because of the way input sizing works in CSS, it's almost impossible to append or prepend another element to it and have the input field behave fluidly and take up the remaining space.</p>
+Because of the way input sizing works in CSS, it's almost impossible to append or prepend another element to it and have the input field behave fluidly and take up the remaining space.
 
-<p>The only existing way to do this is to either know the exact width of the input, or to use something like <code>display:table-cell</code>, which has its own set of problems, most notably the difficulty with positioning anything absolutely inside of the add-on in certain browsers.</p>
+The only existing way to do this is to either know the exact width of the input, or to use something like `display:table-cell`, which has its own set of problems, most notably the difficulty with positioning anything absolutely inside of the add-on in certain browsers.
 
-<p>With Flexbox, all these problems go away, and the code is trivially simple. In addition, you get the input field and the input add-on to be the same height for free.</p>
+With Flexbox, all these problems go away, and the code is trivially simple. In addition, you get the input field and the input add-on to be the same height for free.
 
 <div class="Grid Grid--gutters Grid--full med-Grid--fit">
   <div class="Grid-cell">
@@ -36,7 +36,8 @@ title: Input Add-ons
   </div>
 </div>
 
-<h2>Appended and Prepended Add-ons</h2>
+## Appended and Prepended Add-ons
+
 <div class="Grid Grid--gutters Grid--full med-Grid--fit">
   <div class="Grid-cell">
     <div class="InputAddOn">
@@ -54,7 +55,7 @@ title: Input Add-ons
   </div>
 </div>
 
-<h2>The HTML</h2>
+## The HTML
 
 ```html
 <!-- appending -->
@@ -77,7 +78,7 @@ title: Input Add-ons
 </div>
 ```
 
-<h2>The CSS</h2>
+## The CSS
 
 ```css
 .InputAddOn {
@@ -95,4 +96,8 @@ title: Input Add-ons
 
 ```
 
-<p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_input-add-on.scss">source</a> for the <code>InputAddOn</code> component used in this demo on Github.</p>
+<div class="u-smaller">
+
+View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_input-add-on.scss) for the `InputAddOn` component used in this demo on Github.
+
+</div>

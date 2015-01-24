@@ -3,21 +3,21 @@ template: default.html
 title: Better, Simpler Grid Systems
 ---
 
-<h1>Better, Simpler Grid Systems</h1>
+# Better, Simpler Grid Systems
 
-<p>Most grid systems today use one of two layout methods: <code>float</code> or <code>inline-block</code>. But neither of these methods were really intended to be used for layout and as a result have pretty significant problems and limitations.</p>
+Most grid systems today use one of two layout methods: `float` or `inline-block`. But neither of these methods were really intended to be used for layout and as a result have pretty significant problems and limitations.
 
-<p>Using floats requires clearing them which has a whole host of layout issues, most notoriously that clearing an element sometimes forces it below an unrelated part of the page (take this <a href="https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969">Bootstrap issue</a> for example). In addition, clearing floats usually requires using both before and after pseudo-elements, preventing you from using them for something else.</p>
+Using floats requires clearing them which has a whole host of layout issues, most notoriously that clearing an element sometimes forces it below an unrelated part of the page (take this [Bootstrap issue](https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969) for example). In addition, clearing floats usually requires using both before and after pseudo-elements, preventing you from using them for something else.
 
-<p>Inline block layouts must address the problem of <a href="http://css-tricks.com/fighting-the-space-between-inline-block-elements/">white-space between inline-block items</a>, and all of the <a href="http://davidwalsh.name/remove-whitespace-inline-block">solutions</a> to that problem are <a href="https://github.com/suitcss/grid/blob/master/grid.css#L44-L45">hacky</a> and <a href="https://twitter.com/thierrykoblentz/status/305152267374428160">annoying</a>.</p>
+Inline block layouts must address the problem of [white-space between inline-block items](http://css-tricks.com/fighting-the-space-between-inline-block-elements/), and all of the [solutions](http://davidwalsh.name/remove-whitespace-inline-block) to that problem are [hacky](https://github.com/suitcss/grid/blob/master/grid.css#L44-L45) and [annoying](https://twitter.com/thierrykoblentz/status/305152267374428160).
 
-<p>Flexbox not only eliminates these problems, it opens up an entirely new world of possibilities.</p>
+Flexbox not only eliminates these problems, it opens up an entirely new world of possibilities.
 
-<h2>Features of a Flexbox Grid System</h2>
+## Features of a Flexbox Grid System
 
-<p>Grid systems usually come with a myriad of sizing options, but the vast majority of the time you just want two or three elements side-by-side. Given this, why should we be required to put sizing classes on every single cell?</p>
+Grid systems usually come with a myriad of sizing options, but the vast majority of the time you just want two or three elements side-by-side. Given this, why should we be required to put sizing classes on every single cell?
 
-<p>Listed below are some of my criteria for an ideal grid system. Fortunately, with Flexbox we get most of these features for free.</p>
+Listed below are some of my criteria for an ideal grid system. Fortunately, with Flexbox we get most of these features for free.
 
 <ul class="List">
   <li>By default, each grid cell is the same width and height as every other cell in the row. Basically they all size to fit by default.</li>
@@ -29,9 +29,9 @@ title: Better, Simpler Grid Systems
   <li>Grids can be nested as many levels deep as needed.</li>
 </ul>
 
-<h3>Basic Grids</h3>
+### Basic Grids
 
-<p>The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. They're also equal height by default.</p>
+The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. They're also equal height by default.
 
 <div class="Grid Grid--gutters u-textCenter">
   <div class="Grid-cell">
@@ -83,11 +83,11 @@ title: Better, Simpler Grid Systems
   </div>
 </div>
 
-<h3>Individual Sizing</h3>
+### Individual Sizing
 
-<p>When equal widths aren't what you want, you can add sizing classes to individual cells. Cells without sizing classes simply divide up the remaining space as normal.</p>
+When equal widths aren't what you want, you can add sizing classes to individual cells. Cells without sizing classes simply divide up the remaining space as normal.
 
-<p>The cells below labeled "auto" do not have sizing classes specified.</p>
+The cells below labeled "auto" do not have sizing classes specified.
 
 <div class="Grid Grid--gutters u-textCenter">
   <div class="Grid-cell u-1of2">
@@ -122,11 +122,11 @@ title: Better, Simpler Grid Systems
   </div>
 </div>
 
-<h3>Responsive</h3>
+### Responsive
 
-<p>Responsive Grids work by adding media classes to the Grid cells or containers. When those media values are met, the grids automatically adjust accordingly.</p>
+Responsive Grids work by adding media classes to the Grid cells or containers. When those media values are met, the grids automatically adjust accordingly.
 
-<p>The cells below should be full width by default and scaled to fit above <code>48em</code>. Resize your browser to see them in action.</p>
+The cells below should be full width by default and scaled to fit above `48em`. Resize your browser to see them in action.
 
 <div class="Grid Grid--gutters Grid--full large-Grid--fit u-textCenter">
   <div class="Grid-cell">
@@ -148,9 +148,9 @@ title: Better, Simpler Grid Systems
   </div>
 </div>
 
-<h3>Grid-ception</h3>
+### Grid-ception
 
-<p>Grid components are infinitely nestable inside of other grid components.</p>
+Grid components are infinitely nestable inside of other grid components.
 
 <div class="Grid Grid--gutters Grid--flexCells u-textCenter">
   <div class="Grid-cell">
@@ -179,9 +179,9 @@ title: Better, Simpler Grid Systems
   </div>
 </div>
 
-<h2>Alignment Features</h2>
+## Alignment Features
 
-<h3>Top-aligned Grid Cells</h3>
+### Top-aligned Grid Cells
 
 <div class="Grid Grid--gutters Grid--top">
   <div class="Grid-cell">
@@ -201,7 +201,7 @@ title: Better, Simpler Grid Systems
   </div>
 </div>
 
-<h3>Bottom-aligned Grid Cells</h3>
+### Bottom-aligned Grid Cells
 
 <div class="Grid Grid--gutters Grid--bottom">
   <div class="Grid-cell">
@@ -221,7 +221,7 @@ title: Better, Simpler Grid Systems
   </div>
 </div>
 
-<h3>Vertically Centered Grid Cells</h3>
+### Vertically Centered Grid Cells
 
 <div class="Grid Grid--gutters Grid--center">
   <div class="Grid-cell">
@@ -235,8 +235,7 @@ title: Better, Simpler Grid Systems
   </div>
 </div>
 
-
-<h3>Mixed Vertical Alignment</h3>
+### Mixed Vertical Alignment
 
 <div class="Grid Grid--gutters">
   <div class="Grid-cell Grid-cell--top">
@@ -260,7 +259,7 @@ title: Better, Simpler Grid Systems
   </div>
 </div>
 
-<h2>The HTML</h2>
+## The HTML
 
 ```html
 <div class="Grid">
@@ -270,9 +269,9 @@ title: Better, Simpler Grid Systems
 </div>
 ```
 
-<h2>The CSS</h2>
+## The CSS
 
-<h3>Basic Grid Styles</h3>
+### Basic Grid Styles
 
 ```css
 .Grid {
@@ -285,7 +284,7 @@ title: Better, Simpler Grid Systems
 
 ```
 
-<h3>Grid Style Modifiers</h3>
+### Grid Style Modifiers
 
 ```css
 /* With gutters */
@@ -319,7 +318,7 @@ title: Better, Simpler Grid Systems
 }
 ```
 
-<h3>Responsive Modifiers (a mobile-first approach)</h3>
+### Responsive Modifiers (a mobile-first approach)
 
 ```css
 /* Base classes for all media */
@@ -378,4 +377,8 @@ title: Better, Simpler Grid Systems
 }
 ```
 
-<p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_grid.scss">source</a> for the <code>Grid</code> component used in this demo on Github.</p>
+<div class="u-smaller">
+
+View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_grid.scss) for the `Grid` component used in this demo on Github.
+
+</div>

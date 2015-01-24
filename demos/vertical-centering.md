@@ -3,15 +3,15 @@ template: default.html
 title: Vertical Centering
 ---
 
-<h1>Vertical Centering</h1>
+# Vertical Centering
 
-<p>The lack of good ways to vertically center elements in CSS has been a dark blemish on its reputation for pretty much its entire existence.</p>
+The lack of good ways to vertically center elements in CSS has been a dark blemish on its reputation for pretty much its entire existence.
 
-<p>What makes matters worse is the techniques that do work for vertical centering are obscure and unintuitive, while the obvious choices (like <code>vertical-align:middle</code>) never seem to work when you need them.</p>
+What makes matters worse is the techniques that do work for vertical centering are obscure and unintuitive, while the obvious choices (like `vertical-align:middle`) never seem to work when you need them.
 
-<p>The current landscape of <a href="http://css-tricks.com/centering-in-the-unknown/">vertical centering options</a> ranges from negative margins to <code>display:table-cell</code> to ridiculous hacks involving full-height pseudo-elements. Yet even though these techniques sometimes get the job done, they don't work in every situation. What if the thing you want to center is of unknown dimensions and isn't the only child of its parent? What if you could use the pseudo-element hack, but you need those pseudo-elements for something else?</p>
+The current landscape of [vertical centering options](http://css-tricks.com/centering-in-the-unknown/) ranges from negative margins to `display:table-cell` to ridiculous hacks involving full-height pseudo-elements. Yet even though these techniques sometimes get the job done, they don't work in every situation. What if the thing you want to center is of unknown dimensions and isn't the only child of its parent? What if you could use the pseudo-element hack, but you need those pseudo-elements for something else?
 
-<p>With Flexbox, you can stop worrying. You can align anything (vertically or horizontally) quite painlessly with the <code>align-items</code>, <code>align-self</code>, and <code>justify-content</code> properties.</p>
+With Flexbox, you can stop worrying. You can align anything (vertically or horizontally) quite painlessly with the `align-items`, `align-self`, and `justify-content` properties.
 
 <div class="Demo Aligner">
 
@@ -22,7 +22,7 @@ title: Vertical Centering
 
 </div>
 
-<p>Unlike some of the existing vertical alignment techniques, with Flexbox the presence of sibling elements doesn't affect their ability to be vertically aligned.</p>
+Unlike some of the existing vertical alignment techniques, with Flexbox the presence of sibling elements doesn't affect their ability to be vertically aligned.
 
 <div class="Demo Aligner">
 
@@ -38,9 +38,9 @@ title: Vertical Centering
 
 </div>
 
-<h2>The HTML</h2>
+## The HTML
 
-```xml
+```html
 <div class="Aligner">
   <div class="Aligner-item Aligner-item--top">…</div>
   <div class="Aligner-item">…</div>
@@ -48,7 +48,7 @@ title: Vertical Centering
 </div>
 ```
 
-<h2>The CSS</h2>
+## The CSS
 
 ```css
 .Aligner {
@@ -70,4 +70,8 @@ title: Vertical Centering
 }
 ```
 
-<p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss">source</a> for the <code>Aligner</code> component used in this demo on Github.</p>
+<div class="u-smaller">
+
+View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss) for the `Aligner` component used in this demo on Github.
+
+</div>

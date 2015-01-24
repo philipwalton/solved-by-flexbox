@@ -3,17 +3,17 @@ template: default.html
 title: Media Object
 ---
 
-<h1>The Media Object</h1>
+# The Media Object
 
-<p>The <a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code">media object</a> is the poster-child of Object Oriented CSS</a> (OOCSS). Its simplicity and utility have converted many a CSS developer (myself included) to the OOCSS methodology.</p>
+The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code) is the poster-child of Object Oriented CSS</a> (OOCSS). Its simplicity and utility have converted many a CSS developer (myself included) to the OOCSS methodology.
 
-<p>But like most CSS layout techniques, the media object must resort to tricks and hacks to accomplish its goals.</p>
+But like most CSS layout techniques, the media object must resort to tricks and hacks to accomplish its goals.
 
-<p>The media object's body must prevent text from wrapping below the image by either creating a <a href="http://www.stubbornella.org/content/2013/07/31/re-visiting-the-secret-power-of-block-fomatting-context/">block formatting context</a> or using a left margin/padding equal to the width of the image. The media object must also clearfix its body which requires either <code>overflow:hidden</code> or having to use the pseudo-elements.</p>
+The media object's body must prevent text from wrapping below the image by either creating a [block formatting context](http://www.stubbornella.org/content/2013/07/31/re-visiting-the-secret-power-of-block-fomatting-context/) or using a left margin/padding equal to the width of the image. The media object must also clearfix its body which requires either `overflow:hidden` or having to use the pseudo-elements.
 
-<p>With Flexbox these problems are solved. In addition, Flexbox allows us to vertically align the media object figure however we want. We can also easily align the figure to the right without needing to change the source order.</p>
+With Flexbox these problems are solved. In addition, Flexbox allows us to vertically align the media object figure however we want. We can also easily align the figure to the right without needing to change the source order.
 
-<h2>Basic Examples</h2>
+## Basic Examples
 
 <div class="Grid Grid--gutters Grid--full large-Grid--fit">
   <div class="Grid-cell">
@@ -49,7 +49,7 @@ title: Media Object
   </div>
 </div>
 
-<h2>Non-images</h2>
+## Non-images
 
 <div class="Grid Grid--gutters Grid--full large-Grid--fit">
   <div class="Grid-cell">
@@ -76,7 +76,7 @@ title: Media Object
   </div>
 </div>
 
-<h2>Nested Media Objects</h2>
+## Nested Media Objects
 
 <div class="Grid Grid--gutters Grid--full large-Grid--fit">
   <div class="Grid-cell">
@@ -140,16 +140,16 @@ title: Media Object
   </div>
 </div>
 
-<h2>The HTML</h2>
+## The HTML
 
-```xml
+```html
 <div class="Media">
   <img class="Media-figure" src="" alt="">
   <p class="Media-body">…</p>
 </div>
 ```
 
-<h2>The CSS</h2>
+## The CSS
 
 ```css
 .Media {
@@ -166,4 +166,8 @@ title: Media Object
 }
 ```
 
-<p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_media.scss">source</a> for the <code>Media</code> component used in this demo on Github.</p>
+<div class="u-smaller">
+
+View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_media.scss) for the `Media` component used in this demo on Github.
+
+</div>

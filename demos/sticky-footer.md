@@ -3,22 +3,25 @@ template: default.html
 title: Sticky Footer
 ---
 
-<h1>Sticky Footer</h1>
+# Sticky Footer
 
 <div class="Demo">
-  <p>Click the button below to hide the contents of this page. Notice how the footer sticks to the bottom of the window even when there's not enough content to fill the page.</p>
-  <button id="collapse-trigger" class="Button"><span class="icon-refresh u-spaceRS"></span> Toggle Contents</button>
+
+Click the button below to hide the contents of this page. Notice how the footer sticks to the bottom of the window even when there's not enough content to fill the page.
+
+<button id="collapse-trigger" class="Button"><span class="icon-refresh u-spaceRS"></span> Toggle Contents</button>
+
 </div>
 
 <div id="collapsable-content">
 
-  <p>Getting the footer to stick to the bottom of pages with sparse content is something just about every Web developer has tried to tackle at some point in his or her career. And, for the most part, it's a solved problem. Yet all the <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">existing</a> <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">solutions</a> have one significant shortcoming &mdash; they don't work if the height of your footer is unknown.</p>
+Getting the footer to stick to the bottom of pages with sparse content is something just about every Web developer has tried to tackle at some point in his or her career. And, for the most part, it's a solved problem. Yet all the [existing](http://ryanfait.com/resources/footer-stick-to-bottom-of-page/) [solutions](http://ryanfait.com/resources/footer-stick-to-bottom-of-page/) have one significant shortcoming &mdash; they don't work if the height of your footer is unknown.
 
-  <p>Flexbox is a perfect fit for this type of problem. While mostly known for laying out content in the horizontal direction, Flexbox actually works just as well for vertical layout problems. All you have to do is wrap the vertical sections in a flex container and choose which ones you want to expand. They'll automatically take up all the available space in their container.</p>
+Flexbox is a perfect fit for this type of problem. While mostly known for laying out content in the horizontal direction, Flexbox actually works just as well for vertical layout problems. All you have to do is wrap the vertical sections in a flex container and choose which ones you want to expand. They'll automatically take up all the available space in their container.
 
-  <p>In the example below, the container is set to the height of the window, and the content area is told to expand as needed. <em>(Note: in the vertical direction you need to specify a height for the container. This is different from the horizontal direction, which automatically expands to fit.)</em></p>
+In the example below, the container is set to the height of the window, and the content area is told to expand as needed. *(Note: in the vertical direction you need to specify a height for the container. This is different from the horizontal direction, which automatically expands to fit.)*
 
-  <h2>The HTML</h2>
+## The HTML
 
 ```xml
 <body class="Site">
@@ -28,7 +31,7 @@ title: Sticky Footer
 </body>
 ```
 
-<h2>The CSS</h2>
+## The CSS
 
 ```css
 .Site {
@@ -42,7 +45,11 @@ title: Sticky Footer
 }
 ```
 
-  <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_site.scss">source</a> for the <code>Site</code> component used in this demo on Github.</p>
+<div class="u-smaller">
+
+View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_site.scss) for the `Site` component used in this demo on Github.
+
+</div>
 
 </div>
 
