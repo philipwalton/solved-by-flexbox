@@ -18,7 +18,7 @@
   text-decoration:none;
 }
 .Button:active,
-.Button:focus
+.Button:focus,
 .Button:hover {
   border: 0;
   background: hsla(31, 15%, 50%, 0.25);
