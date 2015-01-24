@@ -3,7 +3,16 @@
   <h2 class="Header-subTitle">Cleaner, hack-free CSS</h2>
 </div>
 <div class="Header-actions">
-  <a href="https://github.com/philipwalton/solved-by-flexbox" class="Header-button Button Button--action Button--wide"><span class="icon-github icon-large"></span>&nbsp; View Project Source</a>
-
-  <a href="http://twitter.com/intent/tweet?text={{ 'A showcase of traditionally hard CSS problems, easily solved using flexbox.' | urlencode }}&url=http://philipwalton.github.com/solved-by-flexbox/&via=philwalton" class="Header-button Button Button--wide"><span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word</a>
+  <a class="Header-button Button Button--action Button--wide"
+     data-social-network="Github"
+     data-social-action="view-source"
+     href="https://github.com/philipwalton/solved-by-flexbox">
+    <span class="icon-github icon-large"></span>&nbsp; View Project Source
+  </a>
+  <a class="Header-button Button Button--wide"
+     data-social-network="Twitter"
+     data-social-action="tweet"
+     href="http://twitter.com/intent/tweet?text={{ 'A showcase of traditionally hard CSS problems, easily solved using flexbox.' | urlencode }}&url=http://philipwalton.github.com/solved-by-flexbox/&via=philwalton">
+    <span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word
+  </a>
 </div>

@@ -51,7 +51,7 @@ View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/ma
 
 </div>
 
-<script>
+<script class="js-allow-before-footer">
   (function() {
     var collapseTrigger = document.getElementById("collapse-trigger");
     var collapseableContent = document.getElementById("collapsable-content");

@@ -5,11 +5,10 @@ var parseUrl = require('./parse-url');
 
 
 var breakpoints = {
-  xs: '(max-width: 419px)',
-  sm: '(min-width: 420px) and (max-width: 569px)',
-  md: '(min-width: 570px) and (max-width: 799px)',
-  lg: '(min-width: 800px) and (max-width: 999px)',
-  xl: '(min-width: 1000px)'
+  xs: '(max-width: 383px)',
+  sm: '(min-width: 384px) and (max-width: 575px)',
+  md: '(min-width: 576px) and (max-width: 767px)',
+  lg: '(min-width: 768px)'
 };
 
 

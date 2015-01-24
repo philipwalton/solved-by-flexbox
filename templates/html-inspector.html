@@ -1,28 +1,16 @@
 {% if env == 'dev' %}
-
   <script src="http://cdnjs.cloudflare.com/ajax/libs/html-inspector/0.8.1/html-inspector.js"></script>
-
   <script>
-
-    HTMLInspector.rules.extend("unused-classes", function(config) {
-      config.whitelist = config.whitelist.concat([
-        // "twitter-follow-button",
-        /^icon/,
-        /^wf-/
-      ])
-      return config
+    HTMLInspector.rules.extend('unused-classes', function(config) {
+      config.whitelist = config.whitelist.concat([/^icon/, /^wf-/, /^hljs-/]);
+      return config;
     })
 
-    HTMLInspector.rules.extend("script-placement", function(config) {
-      config.whitelist = config.whitelist.concat([".js-allow-in-head"])
-      return config
-    })
+    HTMLInspector.rules.extend('script-placement', function(config) {
+      config.whitelist = config.whitelist.concat(['.js-allow-before-footer']);
+      return config;
+    });
 
-    // start the inspection
-    // HTMLInspector.inspect({
-    //   excludeElements: ["svg", "iframe"]
-    // })
-
+    HTMLInspector.inspect({excludeElements: ['svg', 'iframe']});
   </script>
-
 {% endif %}
