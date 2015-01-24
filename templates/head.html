@@ -10,8 +10,30 @@
   <meta name="description" content="A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox.">
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-  <link href="{{ '/css/style.css' | absolute }}" rel="stylesheet" type="text/css">
+  <link href="/main.css" rel="stylesheet" type="text/css">
 
   <script class="js-allow-in-head" src="//use.typekit.net/txx2jfv.js"></script>
   <script class="js-allow-in-head">try{Typekit.load();}catch(e){}</script>
+
+
+  <script id="ga-setup">
+    // Google Analytics async snippet:
+    // http://goo.gl/3FPNDx
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+
+    // In non-production mode, simply log GA hits to the console.
+    // Note, tasks must be set before sending the first hit
+    ga(function(tracker) {
+      tracker.set('sendHitTask', function() {
+        // Throw to stop subsequent tasks.
+        throw 'Abort tracking in non-production environments.'
+      });
+    });
+
+    // Create the GA tracker before doing any logging.
+    ga('create', 'UA-21292978-1', 'auto');
+  </script>
+
+  <script async src="//www.google-analytics.com/analytics-debug.js"></script>
+
 </head>
