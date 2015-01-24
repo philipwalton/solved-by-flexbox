@@ -3,6 +3,7 @@
 
 # Node modules
 node_modules
+npm-debug.log
 
 # Static site output
 build
