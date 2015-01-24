@@ -3,8 +3,6 @@ template: default.html
 title: Media Object
 ---
 
-# The Media Object
-
 The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code) is the poster-child of Object Oriented CSS</a> (OOCSS). Its simplicity and utility have converted many a CSS developer (myself included) to the OOCSS methodology.
 
 But like most CSS layout techniques, the media object must resort to tricks and hacks to accomplish its goals.

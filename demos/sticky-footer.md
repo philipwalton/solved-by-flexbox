@@ -3,8 +3,6 @@ template: default.html
 title: Sticky Footer
 ---
 
-# Sticky Footer
-
 <div class="Demo">
 
 Click the button below to hide the contents of this page. Notice how the footer sticks to the bottom of the window even when there's not enough content to fill the page.

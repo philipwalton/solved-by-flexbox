@@ -3,8 +3,6 @@ template: default.html
 title: Vertical Centering
 ---
 
-# Vertical Centering
-
 The lack of good ways to vertically center elements in CSS has been a dark blemish on its reputation for pretty much its entire existence.
 
 What makes matters worse is the techniques that do work for vertical centering are obscure and unintuitive, while the obvious choices (like `vertical-align:middle`) never seem to work when you need them.

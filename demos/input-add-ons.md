@@ -3,8 +3,6 @@ template: default.html
 title: Input Add-ons
 ---
 
-# Input Add-ons
-
 Because of the way input sizing works in CSS, it's almost impossible to append or prepend another element to it and have the input field behave fluidly and take up the remaining space.
 
 The only existing way to do this is to either know the exact width of the input, or to use something like `display:table-cell`, which has its own set of problems, most notably the difficulty with positioning anything absolutely inside of the add-on in certain browsers.
