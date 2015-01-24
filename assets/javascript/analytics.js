@@ -1,3 +1,5 @@
+/* global ga */
+
 var linkClicked = require('./link-clicked');
 var parseUrl = require('./parse-url');
 
