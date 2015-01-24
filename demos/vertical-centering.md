@@ -42,9 +42,9 @@ title: Vertical Centering
 
 ```xml
 <div class="Aligner">
-  <div class="Aligner-item Aligner-item--top">...</div>
-  <div class="Aligner-item">...</div>
-  <div class="Aligner-item Aligner-item--bottom">...</div>
+  <div class="Aligner-item Aligner-item--top">…</div>
+  <div class="Aligner-item">…</div>
+  <div class="Aligner-item Aligner-item--bottom">…</div>
 </div>
 ```
 

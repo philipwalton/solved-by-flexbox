@@ -60,20 +60,20 @@ title: Input Add-ons
 <!-- appending -->
 <div class="InputAddOn">
   <input class="InputAddOn-field">
-  <button class="InputAddOn-item">...</button>
+  <button class="InputAddOn-item">…</button>
 </div>
 
 <!-- prepending -->
 <div class="InputAddOn">
-  <span class="InputAddOn-item">...</span>
+  <span class="InputAddOn-item">…</span>
   <input class="InputAddOn-field">
 </div>
 
 <!-- both -->
 <div class="InputAddOn">
-  <span class="InputAddOn-item">...</span>
+  <span class="InputAddOn-item">…</span>
   <input class="InputAddOn-field">
-  <button class="InputAddOn-item">...</button>
+  <button class="InputAddOn-item">…</button>
 </div>
 ```
 

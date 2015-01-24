@@ -22,9 +22,9 @@ title: Sticky Footer
 
 ```xml
 <body class="Site">
-  <header>...</header>
-  <main class="Site-content">...</main>
-  <footer>...</footer>
+  <header>…</header>
+  <main class="Site-content">…</main>
+  <footer>…</footer>
 </body>
 ```
 

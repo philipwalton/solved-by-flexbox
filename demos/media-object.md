@@ -145,7 +145,7 @@ title: Media Object
 ```xml
 <div class="Media">
   <img class="Media-figure" src="" alt="">
-  <p class="Media-body">...</p>
+  <p class="Media-body">…</p>
 </div>
 ```
 

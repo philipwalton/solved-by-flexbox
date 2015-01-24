@@ -27,13 +27,13 @@ title: Holy Grail Layout
 
 ```html
 <body class="HolyGrail">
-  <header>...</header>
+  <header>…</header>
   <div class="HolyGrail-body">
-    <main class="HolyGrail-content">...</main>
-    <nav class="HolyGrail-nav">...</nav>
-    <aside class="HolyGrail-ads">...</aside>
+    <main class="HolyGrail-content">…</main>
+    <nav class="HolyGrail-nav">…</nav>
+    <aside class="HolyGrail-ads">…</aside>
   </div>
-  <footer>...</footer>
+  <footer>…</footer>
 </body>
 ```
 

@@ -264,9 +264,9 @@ title: Better, Simpler Grid Systems
 
 ```html
 <div class="Grid">
-  <div class="Grid-cell">...</div>
-  <div class="Grid-cell">...</div>
-  <div class="Grid-cell">...</div>
+  <div class="Grid-cell">…</div>
+  <div class="Grid-cell">…</div>
+  <div class="Grid-cell">…</div>
 </div>
 ```
 
