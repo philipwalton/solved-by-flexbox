@@ -6,28 +6,24 @@ A showcase of problems once hard or impossible to solve with CSS alone, now made
 
 ## Viewing the Site Locally
 
-The Solved by Flexbox site is built with [Jekyll](http://jekyllrb.com/) and depends on several other Ruby gems (e.g. [Sass](http://sass-lang.com/) and [Autoprefixer](https://github.com/ai/autoprefixer)).
-
-There are also a few client-side dependencies, which are managed with [Bower](http://bower.io).
-
-To install all the dependencies simply run the commands:
+The Solved by Flexbox site can be built with [io.js](https://iojs.org/) or [Node.js](http://nodejs.org/). If you have either of those installed on your system, you can run the following commands to build and serve a local copy.
 
 ```sh
-bundle install
-bower install
+# Clone the git repository and cd into the cloned directory.
+git clone git@github.com:philipwalton/solved-by-flexbox.git
+cd solved-by-flexbox
+
+# Install the dependencies
+npm install
+
+# Build and serve the site at http://localhost:4000
+npm start
 ```
 
-Once all the dependencies are installed, you can preview the site locally with the following rake task:
+This starts up a local server on port 4000. To view the site in your browser, navigate to [http://localhost:4000](http://localhost:4000). If you want to use a different port, you can pass the port number as an argument to `npm start`:
 
 ```sh
-rake preview
+npm start -- -p 8080
 ```
 
-This starts up a local server at port 4000. If you want to use a different port, you can pass the port number as an argument to the rake task:
-
-```sh
-rake preview[8080]
-```
-
-In addition to building the site and serving it locally, the `rake preview` task will also listen for any changes and rebuild as needed. This allows you to play around with the code, refresh the browser, and see your changes instantly.
-
+In addition to building the site and serving it locally, this will also listen for any changes and rebuild the site as needed. This allows you to play around with the code, refresh the browser, and see your changes instantly.
