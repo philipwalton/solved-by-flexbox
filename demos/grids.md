@@ -1,6 +1,7 @@
 ---
 template: default.html
 title: Better, Simpler Grid Systems
+excerpt: Flexbox gives us most of the features we want from a grid system out of the box. And sizing and alignment are just one or two properties away.
 ---
 
 Most grid systems today use one of two layout methods: `float` or `inline-block`. But neither of these methods were really intended to be used for layout and as a result have pretty significant problems and limitations.

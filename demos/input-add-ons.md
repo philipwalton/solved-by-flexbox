@@ -1,6 +1,7 @@
 ---
 template: default.html
 title: Input Add-ons
+excerpt: Creating full-width, fluid input/button pairs has been impossible for most of the history of CSS. With Flexbox it couldn't be easier.
 ---
 
 Because of the way input sizing works in CSS, it's almost impossible to append or prepend another element to it and have the input field behave fluidly and take up the remaining space.

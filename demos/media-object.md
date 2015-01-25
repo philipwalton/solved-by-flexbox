@@ -1,6 +1,7 @@
 ---
 template: default.html
 title: Media Object
+excerpt: Create media objects with fixed or varying figure sizes without worrying about overflow, clearfixing, or block formatting context hacks.
 ---
 
 The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code) is the poster-child of Object Oriented CSS</a> (OOCSS). Its simplicity and utility have converted many a CSS developer (myself included) to the OOCSS methodology.
@@ -17,7 +18,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
   <div class="Grid-cell">
     <div class="Demo">
       <div class="Media">
-        <img class="Media-figure Image" src="{{ baseUrl }}images/kitten.jpg" alt="Kitten">
+        <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
           <h3 class="Demo-title">Standard Media Object</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar augue.</p>
@@ -26,7 +27,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
     </div>
     <div class="Demo">
       <div class="Media">
-        <img class="Media-figure Image" src="{{ baseUrl }}images/kitten.jpg" alt="Kitten">
+        <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
           <h3 class="Demo-title">Standard Media Object</h3>
           <p>Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.</p>
@@ -37,7 +38,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
   <div class="Grid-cell">
     <div class="Demo">
       <div class="Media Media--reverse">
-        <img class="Media-figure Image" src="{{ baseUrl }}images/kitten.jpg" alt="Kitten">
+        <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
           <h3 class="Demo-title">Media Object Reversed</h3>
           <p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut. Integer gravida pharetra cursus. Nunc in suscipit nunc.</p>
@@ -80,13 +81,13 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
   <div class="Grid-cell">
     <div class="Demo">
       <div class="Media">
-        <img class="Media-figure Image" src="{{ baseUrl }}images/kitten.jpg" alt="Kitten">
+        <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
           <p><strong>Media Object Title</strong><br>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo.</p>
           <div class="Demo u-smaller">
             <div class="Media">
               <figure class="Media-figure">
-                <img class="Image Image--tiny" src="{{ baseUrl }}images/kitten.jpg" alt="Kitten">
+                <img class="Image Image--tiny" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
               </figure>
               <p class="Media-body">
                 Mauris porta arcu id magna adipiscing lacinia at congue lacus. Vivamus blandit quam quis tincidunt egestas. Etiam posuere lectus sed sapien malesuada molestie.
@@ -96,7 +97,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
           <div class="Demo u-smaller">
             <div class="Media">
               <figure class="Media-figure">
-                <img class="Image Image--tiny" src="{{ baseUrl }}images/kitten.jpg" alt="Kitten">
+                <img class="Image Image--tiny" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
               </figure>
               <div class="Media-body">
                 <p>Vestibulum ac turpis non lacus dignissim dignissim eu sed dui. Proin a ligula sit amet massa malesuada mattis eu a ante. Nunc porttitor sed quam quis sollicitudin. Vestibulum ac turpis non lacus dignissim dignissim eu sed dui.</p>
@@ -115,7 +116,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
   <div class="Grid-cell">
     <div class="Demo">
       <div class="Media">
-        <img class="Media-figure Image" src="{{ baseUrl }}images/kitten.jpg" alt="Kitten">
+        <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
           <p><strong>Media Object Title</strong><br>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut.</p>
           <div class="Media Media--center u-smaller">
@@ -125,7 +126,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
           <div class="Demo u-smaller">
             <div class="Media">
               <figure class="Media-figure">
-                <img class="Image Image--tiny" src="{{ baseUrl }}images/kitten.jpg" alt="Kitten">
+                <img class="Image Image--tiny" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
               </figure>
               <p class="Media-body">
                 Mauris porta arcu id magna adipiscing lacinia at congue lacus. Vivamus blandit quam quis tincidunt egestas. Etiam posuere lectus sed sapien malesuada molestie. Aliquam vitae pharetra dolor. Nullam non mattis nunc.

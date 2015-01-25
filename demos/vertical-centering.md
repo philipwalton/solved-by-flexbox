@@ -1,6 +1,7 @@
 ---
 template: default.html
 title: Vertical Centering
+excerpt: This classic problem has been challenging CSS hackers for years, yet none of the historical solutions have fully solved it. With Flexbox, it's finally possible.
 ---
 
 The lack of good ways to vertically center elements in CSS has been a dark blemish on its reputation for pretty much its entire existence.

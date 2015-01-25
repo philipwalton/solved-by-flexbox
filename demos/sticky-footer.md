@@ -1,6 +1,7 @@
 ---
 template: default.html
 title: Sticky Footer
+excerpt: Getting your footer to stick to the bottom of sparsely contented pages has always been tricky. And if the footer's height is unknown, it's basically impossible. Not so anymore.
 ---
 
 <div class="Demo">
