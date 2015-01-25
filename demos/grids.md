@@ -377,6 +377,6 @@ Grid components are infinitely nestable inside of other grid components.
 
 <div class="u-smaller">
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_grid.scss) for the `Grid` component used in this demo on Github.
+View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/grid.css) for the `Grid` component used in this demo on Github.
 
 </div>

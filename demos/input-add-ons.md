@@ -96,6 +96,6 @@ With Flexbox, all these problems go away, and the code is trivially simple. In a
 
 <div class="u-smaller">
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_input-add-on.scss) for the `InputAddOn` component used in this demo on Github.
+View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/input-add-on.css) for the `InputAddOn` component used in this demo on Github.
 
 </div>

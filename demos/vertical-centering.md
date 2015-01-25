@@ -70,6 +70,6 @@ Unlike some of the existing vertical alignment techniques, with Flexbox the pres
 
 <div class="u-smaller">
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss) for the `Aligner` component used in this demo on Github.
+View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/aligner.css) for the `Aligner` component used in this demo on Github.
 
 </div>

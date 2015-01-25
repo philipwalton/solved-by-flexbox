@@ -1,3 +1,5 @@
+@import '../base/breakpoints';
+
 /**
  * 1. Avoid the IE 10-11 `min-height` bug.
  * 2. Set `flex-shrink` to `0` to prevent Chrome, Opera, and Safari from
@@ -5,6 +7,7 @@
  *    minimum size.
  * 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safair.
  */
+
 .HolyGrail {
   display: flex;
   height: 100%; /* 1, 3 */

@@ -107,6 +107,6 @@ Here's a complete example that is responsive and mobile-first. You can also resi
 
 <div class="u-smaller u-spaceBN">
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_holy-grail.scss) for the `HolyGrail` component used in this demo on Github.
+View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/holy-grail.css) for the `HolyGrail` component used in this demo on Github.
 
 </div>
