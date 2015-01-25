@@ -1,3 +1,5 @@
+require('shelljs/global');
+
 var argv = require('yargs').argv;
 var assign = require('object-assign');
 var buffer = require('vinyl-buffer');
@@ -30,6 +32,17 @@ var uglify = require('gulp-uglify');
  */
 const DEST = './build';
 
+/**
+ * The name of the Github repo.
+ */
+const REPO = 'solved-by-flexbox';
+
+
+/**
+ * Truthy if NODE_ENV isn't 'dev'
+ */
+const PROD = process.env.NODE_ENV !== 'dev';
+
 
 nunjucks.configure('templates', { autoescape: false });
 
@@ -37,12 +50,6 @@ nunjucks.configure('templates', { autoescape: false });
 function streamError(err) {
   gutil.beep();
   gutil.log(err instanceof gutil.PluginError ? err.toString() : err.stack);
-}
-
-
-function isProd(transform) {
-  // Assume prod unless NODE_ENV starts with 'dev'.
-  return gulpIf(!/^dev/.test(process.env.NODE_ENV), transform);
 }
 
 
@@ -94,7 +101,8 @@ function renderMarkdown() {
 
 function renderTemplate() {
   var globalData =  {
-    env: /^dev/.test(process.env.NODE_ENV) ? 'dev' : 'prod'
+    baseUrl: PROD ? '/' + REPO + '/' : '/',
+    env: PROD ? 'prod' : 'dev'
   };
   return through.obj(function (file, enc, cb) {
     try {
@@ -119,8 +127,8 @@ function renderTemplate() {
 }
 
 
-gulp.task('pages', function() {
-  gulp.src(['*.html', './demos/**/*'], {base: process.cwd()})
+gulp.task('pages', ['clean'], function() {
+  return gulp.src(['*.html', './demos/**/*'], {base: process.cwd()})
       .pipe(plumber({errorHandler: streamError}))
       .pipe(extractFrontMatter())
       .pipe(renderMarkdown())
@@ -147,14 +155,14 @@ gulp.task('pages', function() {
 });
 
 
-gulp.task('images', function() {
-  gulp.src('./assets/images/**/*')
+gulp.task('images', ['clean'], function() {
+  return gulp.src('./assets/images/**/*')
       .pipe(gulp.dest(path.join(DEST, 'images')));
 });
 
 
-gulp.task('css', function() {
-  gulp.src('./assets/css/main.css')
+gulp.task('css', ['clean'], function() {
+  return gulp.src('./assets/css/main.css')
       .pipe(plumber({errorHandler: streamError}))
       .pipe(cssnext({compress: true}))
       .pipe(gulp.dest(DEST));
@@ -162,21 +170,21 @@ gulp.task('css', function() {
 
 
 gulp.task('lint', function() {
-  gulp.src('./assets/javascript/**/*.js')
+  return gulp.src('./assets/javascript/**/*.js')
       .pipe(plumber({errorHandler: streamError}))
       .pipe(jshint())
       .pipe(jshint.reporter('default'))
-      .pipe(isProd(jshint.reporter('fail')))
+      .pipe(gulpIf(PROD, jshint.reporter('fail')))
 });
 
 
-gulp.task('javascript', ['lint'], function() {
-  browserify('./assets/javascript/main.js', {debug: true}).bundle()
+gulp.task('javascript', ['clean', 'lint'], function() {
+  return browserify('./assets/javascript/main.js', {debug: true}).bundle()
       .on('error', streamError)
       .pipe(source('main.js'))
       .pipe(buffer())
       .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(isProd(uglify()))
+      .pipe(gulpIf(PROD, uglify()))
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest(DEST));
 });
@@ -187,7 +195,7 @@ gulp.task('clean', function() {
 });
 
 
-gulp.task('default', ['clean', 'css', 'images', 'javascript', 'pages']);
+gulp.task('default', ['css', 'images', 'javascript', 'pages']);
 
 
 gulp.task('serve', ['default'], function() {
@@ -198,4 +206,35 @@ gulp.task('serve', ['default'], function() {
   gulp.watch('./assets/images/*', ['images']);
   gulp.watch('./assets/javascript/*', ['javascript']);
   gulp.watch(['*.html', './demos/*', './templates/*'], ['pages']);
+});
+
+
+gulp.task('release', ['default'], function() {
+
+  // Create a tempory directory and
+  // checkout the existing gh-pages branch.
+  rm('-rf', '_tmp');
+  mkdir('_tmp');
+  cd('_tmp');
+  exec('git init');
+  exec('git remote add origin git@github.com:philipwalton/' + REPO + '.git');
+  exec('git pull origin gh-pages');
+
+  // Delete all the existing files and add
+  // the new ones from the build directory.
+  rm('-rf', './*');
+  cp('-rf', path.join('..', DEST, '/'), './');
+  exec('git add -A');
+
+  // Commit and push the changes to
+  // the gh-pages branch.
+  exec('git commit -m "Deploy site."');
+  exec('git branch -m gh-pages');
+  exec('git push origin gh-pages');
+
+  // Clean up.
+  cd('..');
+  rm('-rf', '_tmp');
+  rm('-rf', DEST);
+
 });
