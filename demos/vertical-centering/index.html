@@ -1,144 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Solved By Flexbox &mdash; Cleaner, hack-free CSS</title><meta name=HandheldFriendly content=True><meta name=MobileOptimized content=320><meta name=viewport content="width=device-width,minimum-scale=1,maximum-scale=1"><meta name=description content="A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox."><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css rel=stylesheet><link href=/solved-by-flexbox/main.css rel=stylesheet type=text/css><script class=js-allow-before-footer src=//use.typekit.net/txx2jfv.js></script><script class=js-allow-before-footer>try{Typekit.load()}catch(e){}</script><script class=js-allow-before-footer>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-21292978-1","auto");</script></head><body class=Site><header class=Site-header><div class="Header Header--cozy" role=banner><div class=Header-titles><h1 class=Header-title><a href="/solved-by-flexbox/">Solved <i>by</i> Flexbox</a></h1><h2 class=Header-subTitle>Cleaner, hack-free CSS</h2></div><div class=Header-actions><a class="Header-button Button Button--action Button--wide" data-social-network=Github data-social-action=view-source href=https://github.com/philipwalton/solved-by-flexbox><span class="icon-github icon-large"></span>&nbsp; View Project Source</a> <a class="Header-button Button Button--wide" data-social-network=Twitter data-social-action=tweet href="//twitter.com/intent/tweet?text=A%20showcase%20of%20traditionally%20hard%20CSS%20problems%2C%20easily%20solved%20using%20flexbox.&url=http://philipwalton.github.com/solved-by-flexbox/&via=philwalton"><span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word</a></div></div></header><main class=Site-content><div class=Container><h1>Vertical Centering</h1><p>The lack of good ways to vertically center elements in CSS has been a dark blemish on its reputation for pretty much its entire existence.</p><p>What makes matters worse is the techniques that do work for vertical centering are obscure and unintuitive, while the obvious choices (like <code>vertical-align:middle</code>) never seem to work when you need them.</p><p>The current landscape of <a href="http://css-tricks.com/centering-in-the-unknown/">vertical centering options</a> ranges from negative margins to <code>display:table-cell</code> to ridiculous hacks involving full-height pseudo-elements. Yet even though these techniques sometimes get the job done, they don’t work in every situation. What if the thing you want to center is of unknown dimensions and isn’t the only child of its parent? What if you could use the pseudo-element hack, but you need those pseudo-elements for something else?</p><p>With Flexbox, you can stop worrying. You can align anything (vertically or horizontally) quite painlessly with the <code>align-items</code>, <code>align-self</code>, and <code>justify-content</code> properties.</p><div class="Demo Aligner"><div class="Demo Aligner-item Aligner-item--fixed"><h3 class=Demo-title>I'm Centered!</h3><p contenteditable=true>This box is both vertically and horizontally centered. Even if the text in this box changes to make it wider or taller, the box will still be centered. Go ahead, give it a try. Just click to edit the text.</p></div></div><p>Unlike some of the existing vertical alignment techniques, with Flexbox the presence of sibling elements doesn’t affect their ability to be vertically aligned.</p><div class="Demo Aligner"><div class="Demo Aligner-item Aligner-item--top"><h3 class=Demo-title>Top</h3></div><div class="Demo Aligner-item"><h3 class=Demo-title>Centered</h3></div><div class="Demo Aligner-item Aligner-item--bottom"><h3 class=Demo-title>Bottom</h3></div></div><h2>The HTML</h2><pre><code class=language-html><span class=hljs-tag>&lt;<span class=hljs-title>div</span> <span class=hljs-attribute>class</span>=<span class=hljs-value>"Aligner"</span>&gt;</span>
+  <span class=hljs-tag>&lt;<span class=hljs-title>div</span> <span class=hljs-attribute>class</span>=<span class=hljs-value>"Aligner-item Aligner-item--top"</span>&gt;</span>…<span class=hljs-tag>&lt;/<span class=hljs-title>div</span>&gt;</span>
+  <span class=hljs-tag>&lt;<span class=hljs-title>div</span> <span class=hljs-attribute>class</span>=<span class=hljs-value>"Aligner-item"</span>&gt;</span>…<span class=hljs-tag>&lt;/<span class=hljs-title>div</span>&gt;</span>
+  <span class=hljs-tag>&lt;<span class=hljs-title>div</span> <span class=hljs-attribute>class</span>=<span class=hljs-value>"Aligner-item Aligner-item--bottom"</span>&gt;</span>…<span class=hljs-tag>&lt;/<span class=hljs-title>div</span>&gt;</span>
+<span class=hljs-tag>&lt;/<span class=hljs-title>div</span>&gt;</span>
+</code></pre><h2>The CSS</h2><pre><code class=language-css><span class=hljs-class>.Aligner</span> <span class=hljs-rules>{
+  <span class=hljs-rule><span class=hljs-attribute>display</span>:<span class=hljs-value> flex</span></span>;
+  <span class=hljs-rule><span class=hljs-attribute>align-items</span>:<span class=hljs-value> center</span></span>;
+  <span class=hljs-rule><span class=hljs-attribute>justify-content</span>:<span class=hljs-value> center</span></span>;
+<span class=hljs-rule>}</span></span>
 
-  <title>Vertical Centering &mdash; Solved By Flexbox &mdash; Cleaner, hack-free CSS</title>
+<span class=hljs-class>.Aligner-item</span> <span class=hljs-rules>{
+  <span class=hljs-rule><span class=hljs-attribute>max-width</span>:<span class=hljs-value> <span class=hljs-number>50%</span></span></span>;
+<span class=hljs-rule>}</span></span>
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-  <meta name="description" content="A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox.">
+<span class=hljs-class>.Aligner-item--top</span> <span class=hljs-rules>{
+  <span class=hljs-rule><span class=hljs-attribute>align-self</span>:<span class=hljs-value> flex-start</span></span>;
+<span class=hljs-rule>}</span></span>
 
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-  <link href="//philipwalton.github.io/solved-by-flexbox/css/style.css" rel="stylesheet" type="text/css">
-
-  <script class="js-allow-in-head" src="//use.typekit.net/txx2jfv.js"></script>
-  <script class="js-allow-in-head">try{Typekit.load();}catch(e){}</script>
-</head>
-
-  <body class="Site">
-    <header class="Site-header">
-      <div class="Header Header--cozy" role="banner">
-        <div class="Header-titles">
-  <h1 class="Header-title"><a href="//philipwalton.github.io/solved-by-flexbox/">Solved <i>by</i> Flexbox</a></h1>
-  <h2 class="Header-subTitle">Cleaner, hack-free CSS</h2>
-</div>
-<div class="Header-actions">
-  <a href="https://github.com/philipwalton/solved-by-flexbox" class="Header-button Button Button--action Button--wide"><span class="icon-github icon-large"></span>&nbsp; View Project Source</a>
-
-  
-  <a href="http://twitter.com/intent/tweet?text=A%20showcase%20of%20traditionally%20hard%20CSS%20problems,%20easily%20solved%20using%20flexbox.&url=http://philipwalton.github.com/solved-by-flexbox/&via=philwalton" class="Header-button Button Button--wide"><span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word</a>
-</div>
-
-      </div>
-    </header>
-    <main class="Site-content">
-      <div class="Container">
-        <h1>Vertical Centering</h1>
-
-<p>The lack of good ways to vertically center elements in CSS has been a dark blemish on its reputation for pretty much its entire existence.</p>
-
-<p>What makes matters worse is the techniques that do work for vertical centering are obscure and unintuitive, while the obvious choices (like <code>vertical-align:middle</code>) never seem to work when you need them.</p>
-
-<p>The current landscape of <a href="http://css-tricks.com/centering-in-the-unknown/">vertical centering options</a> ranges from negative margins to <code>display:table-cell</code> to ridiculous hacks involving full-height pseudo-elements. Yet even though these techniques sometimes get the job done, they don't work in every situation. What if the thing you want to center is of unknown dimensions and isn't the only child of its parent? What if you could use the pseudo-element hack, but you need those pseudo-elements for something else?</p>
-
-<p>With Flexbox, you can stop worrying. You can align anything (vertically or horizontally) quite painlessly with the <code>align-items</code>, <code>align-self</code>, and <code>justify-content</code> properties.</p>
-
-<div class="Demo Aligner">
-
-  <div class="Demo Aligner-item Aligner-item--fixed">
-    <h3 class="Demo-title">I'm Centered!</h3>
-    <p contenteditable="true">This box is both vertically and horizontally centered. Even if the text in this box changes to make it wider or taller, the box will still be centered. Go ahead, give it a try. Just click to edit the text.</p>
-  </div>
-
-</div>
-
-<p>Unlike some of the existing vertical alignment techniques, with Flexbox the presence of sibling elements doesn't affect their ability to be vertically aligned.</p>
-
-<div class="Demo Aligner">
-
-  <div class="Demo Aligner-item Aligner-item--top">
-    <h3 class="Demo-title">Top</h3>
-  </div>
-  <div class="Demo Aligner-item">
-    <h3 class="Demo-title">Centered</h3>
-  </div>
-  <div class="Demo Aligner-item Aligner-item--bottom">
-    <h3 class="Demo-title">Bottom</h3>
-  </div>
-
-</div>
-
-<h2>The HTML</h2>
-
-<pre class="highlight"><code class="language-xml">&lt;div class="Aligner">
-  &lt;div class="Aligner-item Aligner-item--top">...&lt;/div>
-  &lt;div class="Aligner-item">...&lt;/div>
-  &lt;div class="Aligner-item Aligner-item--bottom">...&lt;/div>
-&lt;/div></code></pre>
-
-<h2>The CSS</h2>
-
-<pre class="highlight"><code class="language-css">.Aligner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.Aligner-item {
-  max-width: 50%;
-}
-
-.Aligner-item--top {
-  align-self: flex-start;
-}
-
-.Aligner-item--bottom {
-  align-self: flex-end;
-}</code></pre>
-
-<p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss">source</a> for the <code>Aligner</code> component used in this demo on Github.</p>
-
-      </div>
-    </main>
-    <footer class="Site-footer">
-      <div class="Footer">
-        <span class="Footer-social">
-  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=philipwalton&repo=solved-by-flexbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="106px" height="20px"></iframe>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-text="A showcase of traditionally hard CSS problems, easily solved using flexbox." data-url="http://philipwalton.github.io/solved-by-flexbox/" data-count="horizontal" data-via="philwalton" data-related="philwalton:Creator of Solved by Flexbox">Tweet</a>
-  <a href="https://twitter.com/philwalton" class="twitter-follow-button" data-show-count="true" data-lang="en">@philwalton</a>
-</span>
-<div class="Footer-credits">
-  <span class="Footer-credit">Created and maintained by <a href="http://philipwalton.com">Philip Walton</a> &copy; 2015.</span>
-
-  <span class="Footer-credit">Source code and examples dual licensed under <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-MIT">MIT</a> and <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-GPL">GPL</a>.</span>
-
-  <span class="Footer-credit">Website and documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</span>
-</div>
-
-      </div>
-    </footer>
-    <script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-</script>
-
-
-  
-    <script id="google-analytics">
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-40829935-1');
-      ga('send', 'pageview');
-    </script>
-  
-
-
-
-<script src="//philipwalton.github.io/solved-by-flexbox/scripts/scripts.min.js"></script>
-
-  </body>
-</html>
+<span class=hljs-class>.Aligner-item--bottom</span> <span class=hljs-rules>{
+  <span class=hljs-rule><span class=hljs-attribute>align-self</span>:<span class=hljs-value> flex-end</span></span>;
+<span class=hljs-rule>}</span></span>
+</code></pre><div class=u-smaller><p>View the full <a href=https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/aligner.css>source</a> for the <code>Aligner</code> component used in this demo on Github.</p></div></div></main><footer class=Site-footer><div class=Footer><span class=Footer-social><iframe class=github-btn src="http://ghbtns.com/github-btn.html?user=philipwalton&repo=solved-by-flexbox&type=watch&count=true" allowtransparency=true frameborder=0 scrolling=0 width=106px height=20px></iframe><a href=https://twitter.com/share class=twitter-share-button data-text="A showcase of traditionally hard CSS problems, easily solved using flexbox." data-url="http://philipwalton.github.io/solved-by-flexbox/" data-count=horizontal data-via=philwalton data-related="philwalton:Creator of Solved by Flexbox">Tweet</a> <a href=https://twitter.com/philwalton class=twitter-follow-button data-show-count=true data-lang=en>@philwalton</a></span><div class=Footer-credits><span class=Footer-credit>Created and maintained by <a href=http://philipwalton.com>Philip Walton</a>.</span> <span class=Footer-credit>Source code and examples released under the <a href=https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE>MIT</a> license.</span> <span class=Footer-credit>Website and documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></div></div></footer><script src=/solved-by-flexbox/main.js></script><script>!function(e,t,r){var n,i=e.getElementsByTagName(t)[0];e.getElementById(r)||(n=e.createElement(t),n.id=r,n.src="//platform.twitter.com/widgets.js",i.parentNode.insertBefore(n,i))}(document,"script","twitter-wjs");</script><script async src=//www.google-analytics.com/analytics.js></script></body></html>

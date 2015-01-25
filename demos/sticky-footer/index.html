@@ -1,134 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Solved By Flexbox &mdash; Cleaner, hack-free CSS</title><meta name=HandheldFriendly content=True><meta name=MobileOptimized content=320><meta name=viewport content="width=device-width,minimum-scale=1,maximum-scale=1"><meta name=description content="A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox."><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css rel=stylesheet><link href=/solved-by-flexbox/main.css rel=stylesheet type=text/css><script class=js-allow-before-footer src=//use.typekit.net/txx2jfv.js></script><script class=js-allow-before-footer>try{Typekit.load()}catch(e){}</script><script class=js-allow-before-footer>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-21292978-1","auto");</script></head><body class=Site><header class=Site-header><div class="Header Header--cozy" role=banner><div class=Header-titles><h1 class=Header-title><a href="/solved-by-flexbox/">Solved <i>by</i> Flexbox</a></h1><h2 class=Header-subTitle>Cleaner, hack-free CSS</h2></div><div class=Header-actions><a class="Header-button Button Button--action Button--wide" data-social-network=Github data-social-action=view-source href=https://github.com/philipwalton/solved-by-flexbox><span class="icon-github icon-large"></span>&nbsp; View Project Source</a> <a class="Header-button Button Button--wide" data-social-network=Twitter data-social-action=tweet href="//twitter.com/intent/tweet?text=A%20showcase%20of%20traditionally%20hard%20CSS%20problems%2C%20easily%20solved%20using%20flexbox.&url=http://philipwalton.github.com/solved-by-flexbox/&via=philwalton"><span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word</a></div></div></header><main class=Site-content><div class=Container><h1>Sticky Footer</h1><div class=Demo><p>Click the button below to hide the contents of this page. Notice how the footer sticks to the bottom of the window even when there’s not enough content to fill the page.</p><button id=collapse-trigger class=Button><span class="icon-refresh u-spaceRS"></span> Toggle Contents</button></div><div id=collapsable-content><p>Getting the footer to stick to the bottom of pages with sparse content is something just about every Web developer has tried to tackle at some point in his or her career. And, for the most part, it’s a solved problem. Yet all the <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">existing</a> <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">solutions</a> have one significant shortcoming — they don’t work if the height of your footer is unknown.</p><p>Flexbox is a perfect fit for this type of problem. While mostly known for laying out content in the horizontal direction, Flexbox actually works just as well for vertical layout problems. All you have to do is wrap the vertical sections in a flex container and choose which ones you want to expand. They’ll automatically take up all the available space in their container.</p><p>In the example below, the container is set to the height of the window, and the content area is told to expand as needed. <em>(Note: in the vertical direction you need to specify a height for the container. This is different from the horizontal direction, which automatically expands to fit.)</em></p><h2>The HTML</h2><pre><code class=language-xml><span class=hljs-tag>&lt;<span class=hljs-title>body</span> <span class=hljs-attribute>class</span>=<span class=hljs-value>"Site"</span>&gt;</span>
+  <span class=hljs-tag>&lt;<span class=hljs-title>header</span>&gt;</span>…<span class=hljs-tag>&lt;/<span class=hljs-title>header</span>&gt;</span>
+  <span class=hljs-tag>&lt;<span class=hljs-title>main</span> <span class=hljs-attribute>class</span>=<span class=hljs-value>"Site-content"</span>&gt;</span>…<span class=hljs-tag>&lt;/<span class=hljs-title>main</span>&gt;</span>
+  <span class=hljs-tag>&lt;<span class=hljs-title>footer</span>&gt;</span>…<span class=hljs-tag>&lt;/<span class=hljs-title>footer</span>&gt;</span>
+<span class=hljs-tag>&lt;/<span class=hljs-title>body</span>&gt;</span>
+</code></pre><h2>The CSS</h2><pre><code class=language-css><span class=hljs-class>.Site</span> <span class=hljs-rules>{
+  <span class=hljs-rule><span class=hljs-attribute>display</span>:<span class=hljs-value> flex</span></span>;
+  <span class=hljs-rule><span class=hljs-attribute>min-height</span>:<span class=hljs-value> <span class=hljs-number>100vh</span></span></span>;
+  <span class=hljs-rule><span class=hljs-attribute>flex-direction</span>:<span class=hljs-value> column</span></span>;
+<span class=hljs-rule>}</span></span>
 
-  <title>Sticky Footer &mdash; Solved By Flexbox &mdash; Cleaner, hack-free CSS</title>
-
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-  <meta name="description" content="A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox.">
-
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-  <link href="//philipwalton.github.io/solved-by-flexbox/css/style.css" rel="stylesheet" type="text/css">
-
-  <script class="js-allow-in-head" src="//use.typekit.net/txx2jfv.js"></script>
-  <script class="js-allow-in-head">try{Typekit.load();}catch(e){}</script>
-</head>
-
-  <body class="Site">
-    <header class="Site-header">
-      <div class="Header Header--cozy" role="banner">
-        <div class="Header-titles">
-  <h1 class="Header-title"><a href="//philipwalton.github.io/solved-by-flexbox/">Solved <i>by</i> Flexbox</a></h1>
-  <h2 class="Header-subTitle">Cleaner, hack-free CSS</h2>
-</div>
-<div class="Header-actions">
-  <a href="https://github.com/philipwalton/solved-by-flexbox" class="Header-button Button Button--action Button--wide"><span class="icon-github icon-large"></span>&nbsp; View Project Source</a>
-
-  
-  <a href="http://twitter.com/intent/tweet?text=A%20showcase%20of%20traditionally%20hard%20CSS%20problems,%20easily%20solved%20using%20flexbox.&url=http://philipwalton.github.com/solved-by-flexbox/&via=philwalton" class="Header-button Button Button--wide"><span class="icon-twitter icon-large twitter-color"></span>&nbsp; Spread the Word</a>
-</div>
-
-      </div>
-    </header>
-    <main class="Site-content">
-      <div class="Container">
-        <h1>Sticky Footer</h1>
-
-<div class="Demo">
-  <p>Click the button below to hide the contents of this page. Notice how the footer sticks to the bottom of the window even when there's not enough content to fill the page.</p>
-  <button id="collapse-trigger" class="Button"><span class="icon-refresh u-spaceRS"></span> Toggle Contents</button>
-</div>
-
-<div id="collapsable-content">
-
-  <p>Getting the footer to stick to the bottom of pages with sparse content is something just about every Web developer has tried to tackle at some point in his or her career. And, for the most part, it's a solved problem. Yet all the <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">existing</a> <a href="http://ryanfait.com/resources/footer-stick-to-bottom-of-page/">solutions</a> have one significant shortcoming &mdash; they don't work if the height of your footer is unknown.</p>
-
-  <p>Flexbox is a perfect fit for this type of problem. While mostly known for laying out content in the horizontal direction, Flexbox actually works just as well for vertical layout problems. All you have to do is wrap the vertical sections in a flex container and choose which ones you want to expand. They'll automatically take up all the available space in their container.</p>
-
-  <p>In the example below, the container is set to the height of the window, and the content area is told to expand as needed. <em>(Note: in the vertical direction you need to specify a height for the container. This is different from the horizontal direction, which automatically expands to fit.)</em></p>
-
-  <h2>The HTML</h2>
-
-<pre class="highlight"><code class="language-xml">&lt;body class="Site">
-  &lt;header>...&lt;/header>
-  &lt;main class="Site-content">...&lt;/main>
-  &lt;footer>...&lt;/footer>
-&lt;/body></code></pre>
-
-  <h2>The CSS</h2>
-
-<pre class="highlight"><code class="language-css">.Site {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.Site-content {
-  flex: 1;
-}</code></pre>
-
-  <p class="u-smaller">View the full <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_site.scss">source</a> for the <code>Site</code> component used in this demo on Github.</p>
-
-</div>
-
-<script>
-  (function() {
-    var collapseTrigger = document.getElementById("collapse-trigger")
-      , collapseableContent = document.getElementById("collapsable-content")
-      , isCollapsed = false
-    collapseTrigger.addEventListener("click", function() {
-      if (isCollapsed) {
-        collapseableContent.classList.remove("u-hidden")
-      } else {
-        collapseableContent.classList.add("u-hidden")
-      }
-      isCollapsed = !isCollapsed
-    }, false)
-  }())
-</script>
-
-      </div>
-    </main>
-    <footer class="Site-footer">
-      <div class="Footer">
-        <span class="Footer-social">
-  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=philipwalton&repo=solved-by-flexbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="106px" height="20px"></iframe>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-text="A showcase of traditionally hard CSS problems, easily solved using flexbox." data-url="http://philipwalton.github.io/solved-by-flexbox/" data-count="horizontal" data-via="philwalton" data-related="philwalton:Creator of Solved by Flexbox">Tweet</a>
-  <a href="https://twitter.com/philwalton" class="twitter-follow-button" data-show-count="true" data-lang="en">@philwalton</a>
-</span>
-<div class="Footer-credits">
-  <span class="Footer-credit">Created and maintained by <a href="http://philipwalton.com">Philip Walton</a> &copy; 2015.</span>
-
-  <span class="Footer-credit">Source code and examples dual licensed under <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-MIT">MIT</a> and <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE-GPL">GPL</a>.</span>
-
-  <span class="Footer-credit">Website and documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</span>
-</div>
-
-      </div>
-    </footer>
-    <script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-</script>
-
-
-  
-    <script id="google-analytics">
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-40829935-1');
-      ga('send', 'pageview');
-    </script>
-  
-
-
-
-<script src="//philipwalton.github.io/solved-by-flexbox/scripts/scripts.min.js"></script>
-
-  </body>
-</html>
+<span class=hljs-class>.Site-content</span> <span class=hljs-rules>{
+  <span class=hljs-rule><span class=hljs-attribute>flex</span>:<span class=hljs-value> <span class=hljs-number>1</span></span></span>;
+<span class=hljs-rule>}</span></span>
+</code></pre><div class=u-smaller><p>View the full <a href=https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css>source</a> for the <code>Site</code> component used in this demo on Github.</p></div></div><script class=js-allow-before-footer>!function(){var e=document.getElementById("collapse-trigger"),t=document.getElementById("collapsable-content"),n=!1;e.addEventListener("click",function(){n?t.classList.remove("u-hidden"):t.classList.add("u-hidden"),n=!n},!1)}();</script></div></main><footer class=Site-footer><div class=Footer><span class=Footer-social><iframe class=github-btn src="http://ghbtns.com/github-btn.html?user=philipwalton&repo=solved-by-flexbox&type=watch&count=true" allowtransparency=true frameborder=0 scrolling=0 width=106px height=20px></iframe><a href=https://twitter.com/share class=twitter-share-button data-text="A showcase of traditionally hard CSS problems, easily solved using flexbox." data-url="http://philipwalton.github.io/solved-by-flexbox/" data-count=horizontal data-via=philwalton data-related="philwalton:Creator of Solved by Flexbox">Tweet</a> <a href=https://twitter.com/philwalton class=twitter-follow-button data-show-count=true data-lang=en>@philwalton</a></span><div class=Footer-credits><span class=Footer-credit>Created and maintained by <a href=http://philipwalton.com>Philip Walton</a>.</span> <span class=Footer-credit>Source code and examples released under the <a href=https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE>MIT</a> license.</span> <span class=Footer-credit>Website and documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></div></div></footer><script src=/solved-by-flexbox/main.js></script><script>!function(e,t,r){var n,i=e.getElementsByTagName(t)[0];e.getElementById(r)||(n=e.createElement(t),n.id=r,n.src="//platform.twitter.com/widgets.js",i.parentNode.insertBefore(n,i))}(document,"script","twitter-wjs");</script><script async src=//www.google-analytics.com/analytics.js></script></body></html>
