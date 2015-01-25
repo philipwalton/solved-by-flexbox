@@ -28,7 +28,7 @@ var uglify = require('gulp-uglify');
 /**
  * The output directory for all the built files.
  */
-var buildDir = './build';
+const DEST = './build';
 
 
 nunjucks.configure('templates', { autoescape: false });
@@ -143,13 +143,13 @@ gulp.task('pages', function() {
         minifyJS: true,
         minifyCSS: true
       }))
-      .pipe(gulp.dest(buildDir));
+      .pipe(gulp.dest(DEST));
 });
 
 
 gulp.task('images', function() {
   gulp.src('./assets/images/**/*')
-      .pipe(gulp.dest(path.join(buildDir, 'images')));
+      .pipe(gulp.dest(path.join(DEST, 'images')));
 });
 
 
@@ -157,7 +157,7 @@ gulp.task('css', function() {
   gulp.src('./assets/css/main.css')
       .pipe(plumber({errorHandler: streamError}))
       .pipe(cssnext({compress: true}))
-      .pipe(gulp.dest(buildDir));
+      .pipe(gulp.dest(DEST));
 });
 
 
@@ -178,12 +178,12 @@ gulp.task('javascript', ['lint'], function() {
       .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(isProd(uglify()))
       .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest(buildDir));
+      .pipe(gulp.dest(DEST));
 });
 
 
 gulp.task('clean', function() {
-  del(buildDir);
+  del(DEST);
 });
 
 
@@ -192,7 +192,7 @@ gulp.task('default', ['clean', 'css', 'images', 'javascript', 'pages']);
 
 gulp.task('serve', ['default'], function() {
   var port = argv.port || argv.p || 4000;
-  connect().use(serveStatic(buildDir)).listen(port);
+  connect().use(serveStatic(DEST)).listen(port);
 
   gulp.watch('./assets/css/**/*.css', ['css']);
   gulp.watch('./assets/images/*', ['images']);

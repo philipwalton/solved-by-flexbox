@@ -32,7 +32,6 @@
     "nunjucks": "^1.1.0",
     "object-assign": "^2.0.0",
     "remarkable": "^1.6.0",
-    "serve": "^1.4.0",
     "serve-static": "^1.8.1",
     "suitcss-utils-display": "^0.4.2",
     "suitcss-utils-text": "^0.4.2",
