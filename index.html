@@ -16,72 +16,19 @@ template: home.html
   <div class="Container">
     <h2 class="PromoHeading">Showcase</h2>
     <ul class="Grid Grid--guttersLarge large-Grid--gutters2x">
-      <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
-        <div class="Feature">
-          <a href="{{ baseUrl }}demos/grids/">
-            <figure class="Feature-figure">
-              <img class="Feature-image" alt="Better, Simpler Grids" src="{{ baseUrl }}images/grids.jpg">
-            </figure>
-            <h3 class="Feature-title">Better, Simpler Grids</h3>
-          </a>
-          <p class="Feature-description">Flexbox gives us most of the features we want from a grid system out of the box. And sizing and alignment are just one or two properties away.</p>
-        </div>
-      </li>
-      <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
-        <div class="Feature">
-          <a href="{{ baseUrl }}demos/media-object/">
-            <figure class="Feature-figure">
-              <img class="Feature-image" alt="Media Object" src="{{ baseUrl }}images/media-object.jpg">
-            </figure>
-            <h3 class="Feature-title">The Media Object</h3>
-          </a>
-          <p class="Feature-description">Create media objects with fixed or varying figure sizes without worrying about overflow, clearfixing, or block formatting context hacks.</p>
-        </div>
-      </li>
-      <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
-        <div class="Feature">
-          <a href="{{ baseUrl }}demos/input-add-ons/">
-            <figure class="Feature-figure">
-              <img class="Feature-image" alt="Input Add-ons" src="{{ baseUrl }}images/input-add-on.jpg">
-            </figure>
-            <h3 class="Feature-title">Input Add-ons</h3>
-          </a>
-          <p class="Feature-description">Creating full-width, fluid input/button pairs has been impossible for most of the history of CSS. With Flexbox it couldn't be easier.</p>
-        </div>
-      </li>
-      <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
-        <div class="Feature">
-          <a href="{{ baseUrl }}demos/sticky-footer/">
-            <figure class="Feature-figure">
-              <img class="Feature-image" alt="Sticky Footer" src="{{ baseUrl }}images/sticky-footer.jpg">
-            </figure>
-            <h3 class="Feature-title">Sticky Footer</h3>
-          </a>
-          <p class="Feature-description">Getting your footer to stick to the bottom of sparsely contented pages has always been tricky. And if the footer's height is unknown, it's basically impossible. Not so anymore.</p>
-        </div>
-      </li>
-      <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
-        <div class="Feature">
-          <a href="{{ baseUrl }}demos/holy-grail/">
-            <figure class="Feature-figure">
-              <img class="Feature-image" alt="Holy Grail Layout" src="{{ baseUrl }}images/holy-grail.jpg">
-            </figure>
-            <h3 class="Feature-title">Holy Grail Layout</h3>
-          </a>
-          <p class="Feature-description">This classic problem has been challenging CSS hackers for years, yet none of the historical solutions have fully solved it. With Flexbox, it's finally possible.</p>
-        </div>
-      </li>
-      <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
-        <div class="Feature">
-          <a href="{{ baseUrl }}demos/vertical-centering/">
-            <figure class="Feature-figure">
-              <img class="Feature-image" alt="Vertical Centering" src="{{ baseUrl }}images/vertical-centering.jpg">
-            </figure>
-            <h3 class="Feature-title">Vertical Centering</h3>
-          </a>
-          <p class="Feature-description">A lack of proper vertical centering has been the butt of almost every CSS joke ever told. While it's technically always been mostly possible, it's never been very intuitive &mdash; until now.</p>
-        </div>
-      </li>
+      {% for demo in site.demos %}
+        <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
+          <div class="Feature">
+            <a href="{{ site.baseUrl }}demos/{{ demo.slug }}/">
+              <figure class="Feature-figure">
+                <img class="Feature-image" alt="{{ demo.title }}" src="{{ site.baseUrl }}images/{{ demo.slug }}.jpg">
+              </figure>
+              <h3 class="Feature-title">{{ demo.title }}</h3>
+            </a>
+            <p class="Feature-description">{{ demo.excerpt }}</p>
+          </div>
+        </li>
+      {% endfor %}
     </ul>
   </div>
 </section>

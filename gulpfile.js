@@ -53,22 +53,36 @@ function streamError(err) {
 }
 
 
-function extractFrontMatter() {
-  return through.obj(function (file, enc, cb) {
-    try {
-      var data = frontMatter(file.contents.toString());
-      var content = data.body.trim();
-      file.data = data.attributes;
-      file.contents = new Buffer(content);
-      this.push(file);
+function extractFrontMatter(options) {
+  var files = [];
+  var site = assign({demos: []}, options);
+  return through.obj(
+    function transform(file, enc, done) {
+      var contents = file.contents.toString();
+      var yaml = frontMatter(contents);
+
+      if (yaml.attributes) {
+        var slug = path.basename(file.path, path.extname(file.path));
+
+        file.contents = new Buffer(yaml.body);
+        file.data = {
+          site: site,
+          page: assign({slug: slug}, yaml.attributes)
+        };
+
+        if (file.path.indexOf('demos') > -1) {
+          site.demos.push(file.data.page);
+        }
+      }
+
+      files.push(file);
+      done();
+    },
+    function flush(done) {
+      files.forEach(function(file) { this.push(file); }.bind(this));
+      done();
     }
-    catch (err) {
-      this.emit('error', new gutil.PluginError('pages', err, {
-        fileName: file.path
-      }));
-    }
-    cb();
-  });
+  )
 }
 
 
@@ -90,7 +104,7 @@ function renderMarkdown() {
       this.push(file);
     }
     catch (err) {
-      this.emit('error', new gutil.PluginError('pages', err, {
+      this.emit('error', new gutil.PluginError('renderMarkdown', err, {
         fileName: file.path
       }));
     }
@@ -100,25 +114,20 @@ function renderMarkdown() {
 
 
 function renderTemplate() {
-  var globalData =  {
-    baseUrl: PROD ? '/' + REPO + '/' : '/',
-    env: PROD ? 'prod' : 'dev'
-  };
   return through.obj(function (file, enc, cb) {
     try {
-      var template = file.data.template;
-      var templateData = assign(globalData, file.data);
+      // Render the file's content to the page.content template property.
       var content = file.contents.toString();
+      file.data.page.content = nunjucks.renderString(content, file.data);
 
-      // Render the content with the local data before rendering the template
-      // with the full site data.
-      templateData.content = nunjucks.renderString(content, templateData);
+      // Then render the page in its template.
+      var template = file.data.page.template;
+      file.contents = new Buffer(nunjucks.render(template, file.data));
 
-      file.contents = new Buffer(nunjucks.render(template, templateData));
       this.push(file);
     }
     catch (err) {
-      this.emit('error', new gutil.PluginError('pages', err, {
+      this.emit('error', new gutil.PluginError('renderTemplate', err, {
         fileName: file.path
       }));
     }
@@ -127,10 +136,15 @@ function renderTemplate() {
 }
 
 
-gulp.task('pages', ['clean'], function() {
+gulp.task('pages', function() {
+
+  var baseData = require('./config.json');
+  var overrides = PROD ? {baseUrl: '/' + REPO + '/', env: 'dev'} : {};
+  var siteData = assign(baseData, overrides);
+
   return gulp.src(['*.html', './demos/**/*'], {base: process.cwd()})
       .pipe(plumber({errorHandler: streamError}))
-      .pipe(extractFrontMatter())
+      .pipe(extractFrontMatter(siteData))
       .pipe(renderMarkdown())
       .pipe(renderTemplate())
       .pipe(rename(function(path) {
@@ -155,13 +169,13 @@ gulp.task('pages', ['clean'], function() {
 });
 
 
-gulp.task('images', ['clean'], function() {
+gulp.task('images', function() {
   return gulp.src('./assets/images/**/*')
       .pipe(gulp.dest(path.join(DEST, 'images')));
 });
 
 
-gulp.task('css', ['clean'], function() {
+gulp.task('css', function() {
   return gulp.src('./assets/css/main.css')
       .pipe(plumber({errorHandler: streamError}))
       .pipe(cssnext({compress: true}))
@@ -178,7 +192,7 @@ gulp.task('lint', function() {
 });
 
 
-gulp.task('javascript', ['clean', 'lint'], function() {
+gulp.task('javascript', ['lint'], function() {
   return browserify('./assets/javascript/main.js', {debug: true}).bundle()
       .on('error', streamError)
       .pipe(source('main.js'))
@@ -190,8 +204,8 @@ gulp.task('javascript', ['clean', 'lint'], function() {
 });
 
 
-gulp.task('clean', function() {
-  del(DEST);
+gulp.task('clean', function(done) {
+  del(DEST, done);
 });
 
 

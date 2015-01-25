@@ -10,7 +10,7 @@
   "scripts": {
     "build": "gulp",
     "start": "NODE_ENV=dev gulp serve",
-    "release": "gulp release"
+    "release": "gulp clean && gulp release"
   },
   "devDependencies": {
     "browserify": "^8.1.1",
