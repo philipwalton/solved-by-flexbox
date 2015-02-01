@@ -1,0 +1,35 @@
+.PromoSection {
+  padding: var(--space) var(--space) 0;
+}
+.PromoSection::after {
+  content: '\00a0'; /* &nbsp; */
+  display: block;
+  margin-top: 2em;
+  height: 0px;
+  visibility: hidden;
+}
+
+.PromoSection-heading {
+  text-align: center;
+}
+
+@media (--break-lg) {
+  .PromoSection-list {
+    padding: 0;
+    text-align: center;
+    list-style-position: inside;
+  }
+}
+
+.PromoSection--striped {
+  background-color: hsla(31, 15%, 50%, 0.1);
+}
+
+@media (--break-lg) {
+  .PromoSection {
+    padding: var(--space-lg) var(--space-lg) 0;
+  }
+  .PromoSection::after {
+    margin-top: var(--space-lg);
+  }
+}
