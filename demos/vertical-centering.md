@@ -13,18 +13,15 @@ The current landscape of [vertical centering options](http://css-tricks.com/cent
 With Flexbox, you can stop worrying. You can align anything (vertically or horizontally) quite painlessly with the `align-items`, `align-self`, and `justify-content` properties.
 
 <div class="Demo Aligner">
-
   <div class="Demo Aligner-item Aligner-item--fixed">
     <h3 class="Demo-title">I'm Centered!</h3>
     <p contenteditable="true">This box is both vertically and horizontally centered. Even if the text in this box changes to make it wider or taller, the box will still be centered. Go ahead, give it a try. Just click to edit the text.</p>
   </div>
-
 </div>
 
 Unlike some of the existing vertical alignment techniques, with Flexbox the presence of sibling elements doesn't affect their ability to be vertically aligned.
 
 <div class="Demo Aligner">
-
   <div class="Demo Aligner-item Aligner-item--top">
     <h3 class="Demo-title">Top</h3>
   </div>
@@ -34,7 +31,6 @@ Unlike some of the existing vertical alignment techniques, with Flexbox the pres
   <div class="Demo Aligner-item Aligner-item--bottom">
     <h3 class="Demo-title">Bottom</h3>
   </div>
-
 </div>
 
 ## The HTML
@@ -69,8 +65,4 @@ Unlike some of the existing vertical alignment techniques, with Flexbox the pres
 }
 ```
 
-<div class="u-smaller">
-
 View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/aligner.css) for the `Aligner` component used in this demo on Github.
-
-</div>

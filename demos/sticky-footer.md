@@ -44,11 +44,7 @@ In the example below, the container is set to the height of the window, and the 
 }
 ```
 
-<div class="u-smaller">
-
 View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css) for the `Site` component used in this demo on Github.
-
-</div>
 
 </div>
 

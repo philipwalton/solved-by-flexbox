@@ -165,8 +165,4 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
 }
 ```
 
-<div class="u-smaller">
-
 View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/media.css) for the `Media` component used in this demo on Github.
-
-</div>

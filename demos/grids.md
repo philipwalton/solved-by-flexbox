@@ -18,15 +18,12 @@ Grid systems usually come with a myriad of sizing options, but the vast majority
 
 Listed below are some of my criteria for an ideal grid system. Fortunately, with Flexbox we get most of these features for free.
 
-<ul class="List">
-  <li>By default, each grid cell is the same width and height as every other cell in the row. Basically they all size to fit by default.</li>
-  <li>For finer control, you can add sizing classes to individual cells. Without these classes, the cells simply divide up the available space as usual.</li>
-  <li>For responsive grids, you can add media query-specific classes to the cells.</li>
-  <li>Individual cells can be aligned vertically to the top, bottom, or middle.</li>
-  <li>When you want all of the cells in a grid to have the same sizing, media, or alignment values, you should be able to just add a single class to the container to avoid unnecessary repetition.</li>
-
-  <li>Grids can be nested as many levels deep as needed.</li>
-</ul>
+- By default, each grid cell is the same width and height as every other cell in the row. Basically they all size to fit by default.
+- For finer control, you can add sizing classes to individual cells. Without these classes, the cells simply divide up the available space as usual.
+- For responsive grids, you can add media query-specific classes to the cells.
+- Individual cells can be aligned vertically to the top, bottom, or middle.
+- When you want all of the cells in a grid to have the same sizing, media, or alignment values, you should be able to just add a single class to the container to avoid unnecessary repetition.
+- Grids can be nested as many levels deep as needed.
 
 ### Basic Grids
 
@@ -156,16 +153,16 @@ Grid components are infinitely nestable inside of other grid components.
     <div class="Demo">
       <div class="Grid Grid--gutters u-textCenter">
         <div class="Grid-cell u-1of3">
-          <div class="Demo u-spaceBN">1/3</div>
+          <div class="Demo">1/3</div>
         </div>
         <div class="Grid-cell">
-          <div class="Demo u-spaceBN">
+          <div class="Demo">
             <div class="Grid Grid--gutters u-textCenter">
               <div class="Grid-cell">
-                <div class="Demo u-spaceBN">1/2</div>
+                <div class="Demo">1/2</div>
               </div>
               <div class="Grid-cell">
-                <div class="Demo u-spaceBN">1/2</div>
+                <div class="Demo">1/2</div>
               </div>
             </div>
           </div>
@@ -280,7 +277,6 @@ Grid components are infinitely nestable inside of other grid components.
 .Grid-cell {
   flex: 1;
 }
-
 ```
 
 ### Grid Style Modifiers
@@ -288,10 +284,10 @@ Grid components are infinitely nestable inside of other grid components.
 ```css
 /* With gutters */
 .Grid--gutters {
-  margin-left: -1em;
+  margin: -1em 0 0 -1em;
 }
 .Grid--gutters > .Grid-cell {
-  padding-left: 1em;
+  padding: 1em 0 0 1em;
 }
 
 /* Alignment per row */
@@ -376,8 +372,4 @@ Grid components are infinitely nestable inside of other grid components.
 }
 ```
 
-<div class="u-smaller">
-
 View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/grid.css) for the `Grid` component used in this demo on Github.
-
-</div>

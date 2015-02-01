@@ -10,13 +10,11 @@ At its core, the Holy Grail Layout is a page with a header, footer, and three co
 
 Most CSS solutions to this problem aim to meet a few goals:
 
-<ul class="List">
-  <li>They should have a fluid center with fixed-width sidebars.</li>
-  <li>The center column (main content) should appear first in the HTML source.</li>
-  <li>All columns should be the same height, regardless of which column is actually the tallest.</li>
-  <li>They should require minimal markup.</li>
-  <li>The footer should "stick" to the bottom of the page when content is sparse.</li>
-</ul>
+- They should have a fluid center with fixed-width sidebars.
+- The center column (main content) should appear first in the HTML source.
+- All columns should be the same height, regardless of which column is actually the tallest.
+- They should require minimal markup.
+- The footer should "stick" to the bottom of the page when content is sparse.
 
 Unfortunately, because of the nature of these goals and the original limitations of CSS, none of the classic solutions to this problem were ever able to satisfy all of them.
 
@@ -103,11 +101,6 @@ Here's a complete example that is responsive and mobile-first. You can also resi
     flex: 0 0 12em;
   }
 }
-
 ```
 
-<div class="u-smaller u-spaceBN">
-
 View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/holy-grail.css) for the `HolyGrail` component used in this demo on Github.
-
-</div>

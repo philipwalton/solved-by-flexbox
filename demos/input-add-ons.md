@@ -10,7 +10,7 @@ The only existing way to do this is to either know the exact width of the input,
 
 With Flexbox, all these problems go away, and the code is trivially simple. In addition, you get the input field and the input add-on to be the same height for free.
 
-<div class="Grid Grid--gutters Grid--full med-Grid--fit">
+<div class="Grid Grid--guttersLg Grid--full med-Grid--fit">
   <div class="Grid-cell">
     <h2>Add-on Prepended</h2>
     <div class="InputAddOn">
@@ -37,7 +37,7 @@ With Flexbox, all these problems go away, and the code is trivially simple. In a
 
 ## Appended and Prepended Add-ons
 
-<div class="Grid Grid--gutters Grid--full med-Grid--fit">
+<div class="Grid Grid--guttersLg Grid--full med-Grid--fit">
   <div class="Grid-cell">
     <div class="InputAddOn">
       <span class="InputAddOn-item"><span class="icon icon-envelope"></span></span>
@@ -95,8 +95,4 @@ With Flexbox, all these problems go away, and the code is trivially simple. In a
 
 ```
 
-<div class="u-smaller">
-
 View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/input-add-on.css) for the `InputAddOn` component used in this demo on Github.
-
-</div>
