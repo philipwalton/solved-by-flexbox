@@ -35,13 +35,13 @@ h1 {
 h2 {
   font-size: 1.333em;
   font-weight: 600;
-  margin: calc(1.5em/1.333) 0;
+  margin: 0 0 calc(1.5em/1.333);
 }
 
 h3 {
   font-size: 1em;
   font-weight: 600;
-  margin: 1.5em 0;
+  margin: 0 0 1.5em;
 }
 
 p,
