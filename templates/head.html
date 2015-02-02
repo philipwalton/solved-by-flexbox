@@ -21,7 +21,7 @@
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', '{{ site.gaTrackingId }}', 'auto');
 
-    {% if env == 'dev' %}
+    {% if site.env == 'dev' %}
       // In non-production mode, simply log GA hits to the console.
       // Note, tasks must be set before sending the first hit
       ga(function(tracker) {

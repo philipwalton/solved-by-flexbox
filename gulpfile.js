@@ -139,7 +139,10 @@ function renderTemplate() {
 gulp.task('pages', function() {
 
   var baseData = require('./config.json');
-  var overrides = PROD ? {baseUrl: '/' + REPO + '/', env: 'dev'} : {};
+  var overrides = {
+    baseUrl: PROD  ? '/' + REPO + '/' : '/',
+    env: PROD ? 'prod' : 'dev'
+  };
   var siteData = assign(baseData, overrides);
 
   return gulp.src(['*.html', './demos/**/*'], {base: process.cwd()})
