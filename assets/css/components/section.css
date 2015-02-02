@@ -1,0 +1,43 @@
+.Section {
+  padding: 0 var(--space);
+}
+.Section:nth-child(2n) {
+  background-color: hsla(31, 15%, 50%, 0.1);
+  overflow: hidden; /* Contain margins. */
+}
+.Section::before,
+.Section::after {
+  content: '\00a0'; /* &nbsp; */
+  display: block;
+  height: 0px;
+  visibility: hidden;
+}
+.Section::before {
+  margin-bottom: var(--space);
+}
+.Section::after {
+  margin-top: var(--space);
+}
+@media (--break-lg) {
+  .Section {
+    padding: 0 var(--space-lg);
+  }
+  .Section::before {
+    margin-bottom: var(--space-lg);
+  }
+  .Section::after {
+    margin-top: var(--space-lg);
+  }
+}
+
+.Section-heading {
+  text-align: center;
+}
+
+@media (--break-lg) {
+  .Section-list {
+    padding: 0;
+    text-align: center;
+    list-style-position: inside;
+  }
+}
