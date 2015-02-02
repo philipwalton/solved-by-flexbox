@@ -20,7 +20,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
-          <h3 class="Demo-title">Standard Media Object</h3>
+          <h3 class="Media-title">Standard Media Object</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar augue.</p>
         </div>
       </div>
@@ -29,7 +29,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
-          <h3 class="Demo-title">Standard Media Object</h3>
+          <h3 class="Media-title">Standard Media Object</h3>
           <p>Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.</p>
         </div>
       </div>
@@ -40,7 +40,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media Media--reverse">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
-          <h3 class="Demo-title">Media Object Reversed</h3>
+          <h3 class="Media-title">Media Object Reversed</h3>
           <p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut. Integer gravida pharetra cursus. Nunc in suscipit nunc.</p>
         </div>
       </div>
@@ -56,7 +56,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media">
         <figure class="Media-figure"><span class="icon-comments icon-big"></span></figure>
         <div class="Media-body">
-          <h3 class="Demo-title">Using Icons</h3>
+          <h3 class="Media-title">Using Icons</h3>
           <p>Donec imperdiet sem leo, id rutrum risus aliquam vitae. Vestibulum ac turpis non lacus dignissim dignissim eu sed dui.</p>
         </div>
       </div>
@@ -67,7 +67,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media Media--center">
         <figure class="Media-figure"><span class="icon-info-sign icon-big"></span></figure>
         <div class="Media-body">
-          <h3 class="Demo-title">Vertically Centering the Figure</h3>
+          <h3 class="Media-title">Vertically Centering the Figure</h3>
           <p>Nunc nec fermentum dolor. Duis at iaculis turpis. Sed rutrum elit ac egestas dapibus. Duis nec consequat enim.</p>
         </div>
       </div>
@@ -83,7 +83,8 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
-          <p><strong>Media Object Title</strong><br>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo.</p>
+          <h3 class="Media-title">Media Object Title</h3>
+          <p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo.</p>
           <div class="Demo Demo--spaced u-smaller">
             <div class="Media">
               <figure class="Media-figure">
@@ -118,7 +119,8 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
-          <p><strong>Media Object Title</strong><br>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut.</p>
+          <h3 class="Media-title">Media Object Title</h3>
+          <p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut.</p>
           <div class="Media Media--center u-smaller">
             <span class="Media-figure icon-thumbs-up-alt"></span>
             <p class="Media-body">Donec imperdiet sem leo, id rutrum risus aliquam vitae.</p>
@@ -144,7 +146,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
 ```html
 <div class="Media">
   <img class="Media-figure" src="" alt="">
-  <p class="Media-body">‚Ä¶</p>
+  <p class="Media-body">&hellip;</p>
 </div>
 ```
 

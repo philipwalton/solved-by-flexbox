@@ -16,6 +16,10 @@
   margin-bottom: 0;
 }
 
+.Media-title {
+  margin: 0 0 .5em;
+}
+
 .Media--center {
   align-items: center;
 }
