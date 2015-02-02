@@ -2,9 +2,9 @@
 template: home.html
 ---
 
-<section class="PromoSection">
+<section class="Section">
   <div class="Container">
-    <h2 class="PromoSection-heading">Introduction</h2>
+    <h2 class="Section-heading">Introduction</h2>
     <p>CSS has been lacking proper layout mechanisms for far too long. Transitions, animations, filters, all of these are great and useful additions to the language, but they don't address the major problems that Web developers have been complaining about for what seems like an eternity.</p>
     <p>Finally, thanks to <a href="http://www.w3.org/TR/css3-flexbox/">Flexbox</a>, we have a solution.</p>
     <p>This site is not another CSS framework. Instead, its purpose is to showcase problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox. And with the recent release of Internet Explorer 11 and Safari 6.1, the latest Flexbox spec is now supported in every modern browser.</p>
@@ -12,9 +12,9 @@ template: home.html
   </div>
 </section>
 
-<section class="PromoSection">
+<section class="Section">
   <div class="Container">
-    <h2 class="PromoSection-heading">Showcase</h2>
+    <h2 class="Section-heading">Showcase</h2>
     <ul class="Grid Grid--guttersLg">
       {% for demo in site.demos %}
         <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
@@ -33,39 +33,50 @@ template: home.html
   </div>
 </section>
 
-<section class="PromoSection">
+<section class="Section">
   <div class="Container">
-    <h2 class="PromoSection-heading">Browser Support</h2>
-    <ul class="BrowserMatrix">
-      <li class="BrowserMatrix-item">
-        <figure class="BrowserLogo BrowserLogo--chrome"></figure>
-        <p class="BrowserMatrix-title">Chrome</p>
-        <p class="BrowserMatrix-description">21+</p>
+    <h2 class="Section-heading">Browser Support</h2>
+
+    <ul class="Grid Grid--guttersLg Grid--justifyCenter">
+      <li class="Grid-cell Grid-cell--autoSize">
+        <div class="Browser Browser--chrome">
+          <figure class="Browser-image"></figure>
+          <div class="Browser-name">Chrome</div>
+          <div class="Browser-version">21+</div>
+        </div>
       </li>
-      <li class="BrowserMatrix-item">
-        <figure class="BrowserLogo BrowserLogo--opera"></figure>
-        <p class="BrowserMatrix-title">Opera</p>
-        <p class="BrowserMatrix-description">12.1+</p>
+      <li class="Grid-cell Grid-cell--autoSize">
+        <div class="Browser Browser--opera">
+          <figure class="Browser-image"></figure>
+          <div class="Browser-name">Opera</div>
+          <div class="Browser-version">12.1+</div>
+        </div>
       </li>
-      <li class="BrowserMatrix-item">
-        <figure class="BrowserLogo BrowserLogo--firefox"></figure>
-        <p class="BrowserMatrix-title">Firefox</p>
-        <p class="BrowserMatrix-description">22+</p>
+      <li class="Grid-cell Grid-cell--autoSize">
+        <div class="Browser Browser--firefox">
+          <figure class="Browser-image"></figure>
+          <div class="Browser-name">Firefox</div>
+          <div class="Browser-version">22+</div>
+        </div>
       </li>
-      <li class="BrowserMatrix-item">
-        <figure class="BrowserLogo BrowserLogo--safari"></figure>
-        <p class="BrowserMatrix-title">Safari</p>
-        <p class="BrowserMatrix-description">6.1+</p>
+      <li class="Grid-cell Grid-cell--autoSize">
+        <div class="Browser Browser--safari">
+          <figure class="Browser-image"></figure>
+          <div class="Browser-name">Safari</div>
+          <div class="Browser-version">6.1+</div>
+        </div>
       </li>
-      <li class="BrowserMatrix-item">
-        <figure class="BrowserLogo BrowserLogo--ie"></figure>
-        <p class="BrowserMatrix-title">IE</p>
-        <p class="BrowserMatrix-description">10+</p>
+      <li class="Grid-cell Grid-cell--autoSize">
+        <div class="Browser Browser--ie">
+          <figure class="Browser-image"></figure>
+          <div class="Browser-name">IE</div>
+          <div class="Browser-version">10+</div>
+        </div>
       </li>
     </ul>
 
-    <h3 class="PromoSection-heading">Caveats and Known Issues</h3>
-    <ul class="PromoSection-list">
+    <h3 class="Section-heading">Caveats and Known Issues</h3>
+    <ul class="Section-list">
       <li>IE 10 has Flexbox support but for a <a href="http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/">draft version</a> of the current spec: (<code>display:flexbox</code>).</li>
       <li>Safari 6 and earlier support the <a href="http://www.w3.org/TR/2009/WD-css3-flexbox-20090723/">original</a> Flexbox syntax, which is now obsolete: (<code>display:box</code>).</li>
       <li>Firefox 27 and earlier do not support multi-line flexboxes. See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=702508">this bug</a> for more details.</li>
@@ -74,9 +85,9 @@ template: home.html
   </div>
 </section>
 
-<section class="PromoSection">
+<section class="Section">
   <div class="Container">
-    <h2 class="PromoSection-heading">About the Code</h2>
+    <h2 class="Section-heading">About the Code</h2>
     <p>All of the code samples on this site show how to solve a particular design problem with Flexbox. They show just the code that's needed to make the demos work in a spec-compliant browser. Some browsers do not fully comply with the latest version of the spec, so sadly, a few workarounds were necessary.</p>
     <p>Workarounds for non-compliant browsers are not shown in the code samples, but if you're curious about those implementation details, you can check out the source files. Each demo links to its source, and all browser-specific workarounds are well-documented, so don't be afraid to take a look.</p>
     <p>The vendor prefixing and translating of current flex properties to their legacy equivalents is all handled by <a href="https://github.com/ai/autoprefixer">autoprefixer</a>. If you're writing Flexbox code and not using autoprefixer, well, you're making a horrible mistake.</p>

@@ -7,8 +7,7 @@
 @import './base/elements';
 
 @import './components/aligner';
-@import './components/browser-logo';
-@import './components/browser-matrix';
+@import './components/browser';
 @import './components/button';
 @import './components/container';
 @import './components/demo';
@@ -21,7 +20,7 @@
 @import './components/image';
 @import './components/input-add-on';
 @import './components/media';
-@import './components/promo-section';
+@import './components/section';
 @import './components/site';
 
 @import './utils/media';

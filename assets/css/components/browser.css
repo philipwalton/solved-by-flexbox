@@ -1,0 +1,34 @@
+.Browser {
+  font-size: .8em;
+  text-align: center;
+}
+
+.Browser-image {
+  height: 64px;
+  width: 64px;
+  margin: 0 0.5em 0.5em;
+  background: url('images/browser-logos.jpg') no-repeat 0 0;
+  background-size: auto 100%;
+}
+
+.Browser--chrome > .Browser-image {
+  background-position: 0 0;
+}
+
+.Browser--opera > .Browser-image {
+  background-position: -64px 0;
+}
+
+.Browser--firefox > .Browser-image {
+  background-position: -128px 0;
+}
+
+.Browser--safari > .Browser-image {
+  background-position: -192px 0;
+}
+
+.Browser--ie > .Browser-image {
+  background-position: -256px 0;
+}
+
+

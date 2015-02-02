@@ -26,6 +26,10 @@
   align-items: center;
 }
 
+.Grid--justifyCenter {
+  justify-content: center;
+}
+
 .Grid-cell--top {
   align-self: flex-start;
 }
@@ -36,6 +40,10 @@
 
 .Grid-cell--center {
   align-self: center;
+}
+
+.Grid-cell--autoSize {
+  flex: none;
 }
 
 .Grid--fit > .Grid-cell {

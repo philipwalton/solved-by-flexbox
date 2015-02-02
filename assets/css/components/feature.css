@@ -16,7 +16,7 @@
 }
 
 .Feature-title {
-  margin-bottom: 0.5em;
+  margin: 0 0 0.5em;
   color: hsl(0, 0%, 25%);
   text-align: center;
   transition: color 0.1s;
@@ -25,7 +25,6 @@
 .Feature-description {
   margin: 0 0.75em;
   font-size: 0.8em;
-  color: #808080;
 }
 
 .Feature a:active .Feature-figure,
