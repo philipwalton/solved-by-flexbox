@@ -19,6 +19,28 @@
 
 .Site-content {
   flex: 1 0 auto; /* 2 */
-  padding: 1.5em;
+  padding: var(--space) var(--space) 0;
   width: 100%;
+}
+.Site-content::after {
+  content: '\00a0'; /* &nbsp; */
+  display: block;
+  margin-top: var(--space);
+  height: 0px;
+  visibility: hidden;
+}
+@media (--break-lg) {
+  .Site-content {
+    padding-top: var(--space-lg);
+  }
+  .Site-content::after {
+    margin-top: var(--space-lg);
+  }
+}
+
+.Site-content--full {
+  padding: 0;
+}
+.Site-content--full::after {
+  content: none;
 }

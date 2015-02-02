@@ -1,5 +1,3 @@
-@import '../base/breakpoints';
-
 .Footer {
   padding: 1.5rem 1.5rem;
   background: gray(25%);

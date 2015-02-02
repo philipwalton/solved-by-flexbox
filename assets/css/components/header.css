@@ -1,5 +1,3 @@
-@import '../base/breakpoints';
-
 .Header {
   padding: 1.5em;
   background-color: rgba(147, 128, 108, 0.1);
@@ -14,6 +12,7 @@
 .Header-title {
   margin: 0 0 0.15em;
   font-size: 1.8em;
+  font-weight: 600;
   line-height: 1;
   word-spacing: 0.08em;
 }
@@ -21,7 +20,6 @@
   font-family: serif;
   font-style: italic;
   font-weight: 400;
-  letter-spacing: -0.03em;
 }
 .Header-title a {
   border: 0;
@@ -39,7 +37,8 @@
 
 .Header-subTitle {
   margin: 0 0 1.5em;
-  font: 300 0.8em "proxima-nova", sans-serif;
+  font-size: 0.8em;
+  font-weight: 300;
   white-space: nowrap;
 }
 @media (--break-lg) {
@@ -92,7 +91,6 @@
   }
   .Header--cozy .Header-subTitle {
     margin: 0 0 0 1em;
-    font-family: "proxima-nova";
     font-size: 0.8em;
     font-weight: 300;
     color: gray;

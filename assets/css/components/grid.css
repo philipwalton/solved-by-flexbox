@@ -1,5 +1,3 @@
-@import '../base/breakpoints';
-
 .Grid {
   display: flex;
   flex-wrap: wrap;
@@ -114,112 +112,86 @@
   }
 }
 
-
 .Grid--gutters {
-  margin-left: -1em;
+  margin: -1em 0 1em -1em;
 }
 .Grid--gutters > .Grid-cell {
-  padding-left: 1em;
+  padding: 1em 0 0 1em;
 }
 
-.Grid--guttersLarge {
-  margin-left: -1.5em;
+.Grid--guttersLg {
+  margin: -1.5em 0 1.5em -1.5em;
 }
-.Grid--guttersLarge > .Grid-cell {
-  padding-left: 1.5em;
-}
-
-.Grid--gutters2x {
-  margin-left: -2em;
-}
-.Grid--gutters2x > .Grid-cell {
-  padding-left: 2em;
+.Grid--guttersLg > .Grid-cell {
+  padding: 1.5em 0 0 1.5em;
 }
 
-.Grid--gutters3x {
-  margin-left: -3em;
+.Grid--guttersXl {
+  margin: -2em 0 2em -2em;
 }
-.Grid--gutters3x > .Grid-cell {
-  padding-left: 3em;
+.Grid--guttersXl > .Grid-cell {
+  padding: 2em 0 0 2em;
 }
 
 @media (break-sm) {
   .small-Grid--gutters {
-    margin-left: -1em;
+    margin: -1em 0 1em -1em;
   }
   .small-Grid--gutters > .Grid-cell {
-    padding-left: 1em;
+    padding: 1em 0 0 1em;
   }
-  .small-Grid--guttersLarge {
-    margin-left: -1.5em;
+  .small-Grid--guttersLg {
+    margin: -1.5em 0 1.5em -1.5em;
   }
-  .small-Grid--guttersLarge > .Grid-cell {
-    padding-left: 1.5em;
+  .small-Grid--guttersLg > .Grid-cell {
+    padding: 1.5em 0 0 1.5em;
   }
-  .small-Grid--gutters2x {
-    margin-left: -2em;
+  .small-Grid--guttersXl {
+    margin: -2em 0 2em -2em;
   }
-  .small-Grid--gutters2x > .Grid-cell {
-    padding-left: 2em;
-  }
-  .small-Grid--gutters3x {
-    margin-left: -3em;
-  }
-  .small-Grid--gutters3x > .Grid-cell {
-    padding-left: 3em;
+  .small-Grid--guttersXl > .Grid-cell {
+    padding: 2em 0 0 2em;
   }
 }
 
 @media (--break-md) {
   .med-Grid--gutters {
-    margin-left: -1em;
+    margin: -1em 0 1em -1em;
   }
   .med-Grid--gutters > .Grid-cell {
-    padding-left: 1em;
+    padding: 1em 0 0 1em;
   }
-  .med-Grid--guttersLarge {
-    margin-left: -1.5em;
+  .med-Grid--guttersLg {
+    margin: -1.5em 0 1.5em -1.5em;
   }
-  .med-Grid--guttersLarge > .Grid-cell {
-    padding-left: 1.5em;
+  .med-Grid--guttersLg > .Grid-cell {
+    padding: 1.5em 0 0 1.5em;
   }
-  .med-Grid--gutters2x {
-    margin-left: -2em;
+  .med-Grid--guttersXl {
+    margin: -2em 0 2em -2em;
   }
-  .med-Grid--gutters2x > .Grid-cell {
-    padding-left: 2em;
-  }
-  .med-Grid--gutters3x {
-    margin-left: -3em;
-  }
-  .med-Grid--gutters3x > .Grid-cell {
-    padding-left: 3em;
+  .med-Grid--guttersXl > .Grid-cell {
+    padding: 2em 0 0 2em;
   }
 }
 
 @media (--break-lg) {
   .large-Grid--gutters {
-    margin-left: -1em;
+    margin: -1em 0 1em -1em;
   }
   .large-Grid--gutters > .Grid-cell {
-    padding-left: 1em;
+    padding: 1em 0 0 1em;
   }
-  .large-Grid--guttersLarge {
-    margin-left: -1.5em;
+  .large-Grid--guttersLg {
+    margin: -1.5em 0 1.5em -1.5em;
   }
-  .large-Grid--guttersLarge > .Grid-cell {
-    padding-left: 1.5em;
+  .large-Grid--guttersLg > .Grid-cell {
+    padding: 1.5em 0 0 1.5em;
   }
-  .large-Grid--gutters2x {
-    margin-left: -2em;
+  .large-Grid--guttersXl {
+    margin: -2em 0 2em -2em;
   }
-  .large-Grid--gutters2x > .Grid-cell {
-    padding-left: 2em;
-  }
-  .large-Grid--gutters3x {
-    margin-left: -3em;
-  }
-  .large-Grid--gutters3x > .Grid-cell {
-    padding-left: 3em;
+  .large-Grid--guttersXl > .Grid-cell {
+    padding: 2em 0 0 2em;
   }
 }

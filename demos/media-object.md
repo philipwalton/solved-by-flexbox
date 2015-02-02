@@ -14,9 +14,9 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
 
 ## Basic Examples
 
-<div class="Grid Grid--gutters Grid--full large-Grid--fit">
+<div class="Grid Grid--guttersLg Grid--full large-Grid--fit">
   <div class="Grid-cell">
-    <div class="Demo">
+    <div class="Demo Demo--spaced">
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
@@ -25,7 +25,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
         </div>
       </div>
     </div>
-    <div class="Demo">
+    <div class="Demo Demo--spaced">
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
@@ -36,7 +36,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
     </div>
   </div>
   <div class="Grid-cell">
-    <div class="Demo">
+    <div class="Demo Demo--spaced">
       <div class="Media Media--reverse">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
@@ -50,9 +50,9 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
 
 ## Non-images
 
-<div class="Grid Grid--gutters Grid--full large-Grid--fit">
+<div class="Grid Grid--guttersLg Grid--full large-Grid--fit">
   <div class="Grid-cell">
-    <div class="Demo">
+    <div class="Demo Demo--spaced">
       <div class="Media">
         <figure class="Media-figure"><span class="icon-comments icon-big"></span></figure>
         <div class="Media-body">
@@ -63,7 +63,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
     </div>
   </div>
   <div class="Grid-cell">
-    <div class="Demo">
+    <div class="Demo Demo--spaced">
       <div class="Media Media--center">
         <figure class="Media-figure"><span class="icon-info-sign icon-big"></span></figure>
         <div class="Media-body">
@@ -77,14 +77,14 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
 
 ## Nested Media Objects
 
-<div class="Grid Grid--gutters Grid--full large-Grid--fit">
+<div class="Grid Grid--guttersLg Grid--full large-Grid--fit">
   <div class="Grid-cell">
-    <div class="Demo">
+    <div class="Demo Demo--spaced">
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
           <p><strong>Media Object Title</strong><br>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo.</p>
-          <div class="Demo u-smaller">
+          <div class="Demo Demo--spaced u-smaller">
             <div class="Media">
               <figure class="Media-figure">
                 <img class="Image Image--tiny" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
@@ -94,7 +94,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
               </p>
             </div>
           </div>
-          <div class="Demo u-smaller">
+          <div class="Demo Demo--spaced u-smaller">
             <div class="Media">
               <figure class="Media-figure">
                 <img class="Image Image--tiny" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
@@ -114,7 +114,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
   </div>
 
   <div class="Grid-cell">
-    <div class="Demo">
+    <div class="Demo Demo--spaced">
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
@@ -123,7 +123,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
             <span class="Media-figure icon-thumbs-up-alt"></span>
             <p class="Media-body">Donec imperdiet sem leo, id rutrum risus aliquam vitae.</p>
           </div>
-          <div class="Demo u-smaller">
+          <div class="Demo Demo--spaced u-smaller">
             <div class="Media">
               <figure class="Media-figure">
                 <img class="Image Image--tiny" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
@@ -144,7 +144,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
 ```html
 <div class="Media">
   <img class="Media-figure" src="" alt="">
-  <p class="Media-body">…</p>
+  <p class="Media-body">‚Ä¶</p>
 </div>
 ```
 

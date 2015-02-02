@@ -7,36 +7,51 @@
 html {
   height: 100%;
   color: hsl(0,0%,25%);
-  font: 300 1em/1.333 "proxima-nova", sans-serif;
+  font: 400 1em/1.4 'Open Sans', sans-serif;
+  text-rendering: optimizeLegibility;
+}
+@media (--high-dppx) {
+  html {
+    font-weight: 300;
+  }
 }
 
 h1 {
-  margin: 0 0 0.5em;
-  font-weight: 700;
-  font-size: 3em;
-  line-height: 1;
+  font-weight: 300;
+  font-size: 2em;
   -webkit-font-kerning: normal;
+  letter-spacing: -.015em;
+  line-height: 1;
+  margin: .25em 0 .75em;
+}
+@media (--break-lg) {
+  h1 {
+    font-size: 2.5em;
+    margin: .5em 0 1em;
+  }
 }
 
+
 h2 {
-  margin: 0 0 1em;
-  font: 700 1.3em "ff-tisa-web-pro", serif;
-  -webkit-font-kerning: normal;
+  font-size: 1.333em;
+  font-weight: 600;
+  margin: calc(1.5em/1.333) 0;
 }
 
 h3 {
-  margin: 0 0 1em;
   font-size: 1em;
+  font-weight: 600;
+  margin: 1.5em 0;
 }
 
 p,
 pre {
-  margin: 0 0 1em;
+  margin: 0 0 1.5em;
 }
 
 code,
 pre {
-  font-family: "source-code-pro", monospace;
+  font-family: 'Menlo', 'Monaco', monospace;
 }
 
 code {
@@ -62,11 +77,20 @@ a:hover {
 
 ol,
 ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  list-style: square;
+  margin: 0 0 1.5em;
+  padding: 0 0 0 1.5em;
 }
+
+li {
+  margin-bottom: 0.333em;
+}
+
 
 figure {
   margin: 0;
+}
+
+strong {
+  font-weight: 600;
 }

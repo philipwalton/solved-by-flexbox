@@ -1,12 +1,18 @@
 .PromoSection {
-  padding: var(--space) var(--space) 0;
+  padding: 0 var(--space);
 }
+.PromoSection::before,
 .PromoSection::after {
   content: '\00a0'; /* &nbsp; */
   display: block;
-  margin-top: 2em;
   height: 0px;
   visibility: hidden;
+}
+.PromoSection::before {
+  margin-bottom: var(--space);
+}
+.PromoSection::after {
+  margin-top: var(--space);
 }
 
 .PromoSection-heading {
@@ -21,13 +27,17 @@
   }
 }
 
-.PromoSection--striped {
+.PromoSection:nth-child(2n) {
   background-color: hsla(31, 15%, 50%, 0.1);
+  overflow: hidden; /* Contain margins. */
 }
 
 @media (--break-lg) {
   .PromoSection {
-    padding: var(--space-lg) var(--space-lg) 0;
+    padding: 0 var(--space-lg);
+  }
+  .PromoSection::before {
+    margin-bottom: var(--space-lg);
   }
   .PromoSection::after {
     margin-top: var(--space-lg);

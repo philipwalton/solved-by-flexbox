@@ -3,7 +3,7 @@
 @import 'suitcss-utils-text';
 
 @import './base/variables';
-@import './base/breakpoints';
+@import './base/custom-media';
 @import './base/elements';
 
 @import './components/aligner';
@@ -20,11 +20,8 @@
 @import './components/holy-grail';
 @import './components/image';
 @import './components/input-add-on';
-@import './components/list';
 @import './components/media';
-@import './components/promo-heading';
-@import './components/promo-subheading';
-@import './components/section';
+@import './components/promo-section';
 @import './components/site';
 
 @import './utils/media';

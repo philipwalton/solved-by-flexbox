@@ -1,4 +1,4 @@
-@import '../base/breakpoints';
+@import '../base/custom-media';
 
 .u-full {
   width: 100% !important;

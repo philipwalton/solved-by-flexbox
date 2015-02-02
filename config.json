@@ -2,7 +2,5 @@
   "title": "Solved by Flexbox",
   "tagline": "Cleaner, hack-free CSS",
   "description": "A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox.",
-  "baseUrl": "/",
-  "env": "prod",
   "gaTrackingId": "UA-40829935-1"
 }
