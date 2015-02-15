@@ -2,8 +2,9 @@ require('shelljs/global');
 
 var argv = require('yargs').argv;
 var assign = require('object-assign');
-var buffer = require('vinyl-buffer');
+var babelify = require('babelify');
 var browserify = require('browserify');
+var buffer = require('vinyl-buffer');
 var connect = require('connect');
 var cssnext = require('gulp-cssnext');
 var del = require('del');
@@ -25,7 +26,6 @@ var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var through = require('through2');
 var uglify = require('gulp-uglify');
-
 
 /**
  * The output directory for all the built files.
@@ -196,7 +196,9 @@ gulp.task('lint', function() {
 
 
 gulp.task('javascript', ['lint'], function() {
-  return browserify('./assets/javascript/main.js', {debug: true}).bundle()
+  return browserify('./assets/javascript/main.js', {debug: true})
+      .transform(babelify)
+      .bundle()
       .on('error', streamError)
       .pipe(source('main.js'))
       .pipe(buffer())

@@ -1,4 +1,4 @@
-var addListener = require('./add-listener');
+import addListener from './add-listener';
 
 function isLink(el) {
   return el.nodeName && el.nodeName.toLowerCase() == 'a' && el.href;
@@ -12,13 +12,13 @@ function getLinkAncestor(el) {
   }
 }
 
-module.exports = function(fn) {
+export default function(fn) {
   addListener(document, 'click', function(event) {
-    var e = event || window.event;
-    var target = e.target || e.srcElement;
-    var link = getLinkAncestor(target);
+    let e = event || window.event;
+    let target = e.target || e.srcElement;
+    let link = getLinkAncestor(target);
     if (link) {
       fn.call(link, e);
     }
   });
-};
+}

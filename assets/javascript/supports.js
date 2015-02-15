@@ -1,7 +1,7 @@
-var supports = {};
-var style = document.body.style;
+let supports = {};
+let style = document.body.style;
 
-module.exports = {
+export default {
   flexbox: function() {
     return supports.flexbox || (supports.flexbox = ('flexBasis' in style ||
         'msFlexAlign' in style || 'webkitBoxDirection' in style));

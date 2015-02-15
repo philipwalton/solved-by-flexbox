@@ -1,10 +1,10 @@
 /* global ga */
 
-var linkClicked = require('./link-clicked');
-var parseUrl = require('./parse-url');
+import linkClicked from './link-clicked';
+import parseUrl from './parse-url';
 
 
-var breakpoints = {
+const breakpoints = {
   xs: '(max-width: 383px)',
   sm: '(min-width: 384px) and (max-width: 575px)',
   md: '(min-width: 576px) and (max-width: 767px)',
@@ -17,10 +17,10 @@ function trackBreakpoints() {
   if (!window.matchMedia) return;
 
   // Prevent rapid breakpoint changes from all firing at once.
-  var timeout;
+  let timeout;
 
   Object.keys(breakpoints).forEach(function(breakpoint) {
-    var mql = window.matchMedia(breakpoints[breakpoint]);
+    let mql = window.matchMedia(breakpoints[breakpoint]);
 
     // Set the initial breakpoint on pageload.
     if (mql.matches) {
@@ -60,10 +60,10 @@ function trackOutboundLinks() {
 
 function trackSocialInteractions() {
   linkClicked(function() {
-    var socialNetwork = this.getAttribute('data-social-network');
+    let socialNetwork = this.getAttribute('data-social-network');
     if (socialNetwork) {
-      var socialAction = this.getAttribute('data-social-action');
-      var socialTarget = location.href;
+      let socialAction = this.getAttribute('data-social-action');
+      let socialTarget = location.href;
 
       // Opening links in an external tab allows the ga beacon to send.
       // When following links directly, sometimes they don't make it.
@@ -76,13 +76,13 @@ function trackSocialInteractions() {
 
 
 function isLinkOutbound(link) {
-  var url = parseUrl(link.href);
-  var loc = parseUrl(location.href);
+  let url = parseUrl(link.href);
+  let loc = parseUrl(location.href);
   return url.origin != loc.origin;
 }
 
 
-module.exports = {
+export default {
   track: function() {
 
     trackBreakpoints();

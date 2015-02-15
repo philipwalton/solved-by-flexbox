@@ -13,11 +13,12 @@
     "release": "gulp clean && gulp release"
   },
   "devDependencies": {
+    "babelify": "^5.0.3",
     "browserify": "^8.1.1",
     "connect": "^3.3.4",
     "del": "^1.1.1",
     "front-matter": "^0.2.1",
-    "gulp": "^3.8.10",
+    "gulp": "^3.8.11",
     "gulp-cssnext": "^0.6.0",
     "gulp-htmlmin": "^1.0.0",
     "gulp-if": "^1.2.5",
@@ -30,7 +31,7 @@
     "he": "^0.5.0",
     "highlight.js": "^8.4.0",
     "normalize.css": "^3.0.2",
-    "nunjucks": "^1.1.0",
+    "nunjucks": "1.1.0",
     "object-assign": "^2.0.0",
     "remarkable": "^1.6.0",
     "serve-static": "^1.8.1",
