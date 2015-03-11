@@ -19,7 +19,7 @@
     "del": "^1.1.1",
     "front-matter": "^0.2.1",
     "gulp": "^3.8.11",
-    "gulp-cssnext": "^0.6.0",
+    "gulp-cssnext": "^1.0.0",
     "gulp-htmlmin": "^1.0.0",
     "gulp-if": "^1.2.5",
     "gulp-jshint": "^1.9.0",
