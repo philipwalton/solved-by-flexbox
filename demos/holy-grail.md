@@ -36,7 +36,7 @@ With Flexbox, a complete solution is finally possible.
 
 ## The CSS
 
-Geting the center content row to stretch and the footer to stick to the bottom is solved with the same technique shown in the [Sticky Footer](../sticky-footer/) example. The only difference is the center row of the Holy Grail layout (`.HolyGrail-body`) needs to be `display:flex` in order to properly arrange its children.
+Getting the center content row to stretch and the footer to stick to the bottom is solved with the same technique shown in the [Sticky Footer](../sticky-footer/) example. The only difference is the center row of the Holy Grail layout (`.HolyGrail-body`) needs to be `display:flex` in order to properly arrange its children.
 
 ```css
 .HolyGrail {
