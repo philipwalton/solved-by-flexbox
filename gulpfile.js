@@ -38,10 +38,9 @@ const DEST = './build';
 const REPO = 'solved-by-flexbox';
 
 
-/**
- * Truthy if NODE_ENV isn't 'dev'
- */
-const PROD = process.env.NODE_ENV !== 'dev';
+function isProd() {
+  return process.env.NODE_ENV == 'production';
+}
 
 
 nunjucks.configure('templates', { autoescape: false });
@@ -140,8 +139,8 @@ gulp.task('pages', function() {
 
   var baseData = require('./config.json');
   var overrides = {
-    baseUrl: PROD  ? '/' + REPO + '/' : '/',
-    env: PROD ? 'prod' : 'dev'
+    baseUrl: isProd() ? '/' + REPO + '/' : '/',
+    env: isProd() ? 'prod' : 'dev'
   };
   var siteData = assign(baseData, overrides);
 
@@ -195,7 +194,7 @@ gulp.task('lint', function() {
       .pipe(plumber({errorHandler: streamError}))
       .pipe(jshint())
       .pipe(jshint.reporter('default'))
-      .pipe(gulpIf(PROD, jshint.reporter('fail')))
+      .pipe(gulpIf(isProd(), jshint.reporter('fail')))
 });
 
 
@@ -207,7 +206,7 @@ gulp.task('javascript', ['lint'], function() {
       .pipe(source('main.js'))
       .pipe(buffer())
       .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(gulpIf(PROD, uglify()))
+      .pipe(gulpIf(isProd(), uglify()))
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest(DEST));
 });
@@ -233,6 +232,10 @@ gulp.task('serve', ['default'], function() {
 
 
 gulp.task('release', ['default'], function() {
+
+  if (process.env.NODE_ENV != 'production') {
+    throw new Error('Releasing requires NODE_ENV to be set to production');
+  }
 
   // Create a tempory directory and
   // checkout the existing gh-pages branch.
