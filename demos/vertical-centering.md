@@ -12,7 +12,7 @@ The current landscape of [vertical centering options](http://css-tricks.com/cent
 
 With Flexbox, you can stop worrying. You can align anything (vertically or horizontally) quite painlessly with the `align-items`, `align-self`, and `justify-content` properties.
 
-<div class="Demo Demo--spaced">
+<div class="Demo Demo--spaced u-ieMinHeightBugFix">
   <div class="Aligner">
     <div class="Aligner-item Aligner-item--fixed">
       <div class="Demo">
@@ -25,7 +25,7 @@ With Flexbox, you can stop worrying. You can align anything (vertically or horiz
 
 Unlike some of the existing vertical alignment techniques, with Flexbox the presence of sibling elements doesn't affect their ability to be vertically aligned.
 
-<div class="Demo Demo--spaced">
+<div class="Demo Demo--spaced u-ieMinHeightBugFix">
   <div class="Aligner">
     <div class="Aligner-item Aligner-item--top">
       <div class="Demo"><strong>Top</strong></div>
