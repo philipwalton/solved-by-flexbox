@@ -46,6 +46,8 @@ In the example below, the container is set to the height of the window, and the 
 
 View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css) for the `Site` component used in this demo on Github.
 
+<aside class="Notice"><strong>Note:</strong>&nbsp; the CSS required to make this demo work cross-browser is slightly different from the CSS shown in the example above, which assumes a fully spec-compliant browser. See the <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css">comments in the source</a> for more details.</aside>
+
 </div>
 
 <script class="js-allow-before-footer">

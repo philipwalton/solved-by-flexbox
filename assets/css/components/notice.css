@@ -1,0 +1,7 @@
+.Notice {
+  background-color: hsl(90, 100%, 93%);
+  color: hsla(0, 0%, 0%, .6);
+  font-size: .92em;
+  margin-bottom: var(--space);
+  padding: 1.2em 1.5em;
+}

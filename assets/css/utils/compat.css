@@ -1,8 +1,7 @@
 /**
  * Fixes the min-height bug in IE10-11.
- * This class should be added to a container element
- * as described in Flexbug #3
- * http://bit.ly/1gy8OJS
+ * This class should be added to a container element as described in
+ * Flexbug #3. See http://bit.ly/1gy8OJS for details.
  */
 .u-ieMinHeightBugFix {
   display: flex;

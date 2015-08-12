@@ -72,3 +72,5 @@ Unlike some of the existing vertical alignment techniques, with Flexbox the pres
 ```
 
 View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/aligner.css) for the `Aligner` component used in this demo on Github.
+
+<aside class="Notice"><strong>Note:</strong>&nbsp; the markup and CSS required to make this demo work cross-browser is slightly different from what's shown in the examples above, which assumes a fully spec-compliant browser. See the <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/utils/compat.css">comments in the source</a> for more details.</aside>
