@@ -254,7 +254,7 @@ gulp.task('deploy', ['default'], function() {
 
   // Commit and push the changes to
   // the gh-pages branch.
-  exec('git commit -m "Deploy site."');
+  exec('git commit -m "Deploy site"');
   exec('git branch -m gh-pages');
   exec('git push origin gh-pages');
 
