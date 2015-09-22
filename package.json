@@ -10,7 +10,7 @@
   "scripts": {
     "build": "gulp",
     "start": "gulp serve",
-    "release": "gulp clean && gulp release"
+    "deploy": "gulp clean && gulp deploy"
   },
   "devDependencies": {
     "babelify": "^5.0.3",

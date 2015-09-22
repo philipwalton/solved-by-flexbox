@@ -231,10 +231,10 @@ gulp.task('serve', ['default'], function() {
 });
 
 
-gulp.task('release', ['default'], function() {
+gulp.task('deploy', ['default'], function() {
 
   if (process.env.NODE_ENV != 'production') {
-    throw new Error('Releasing requires NODE_ENV to be set to production');
+    throw new Error('Deploying requires NODE_ENV to be set to production');
   }
 
   // Create a tempory directory and
