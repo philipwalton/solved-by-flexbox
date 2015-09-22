@@ -8,7 +8,7 @@ Most grid systems today use one of two layout methods: `float` or `inline-block`
 
 Using floats requires clearing them which has a whole host of layout issues, most notoriously that clearing an element sometimes forces it below an unrelated part of the page (take this [Bootstrap issue](https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969) for example). In addition, clearing floats usually requires using both before and after pseudo-elements, preventing you from using them for something else.
 
-Inline block layouts must address the problem of [white-space between inline-block items](http://css-tricks.com/fighting-the-space-between-inline-block-elements/), and all of the [solutions](http://davidwalsh.name/remove-whitespace-inline-block) to that problem are [hacky](https://github.com/suitcss/grid/blob/master/grid.css#L44-L45) and [annoying](https://twitter.com/thierrykoblentz/status/305152267374428160).
+Inline block layouts must address the problem of [white-space between inline-block items](http://css-tricks.com/fighting-the-space-between-inline-block-elements/), and all of the [solutions](http://davidwalsh.name/remove-whitespace-inline-block) to that problem are [hacky](https://github.com/suitcss/components-grid/blob/master/lib/grid.css#L30) and [annoying](https://twitter.com/thierrykoblentz/status/305152267374428160).
 
 Flexbox not only eliminates these problems, it opens up an entirely new world of possibilities.
 
