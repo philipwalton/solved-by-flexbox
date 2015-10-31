@@ -6,11 +6,11 @@ A showcase of problems once hard or impossible to solve with CSS alone, now made
 
 ## Viewing the Site Locally
 
-The Solved by Flexbox site can be built with [io.js](https://iojs.org/) or [Node.js](http://nodejs.org/). If you have either of those installed on your system, you can run the following commands to build and serve a local copy.
+The Solved by Flexbox site can be built with [Node.js](http://nodejs.org/). If you have Node.js installed on your system, you can run the following commands to build and serve a local copy.
 
 ```sh
 # Clone the git repository and cd into the cloned directory.
-git clone git@github.com:philipwalton/solved-by-flexbox.git
+git clone https://github.com/philipwalton/solved-by-flexbox.git
 cd solved-by-flexbox
 
 # Install the dependencies
