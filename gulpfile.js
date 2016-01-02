@@ -62,11 +62,16 @@ function extractFrontMatter(options) {
 
       if (yaml.attributes) {
         var slug = path.basename(file.path, path.extname(file.path));
+        var permalink = site.baseUrl +
+            (slug == 'index' ? '' : 'demos/' + slug + '/');
 
         file.contents = new Buffer(yaml.body);
         file.data = {
           site: site,
-          page: assign({slug: slug}, yaml.attributes)
+          page: assign({
+            slug: slug,
+            permalink: permalink
+          }, yaml.attributes)
         };
 
         if (file.path.indexOf('demos') > -1) {
@@ -156,7 +161,7 @@ gulp.task('pages', function() {
           path.extname = '.html';
         }
       }))
-      .pipe(htmlmin({
+      .pipe(gulpIf(isProd(), htmlmin({
         removeComments: true,
         collapseWhitespace: true,
         collapseBooleanAttributes: true,
@@ -166,7 +171,7 @@ gulp.task('pages', function() {
         removeEmptyAttributes: true,
         minifyJS: true,
         minifyCSS: true
-      }))
+      })))
       .pipe(gulp.dest(DEST));
 });
 

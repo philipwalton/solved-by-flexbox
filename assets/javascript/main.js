@@ -1,4 +1,9 @@
-import analytics from './analytics';
+import 'autotrack/lib/plugins/media-query-tracker';
+import 'autotrack/lib/plugins/outbound-link-tracker';
+import 'autotrack/lib/plugins/session-duration-tracker';
+import 'autotrack/lib/plugins/social-tracker';
+
+
 import supports from './supports';
 
 
@@ -11,6 +16,3 @@ if (!supports.flexbox()) {
 
   document.body.insertBefore(div, document.body.firstChild);
 }
-
-// Track various interations with Google Analytics
-analytics.track();
