@@ -15,12 +15,14 @@
   <link href="{{ site.baseUrl }}main.css" rel="stylesheet" type="text/css">
 
   <script class="js-allow-before-footer">
-    // Google Analytics async snippet:
-    // http://goo.gl/3FPNDx
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', '{{ site.gaTrackingId }}', 'auto');
+  (function(window) {
 
-    var mediaQueryOpts = {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+
+    ga('create', 'UA-40829935-1', 'auto');
+    ga('create', 'UA-40829935-2', 'auto', 'testing');
+
+    var autotrackOpts = {
       mediaQueryDefinitions: [
         {
           name: 'Breakpoint',
@@ -54,24 +56,30 @@
       ]
     };
 
-    ga('require', 'mediaQueryTracker', mediaQueryOpts);
+    ga('require', 'mediaQueryTracker', autotrackOpts);
     ga('require', 'outboundLinkTracker');
-    ga('require', 'sessionDurationTracker');
     ga('require', 'socialTracker');
 
-    {% if site.env == 'dev' %}
-      // In non-production mode, simply log GA hits to the console.
-      // Note, tasks must be set before sending the first hit
-      ga(function(tracker) {
-        tracker.set('sendHitTask', function() {
-          // Throw to stop subsequent tasks.
-          throw 'Abort tracking in non-production environments.'
-        });
+    ga('testing.require', 'mediaQueryTracker', autotrackOpts);
+    ga('testing.require', 'outboundLinkTracker');
+    ga('testing.require', 'pageVisibilityTracker');
+    ga('testing.require', 'socialTracker');
+
+    {% if site.env != 'production' %}
+      ga('set', 'sendHitTask', function(model) {
+        console.log('t0', Date.now(), decodeURIComponent(model.get('hitPayload')));
+        throw 'Abort tracking in non-production environments.'
+      });
+      ga('testing.set', 'sendHitTask', function(model) {
+        console.log('testing', Date.now(), decodeURIComponent(model.get('hitPayload')));
+        throw 'Abort tracking in non-production environments.'
       });
     {% endif %}
 
     ga('send', 'pageview');
+    ga('testing.send', 'pageview');
 
+  }(window));
   </script>
 
   <script async src="https://www.google-analytics.com/analytics.js"></script>

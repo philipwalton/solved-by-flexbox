@@ -1,9 +1,4 @@
-import 'autotrack/lib/plugins/media-query-tracker';
-import 'autotrack/lib/plugins/outbound-link-tracker';
-import 'autotrack/lib/plugins/session-duration-tracker';
-import 'autotrack/lib/plugins/social-tracker';
-
-
+import './analytics';
 import supports from './supports';
 
 

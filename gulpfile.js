@@ -145,7 +145,7 @@ gulp.task('pages', function() {
   var baseData = require('./config.json');
   var overrides = {
     baseUrl: isProd() ? '/' + REPO + '/' : '/',
-    env: isProd() ? 'prod' : 'dev'
+    env: process.env.NODE_ENV || 'development'
   };
   var siteData = assign(baseData, overrides);
 
