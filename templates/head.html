@@ -21,6 +21,7 @@
 
     ga('create', 'UA-40829935-1', 'auto');
     ga('create', 'UA-40829935-2', 'auto', 'testing');
+    ga('create', 'UA-40829935-3', 'auto', 'control');
 
     var autotrackOpts = {
       mediaQueryDefinitions: [
@@ -60,6 +61,10 @@
     ga('require', 'outboundLinkTracker');
     ga('require', 'socialTracker');
 
+    ga('control.require', 'mediaQueryTracker', autotrackOpts);
+    ga('control.require', 'outboundLinkTracker');
+    ga('control.require', 'socialTracker');
+
     ga('testing.require', 'mediaQueryTracker', autotrackOpts);
     ga('testing.require', 'outboundLinkTracker');
     ga('testing.require', 'pageVisibilityTracker');
@@ -70,6 +75,10 @@
         console.log('t0', Date.now(), decodeURIComponent(model.get('hitPayload')));
         throw 'Abort tracking in non-production environments.'
       });
+      ga('control.set', 'sendHitTask', function(model) {
+        console.log('control', Date.now(), decodeURIComponent(model.get('hitPayload')));
+        throw 'Abort tracking in non-production environments.'
+      });
       ga('testing.set', 'sendHitTask', function(model) {
         console.log('testing', Date.now(), decodeURIComponent(model.get('hitPayload')));
         throw 'Abort tracking in non-production environments.'
@@ -77,6 +86,7 @@
     {% endif %}
 
     ga('send', 'pageview');
+    ga('control.send', 'pageview');
     ga('testing.send', 'pageview');
 
   }(window));
