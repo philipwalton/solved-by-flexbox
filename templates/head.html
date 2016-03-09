@@ -17,11 +17,34 @@
   <script class="js-allow-before-footer">
   (function(window) {
 
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    // Initializes the _ga() command queue.
+    window.GoogleAnalyticsObject = '_ga';
+    window._ga=window._ga||function(){(_ga.q=_ga.q||[]).push(arguments)};
+    window._ga.l=+new Date;
 
-    ga('create', 'UA-40829935-1', 'auto');
-    ga('create', 'UA-40829935-2', 'auto', 'testing');
-    ga('create', 'UA-40829935-3', 'auto', 'control');
+    /**
+     * Shadows the `window._ga` command queue to allow for easier multi-tracking.
+     */
+    window.ga = (function() {
+      // Randomizes the order in which tracker methods are called.
+      // This is necessary because latter trackers will lose more hits
+      // (for various reasons) and the results will be skewed.
+      var trackerNames = ['t0', 'control', 'testing'];
+      var randomizedTrackerNames = [];
+      while (trackerNames.length) {
+        var index = Math.floor(Math.random() * trackerNames.length);
+        var name = trackerNames.splice(index, 1)[0];
+        randomizedTrackerNames.push(name);
+      }
+      return function() {
+        var args = Array.prototype.slice.call(arguments);
+        var command = args[0];
+        for (var i = 0, name; name = randomizedTrackerNames[i]; i++) {
+          args[0] = name + '.' + command;
+          _ga.apply(null, args);
+        }
+      }
+    }());
 
     var autotrackOpts = {
       mediaQueryDefinitions: [
@@ -54,40 +77,40 @@
             {name: 'portrait',  media: '(orientation: portrait)'}
           ]
         }
-      ]
+      ],
+      virtualPageviewFields: {
+        dimension4: 'pageVisibilityTracker'
+      }
     };
+
+
+    _ga('create', 'UA-40829935-1', 'auto');
+    _ga('create', 'UA-40829935-2', 'auto', 'testing');
+    _ga('create', 'UA-40829935-3', 'auto', 'control');
+
+
+    {% if site.env != 'production' %}
+      _ga(function() {
+        var trackers = _ga.getAll();
+        for (var i = 0, tracker; tracker = trackers[i]; i++) {
+          tracker.set('sendHitTask', function(model) {
+            console.log(model.get('name'), Date.now(),
+                model.get('hitPayload').split('&').map(decodeURIComponent));
+
+            throw 'Abort tracking in non-production environments.';
+          });
+        }
+      });
+    {% endif %}
+
 
     ga('require', 'mediaQueryTracker', autotrackOpts);
     ga('require', 'outboundLinkTracker');
     ga('require', 'socialTracker');
 
-    ga('control.require', 'mediaQueryTracker', autotrackOpts);
-    ga('control.require', 'outboundLinkTracker');
-    ga('control.require', 'socialTracker');
+    _ga('testing.require', 'pageVisibilityTracker', autotrackOpts);
 
-    ga('testing.require', 'mediaQueryTracker', autotrackOpts);
-    ga('testing.require', 'outboundLinkTracker');
-    ga('testing.require', 'pageVisibilityTracker');
-    ga('testing.require', 'socialTracker');
-
-    {% if site.env != 'production' %}
-      ga('set', 'sendHitTask', function(model) {
-        console.log('t0', Date.now(), decodeURIComponent(model.get('hitPayload')));
-        throw 'Abort tracking in non-production environments.'
-      });
-      ga('control.set', 'sendHitTask', function(model) {
-        console.log('control', Date.now(), decodeURIComponent(model.get('hitPayload')));
-        throw 'Abort tracking in non-production environments.'
-      });
-      ga('testing.set', 'sendHitTask', function(model) {
-        console.log('testing', Date.now(), decodeURIComponent(model.get('hitPayload')));
-        throw 'Abort tracking in non-production environments.'
-      });
-    {% endif %}
-
-    ga('send', 'pageview');
-    ga('control.send', 'pageview');
-    ga('testing.send', 'pageview');
+    ga('send', 'pageview', {dimension4: 'pageload'});
 
   }(window));
   </script>
