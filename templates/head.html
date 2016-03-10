@@ -29,7 +29,7 @@
       // Randomizes the order in which tracker methods are called.
       // This is necessary because latter trackers will lose more hits
       // (for various reasons) and the results will be skewed.
-      var trackerNames = ['t0', 'control', 'testing'];
+      var trackerNames = ['t0', 'testing'];
       var randomizedTrackerNames = [];
       while (trackerNames.length) {
         var index = Math.floor(Math.random() * trackerNames.length);
@@ -86,7 +86,6 @@
 
     _ga('create', 'UA-40829935-1', 'auto');
     _ga('create', 'UA-40829935-2', 'auto', 'testing');
-    _ga('create', 'UA-40829935-3', 'auto', 'control');
 
 
     {% if site.env != 'production' %}
