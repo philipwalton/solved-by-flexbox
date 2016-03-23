@@ -28,10 +28,9 @@
       try {
         var ad = document.createElement('ins');
         ad.className = 'AdSense';
-        ad.innerHTML = '&nbsp';
+        ad.style.display = 'block';
         ad.style.position = 'absolute';
-        ad.style.top = '-100px';
-        ad.style.width = '1px';
+        ad.style.top = '-1px';
         ad.style.height = '1px';
         document.body.appendChild(ad);
         tracker.set('dimension' + opts.dimensionIndex, !ad.clientHeight);
