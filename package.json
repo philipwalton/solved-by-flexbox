@@ -13,7 +13,7 @@
     "deploy": "gulp clean && gulp deploy"
   },
   "devDependencies": {
-    "autotrack": "googleanalytics/autotrack#page-visibility-tracker",
+    "autotrack": "googleanalytics/autotrack#1.0-dev",
     "babelify": "^5.0.3",
     "browserify": "^8.1.1",
     "connect": "^3.3.4",

@@ -33,7 +33,8 @@
         ad.style.top = '-1px';
         ad.style.height = '1px';
         document.body.appendChild(ad);
-        tracker.set('dimension' + opts.dimensionIndex, !ad.clientHeight);
+        var isAdBlockEnabled = !ad.clientHeight;
+        tracker.set('dimension' + opts.dimensionIndex, isAdBlockEnabled);
         document.body.removeChild(ad);
       } catch(e) {
         ga('send', 'exception', {exDescription: e});
@@ -64,8 +65,29 @@
       }
     }());
 
-    var autotrackOpts = {
-      mediaQueryDefinitions: [
+
+    _ga('create', 'UA-40829935-1', 'auto');
+    _ga('create', 'UA-40829935-2', 'auto', 'testing');
+
+
+    {% if site.env != 'production' %}
+      _ga(function() {
+        var trackers = _ga.getAll();
+        for (var i = 0, tracker; tracker = trackers[i]; i++) {
+          tracker.set('sendHitTask', function(model) {
+            console.log(model.get('name'), Date.now(),
+                model.get('hitPayload').split('&').map(decodeURIComponent));
+
+            throw 'Abort tracking in non-production environments.';
+          });
+        }
+      });
+    {% endif %}
+
+
+    ga('require', 'eventTracker');
+    ga('require', 'mediaQueryTracker', {
+      definitions: [
         {
           name: 'Breakpoint',
           dimensionIndex: 1,
@@ -95,37 +117,14 @@
             {name: 'portrait',  media: '(orientation: portrait)'}
           ]
         }
-      ],
-      virtualPageviewFields: {
-        dimension4: 'pageVisibilityTracker'
-      }
-    };
-
-
-    _ga('create', 'UA-40829935-1', 'auto');
-    _ga('create', 'UA-40829935-2', 'auto', 'testing');
-
-
-    {% if site.env != 'production' %}
-      _ga(function() {
-        var trackers = _ga.getAll();
-        for (var i = 0, tracker; tracker = trackers[i]; i++) {
-          tracker.set('sendHitTask', function(model) {
-            console.log(model.get('name'), Date.now(),
-                model.get('hitPayload').split('&').map(decodeURIComponent));
-
-            throw 'Abort tracking in non-production environments.';
-          });
-        }
-      });
-    {% endif %}
-
-
-    ga('require', 'mediaQueryTracker', autotrackOpts);
+      ]
+    });
     ga('require', 'outboundLinkTracker');
-    ga('require', 'socialTracker');
+    ga('require', 'socialWidgetTracker');
 
-    _ga('testing.require', 'pageVisibilityTracker', autotrackOpts);
+    _ga('testing.require', 'pageVisibilityTracker', {
+      fieldsObj: {dimension4: 'pageVisibilityTracker'}
+    });
     _ga('testing.require', 'adblockTracker', {dimensionIndex: 5});
 
     ga('send', 'pageview', {dimension4: 'pageload'});
