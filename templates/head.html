@@ -23,24 +23,6 @@
     window._ga=window._ga||function(){(_ga.q=_ga.q||[]).push(arguments)};
     window._ga.l=+new Date;
 
-    // Detects AdBlock usage (experimental).
-    window._ga('provide', 'adblockTracker', function(tracker, opts) {
-      try {
-        var ad = document.createElement('ins');
-        ad.className = 'AdSense';
-        ad.style.display = 'block';
-        ad.style.position = 'absolute';
-        ad.style.top = '-1px';
-        ad.style.height = '1px';
-        document.body.appendChild(ad);
-        var isAdBlockEnabled = !ad.clientHeight;
-        tracker.set('dimension' + opts.dimensionIndex, isAdBlockEnabled);
-        document.body.removeChild(ad);
-      } catch(e) {
-        ga('send', 'exception', {exDescription: e});
-      }
-    });
-
     /**
      * Shadows the `window._ga` command queue to allow for easier multi-tracking.
      */
@@ -125,7 +107,6 @@
     _ga('testing.require', 'pageVisibilityTracker', {
       fieldsObj: {dimension4: 'pageVisibilityTracker'}
     });
-    _ga('testing.require', 'adblockTracker', {dimensionIndex: 5});
 
     ga('send', 'pageview', {dimension4: 'pageload'});
 
