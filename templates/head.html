@@ -104,8 +104,17 @@
     ga('require', 'outboundLinkTracker');
     ga('require', 'socialWidgetTracker');
 
+    _ga('testing.require', 'cleanUrlTracker', {
+      queryDimensionIndex: 5,
+      indexFilename: 'index.html',
+      trailingSlash: true
+    });
     _ga('testing.require', 'pageVisibilityTracker', {
-      fieldsObj: {dimension4: 'pageVisibilityTracker'}
+      visibleMetricIndex: 1,
+      hiddenMetricIndex: 2,
+      fieldsObj: {
+        dimension4: 'pageVisibilityTracker'
+      }
     });
 
     ga('send', 'pageview', {dimension4: 'pageload'});
