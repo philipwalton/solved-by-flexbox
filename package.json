@@ -1,7 +1,7 @@
 {
   "name": "solved-by-flexbox",
   "description": "A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox.",
-  "homepage": "http://philipwalton.github.io/solved-by-flexbox",
+  "homepage": "https://philipwalton.github.io/solved-by-flexbox",
   "repository": {
     "type": "git",
     "url": "https://github.com/philipwalton/solved-by-flexbox.git"
