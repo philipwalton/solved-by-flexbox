@@ -24,10 +24,9 @@
 @import './components/section';
 @import './components/site';
 
-@import './utils/compat.css';
+@import './utils/compat';
 @import './utils/media';
 @import './utils/size';
-@import './utils/spacing';
 
 @import './vendor/font-awesome-extensions';
 @import './vendor/highlight';
