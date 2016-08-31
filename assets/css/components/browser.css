@@ -31,4 +31,7 @@
   background-position: -256px 0;
 }
 
+.Browser--edge > .Browser-image {
+  background-position: -320px 0;
+}
 
