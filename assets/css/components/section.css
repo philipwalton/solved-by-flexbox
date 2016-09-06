@@ -37,7 +37,6 @@
 @media (--break-lg) {
   .Section-list {
     padding: 0;
-    text-align: center;
-    list-style-position: inside;
+    margin: 0 calc(2 * var(--space-lg)) var(--space-lg);
   }
 }
