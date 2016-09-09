@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "autotrack": "^1.0.0",
+    "babel-eslint": "^6.1.2",
     "babelify": "^5.0.3",
     "browserify": "^8.1.1",
     "connect": "^3.3.4",
@@ -21,9 +22,9 @@
     "front-matter": "^0.2.1",
     "gulp": "^3.8.11",
     "gulp-cssnext": "^1.0.0",
+    "gulp-eslint": "^3.0.1",
     "gulp-htmlmin": "^1.0.0",
     "gulp-if": "^1.2.5",
-    "gulp-jshint": "^1.9.0",
     "gulp-plumber": "^0.6.6",
     "gulp-rename": "^1.2.0",
     "gulp-sourcemaps": "^1.3.0",

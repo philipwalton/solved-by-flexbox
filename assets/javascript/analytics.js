@@ -14,7 +14,6 @@ import {
 } from './analytics-storage';
 
 
-
 /**
  * A global list of tracker object, randomized to ensure no one tracker
  * data is always sent first.
@@ -51,7 +50,6 @@ const dimensions = {
 // The command queue proxies.
 let gaAll = createGaProxy(ALL_TRACKERS);
 let gaTest = createGaProxy(TEST_TRACKERS);
-
 
 
 // Delays running any analytics until after the load event
@@ -158,6 +156,8 @@ function requirePlugins() {
   });
   gaAll('require', 'outboundLinkTracker');
   gaAll('require', 'pageVisibilityTracker', {
+    visibleMetricIndex: getDefinitionIndex(metrics.PAGE_VISIBLE),
+    hiddenMetricIndex: getDefinitionIndex(metrics.PAGE_HIDDEN),
     fieldsObj: {
       nonInteraction: null, // Ensure all events are interactive.
       [dimensions.HIT_SOURCE]: 'pageVisibilityTracker'
@@ -179,11 +179,9 @@ function trackClientId() {
 
 
 function initSessionControl() {
-
   gaTest(function(tracker) {
     let originalBuildHitTask = tracker.get('buildHitTask');
     let originalSendHitTask = tracker.get('sendHitTask');
-
 
     tracker.set('buildHitTask', function(model) {
       let name = tracker.get('name');
@@ -206,7 +204,6 @@ function initSessionControl() {
       originalBuildHitTask(model);
     });
 
-
     tracker.set('sendHitTask', function(model) {
       let now = +new Date;
       let name = tracker.get('name');
@@ -221,7 +218,6 @@ function initSessionControl() {
 
   });
 }
-
 
 
 function sendInitialPageview() {
