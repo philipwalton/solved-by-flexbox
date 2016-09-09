@@ -6,7 +6,26 @@ import 'autotrack/lib/plugins/page-visibility-tracker';
 import 'autotrack/lib/plugins/social-widget-tracker';
 
 
-/* global ga */
+import {
+  getStoredData,
+  getStoredTrackerData,
+  setStoredData,
+  setStoredTrackerData
+} from './analytics-storage';
+
+
+
+/**
+ * A global list of tracker object, randomized to ensure no one tracker
+ * data is always sent first.
+ */
+const ALL_TRACKERS = shuffleArray([
+  {name: 't0', trackingId: 'UA-40829935-1'},
+  {name: 'testing', trackingId: 'UA-40829935-4'}
+]);
+const PROD_TRACKERS = ALL_TRACKERS.filter(({name}) => !/test/.test(name));
+const TEST_TRACKERS = ALL_TRACKERS.filter(({name}) => /test/.test(name));
+const NULL_VALUE = '(not set)';
 
 
 const metrics = {
@@ -22,32 +41,89 @@ const dimensions = {
   HIT_SOURCE: 'dimension4',
   URL_QUERY_PARAMS: 'dimension5',
   METRIC_VALUE: 'dimension6',
-  CLIENT_ID: 'dimension7'
+  CLIENT_ID: 'dimension7',
+  PREVIOUS_HIT_INDEX: 'dimension8',
+  PREVIOUS_HIT_PAYLOAD: 'dimension9',
+  HIT_TYPE: 'dimension10'
 };
 
 
-ga('create', 'UA-40829935-1', 'auto');
+// The command queue proxies.
+let gaAll = createGaProxy(ALL_TRACKERS);
+let gaTest = createGaProxy(TEST_TRACKERS);
+
 
 
 // Delays running any analytics until after the load event
 // to ensure beacons don't block resources.
 window.onload = function() {
+  createTrackers();
+  trackErrors();
+  setDefaultDimensionValues();
   requirePlugins();
   trackClientId();
+  initSessionControl();
   sendInitialPageview();
 };
 
 
+function createTrackers() {
+  let fields = {siteSpeedSampleRate: 10};
+  let data = getStoredData();
+  for (let tracker of PROD_TRACKERS) {
+    window.ga('create', tracker.trackingId, 'auto', tracker.name, fields);
+  }
+  window.ga(function() {
+    let tracker = window.ga.getAll()[0];
+    data.clientId = tracker.get('clientId') || data.clientId;
+    setStoredData(data);
+
+    for (let tracker of TEST_TRACKERS) {
+      if (data.clientId) fields.clientId = data.clientId;
+      if (window.localStorage) fields.storage = 'none';
+      window.ga('create', tracker.trackingId, 'auto', tracker.name, fields);
+    }
+  });
+}
+
+
+function trackErrors() {
+  // Errors that have occurred prior to this script running are stored on
+  // the `q` property of the window.onerror function.
+  let errorQueue = window.onerror.q || [];
+
+  // Override the temp `onerror()` handler to now send hits to GA.
+  window.onerror = function(msg, file, line, col, error) {
+    gaAll('send', 'event', {
+      eventCategory: 'Script',
+      eventAction: 'uncaught error',
+      eventLabel: error ? error.stack : `${msg}\n${file}:${line}:${col}`
+    });
+  };
+
+  // Replay any stored errors in the queue.
+  for (let error of errorQueue) {
+    window.onerror(...error);
+  }
+}
+
+
+function setDefaultDimensionValues() {
+  Object.keys(dimensions).forEach((key) => {
+    gaAll('set', dimensions[key], NULL_VALUE);
+  });
+}
+
 
 function requirePlugins() {
-  ga('require', 'cleanUrlTracker', {
+  gaAll('require', 'cleanUrlTracker', {
     stripQuery: true,
     queryDimensionIndex: getDefinitionIndex(dimensions.URL_QUERY_PARAMS),
     indexFilename: 'index.html',
     trailingSlash: 'add'
   });
-  ga('require', 'eventTracker');
-  ga('require', 'mediaQueryTracker', {
+  gaAll('require', 'eventTracker');
+  gaAll('require', 'mediaQueryTracker', {
     definitions: [
       {
         name: 'Breakpoint',
@@ -80,8 +156,8 @@ function requirePlugins() {
       }
     ]
   });
-  ga('require', 'outboundLinkTracker');
-  ga('require', 'pageVisibilityTracker', {
+  gaAll('require', 'outboundLinkTracker');
+  gaAll('require', 'pageVisibilityTracker', {
     fieldsObj: {
       nonInteraction: null, // Ensure all events are interactive.
       [dimensions.HIT_SOURCE]: 'pageVisibilityTracker'
@@ -90,24 +166,129 @@ function requirePlugins() {
       model.set(dimensions.METRIC_VALUE, String(model.get('eventValue')), true);
     }
   });
-  ga('require', 'socialWidgetTracker');
+  gaAll('require', 'socialWidgetTracker');
 }
 
 
 function trackClientId() {
-  ga(function(tracker) {
+  gaAll(function(tracker) {
     let clientId = tracker.get('clientId');
     tracker.set(dimensions.CLIENT_ID, clientId);
   });
 }
 
 
+function initSessionControl() {
+
+  gaTest(function(tracker) {
+    let originalBuildHitTask = tracker.get('buildHitTask');
+    let originalSendHitTask = tracker.get('sendHitTask');
+
+
+    tracker.set('buildHitTask', function(model) {
+      let name = tracker.get('name');
+      let trackerData = getStoredTrackerData(name);
+
+      model.set(dimensions.HIT_TYPE, model.get('hitType'));
+
+      if (trackerData.index) {
+        model.set(
+            dimensions.PREVIOUS_HIT_INDEX, String(trackerData.index), true);
+      }
+
+      if (trackerData.payload) {
+        model.set(
+            dimensions.PREVIOUS_HIT_PAYLOAD, trackerData.payload, true);
+      }
+
+      // if (hasSessionTimedOut()) { /* Do something... */ }
+
+      originalBuildHitTask(model);
+    });
+
+
+    tracker.set('sendHitTask', function(model) {
+      let now = +new Date;
+      let name = tracker.get('name');
+      let trackerData = getStoredTrackerData(name);
+      trackerData.index = (trackerData.index || 0) + 1;
+      trackerData.time = trackerData.time || now;
+      trackerData.payload = serializeHit(model);
+      setStoredTrackerData(name, trackerData);
+
+      originalSendHitTask(model);
+    });
+
+  });
+}
+
+
+
 function sendInitialPageview() {
-  ga('send', 'pageview', {[dimensions.HIT_SOURCE]: 'pageload'});
+  gaAll('send', 'pageview', {[dimensions.HIT_SOURCE]: 'pageload'});
+}
+
+
+/**
+ * Creates a ga() proxy function that calls commands on all but the
+ * excluded trackers.
+ * @param {Array} trackers an array or objects containing the `name` and
+ *     `trackingId` fields.
+ * @return {Function} The proxied ga() function.
+ */
+function createGaProxy(trackers) {
+  return function(command, ...args) {
+    for (let {name} of trackers) {
+      if (typeof command == 'function') {
+        window.ga(function() {
+          command(window.ga.getByName(name));
+        });
+      }
+      else {
+        window.ga(`${name}.${command}`, ...args);
+      }
+    }
+  };
+}
+
+
+function serializeHit(model) {
+  let hit = {
+    hitType: model.get('hitType'),
+    page: model.get('page'),
+  };
+
+  if (hit.hitType == 'event') {
+    hit.eventCategory = model.get('eventCategory');
+    hit.eventAction = model.get('eventAction');
+    hit.eventLabel = model.get('eventLabel');
+    hit.eventValue = model.get('eventValue');
+  }
+
+  return Object.keys(hit)
+      .map((key) => `${key}=${decodeURIComponent(hit[key])}`).join('&');
 }
 
 
 // Accepts a custom dimension or metric and returns it's numerical index.
-function getDefinitionIndex(dimension) {
-  return +dimension.slice(-1);
+function getDefinitionIndex(definition) {
+  return +/\d+$/.exec(definition)[0];
+}
+
+
+/**
+ * Randomize array element order in-place.
+ * Using Durstenfeld shuffle algorithm.
+ * http://goo.gl/91pjZs
+ * @param {Array} array The input array.
+ * @return {Array} The randomized array.
+ */
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
 }
