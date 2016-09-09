@@ -24,6 +24,8 @@ const ALL_TRACKERS = shuffleArray([
 ]);
 const PROD_TRACKERS = ALL_TRACKERS.filter(({name}) => !/test/.test(name));
 const TEST_TRACKERS = ALL_TRACKERS.filter(({name}) => /test/.test(name));
+
+
 const NULL_VALUE = '(not set)';
 
 
@@ -43,12 +45,14 @@ const dimensions = {
   CLIENT_ID: 'dimension7',
   PREVIOUS_HIT_INDEX: 'dimension8',
   PREVIOUS_HIT_PAYLOAD: 'dimension9',
-  HIT_TYPE: 'dimension10'
+  HIT_TYPE: 'dimension10',
+  HIT_UUID: 'dimension11'
 };
 
 
 // The command queue proxies.
 let gaAll = createGaProxy(ALL_TRACKERS);
+let gaProd = createGaProxy(PROD_TRACKERS);
 let gaTest = createGaProxy(TEST_TRACKERS);
 
 
@@ -114,14 +118,14 @@ function setDefaultDimensionValues() {
 
 
 function requirePlugins() {
-  gaAll('require', 'cleanUrlTracker', {
+  gaProd('require', 'cleanUrlTracker', {
     stripQuery: true,
     queryDimensionIndex: getDefinitionIndex(dimensions.URL_QUERY_PARAMS),
     indexFilename: 'index.html',
     trailingSlash: 'add'
   });
-  gaAll('require', 'eventTracker');
-  gaAll('require', 'mediaQueryTracker', {
+  gaProd('require', 'eventTracker');
+  gaProd('require', 'mediaQueryTracker', {
     definitions: [
       {
         name: 'Breakpoint',
@@ -154,8 +158,8 @@ function requirePlugins() {
       }
     ]
   });
-  gaAll('require', 'outboundLinkTracker');
-  gaAll('require', 'pageVisibilityTracker', {
+  gaProd('require', 'outboundLinkTracker');
+  gaProd('require', 'pageVisibilityTracker', {
     visibleMetricIndex: getDefinitionIndex(metrics.PAGE_VISIBLE),
     hiddenMetricIndex: getDefinitionIndex(metrics.PAGE_HIDDEN),
     fieldsObj: {
@@ -166,7 +170,7 @@ function requirePlugins() {
       model.set(dimensions.METRIC_VALUE, String(model.get('eventValue')), true);
     }
   });
-  gaAll('require', 'socialWidgetTracker');
+  gaProd('require', 'socialWidgetTracker');
 }
 
 
@@ -187,12 +191,10 @@ function initSessionControl() {
       let name = tracker.get('name');
       let trackerData = getStoredTrackerData(name);
 
-      model.set(dimensions.HIT_TYPE, model.get('hitType'));
-
-      if (trackerData.index) {
-        model.set(
-            dimensions.PREVIOUS_HIT_INDEX, String(trackerData.index), true);
-      }
+      model.set(dimensions.HIT_TYPE, model.get('hitType'), true);
+      model.set(dimensions.HIT_UUID, uuid(), true);
+      model.set(dimensions.PREVIOUS_HIT_INDEX,
+          String(trackerData.index || 0), true);
 
       if (trackerData.payload) {
         model.set(
@@ -249,16 +251,17 @@ function createGaProxy(trackers) {
 
 
 function serializeHit(model) {
-  let hit = {
-    hitType: model.get('hitType'),
-    page: model.get('page'),
-  };
+  let hitType = model.get('hitType');
+  let page = model.get('page');
+  let hitSource = model.get(dimensions.HIT_SOURCE);
+
+  let hit = {hitType, page};
+  if (hitSource && hitSource != NULL_VALUE) hit.hitSource = hitSource;
 
   if (hit.hitType == 'event') {
     hit.eventCategory = model.get('eventCategory');
     hit.eventAction = model.get('eventAction');
     hit.eventLabel = model.get('eventLabel');
-    hit.eventValue = model.get('eventValue');
   }
 
   return Object.keys(hit)
@@ -288,3 +291,9 @@ function shuffleArray(array) {
   }
   return array;
 }
+
+
+/*eslint-disable */
+// https://gist.github.com/jed/982883
+const uuid = function b(a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,b)};
+/*eslint-enable */
