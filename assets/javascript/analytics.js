@@ -118,7 +118,7 @@ function setDefaultDimensionValues() {
 
 
 function requirePlugins() {
-  gaProd('require', 'cleanUrlTracker', {
+  gaAll('require', 'cleanUrlTracker', {
     stripQuery: true,
     queryDimensionIndex: getDefinitionIndex(dimensions.URL_QUERY_PARAMS),
     indexFilename: 'index.html',
@@ -158,7 +158,7 @@ function requirePlugins() {
       }
     ]
   });
-  gaProd('require', 'outboundLinkTracker');
+  gaAll('require', 'outboundLinkTracker');
   gaProd('require', 'pageVisibilityTracker', {
     visibleMetricIndex: getDefinitionIndex(metrics.PAGE_VISIBLE),
     hiddenMetricIndex: getDefinitionIndex(metrics.PAGE_HIDDEN),
