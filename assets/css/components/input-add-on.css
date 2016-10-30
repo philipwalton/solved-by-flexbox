@@ -33,3 +33,7 @@
 .InputAddOn-item:last-child {
   border-radius: 0 2px 2px 0;
 }
+.InputAddOn-field:only-child,
+.InputAddOn-item:only-child {
+  border-radius: 2px;
+}
