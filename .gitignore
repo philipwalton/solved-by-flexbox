@@ -1,9 +1,11 @@
 # OS or Editor folders
 .DS_Store
 
-# Node modules
+# npm/yarn files
 node_modules
-npm-debug.log
+*.log
+*.lock
+
 
 # Static site output
 build
