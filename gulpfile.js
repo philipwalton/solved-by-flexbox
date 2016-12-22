@@ -6,6 +6,7 @@ const buffer = require('vinyl-buffer');
 const connect = require('connect');
 const cssnext = require('gulp-cssnext');
 const del = require('del');
+const envify = require('envify');
 const eslint = require('gulp-eslint');
 const frontMatter = require('front-matter');
 const gulp = require('gulp');
@@ -207,6 +208,7 @@ gulp.task('lint', function() {
 gulp.task('javascript', ['lint'], function() {
   return browserify('./assets/javascript/main.js', {debug: true})
       .transform(babelify)
+      .transform(envify)
       .bundle()
       .on('error', streamError)
       .pipe(source('main.js'))

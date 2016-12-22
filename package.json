@@ -13,12 +13,13 @@
     "deploy": "gulp clean && gulp deploy"
   },
   "devDependencies": {
-    "autotrack": "^1.0.0",
+    "autotrack": "googleanalytics/autotrack#page-visibility-tracker",
     "babel-eslint": "^6.1.2",
     "babelify": "^5.0.3",
     "browserify": "^8.1.1",
     "connect": "^3.3.4",
     "del": "^1.1.1",
+    "envify": "^4.0.0",
     "front-matter": "^0.2.1",
     "gulp": "^3.8.11",
     "gulp-cssnext": "^1.0.0",
