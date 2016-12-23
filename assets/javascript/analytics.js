@@ -48,7 +48,8 @@ const dimensions = {
   HIT_ID: 'dimension10',
   WINDOW_ID: 'dimension11',
   VISIBILITY_STATE: 'dimension12',
-  PAGE_PATH: 'dimension13',
+  TRACKING_VERSION: 'dimension13',
+  PAGE_PATH: 'dimension14'
 };
 
 
