@@ -246,7 +246,7 @@ function requireAutotrackPlugins() {
     ]
   });
   gaAll('require', 'outboundLinkTracker');
-  gaAll('require', 'pageVisibilityTracker', {
+  gaTest('require', 'pageVisibilityTracker', {
     visibleMetricIndex: getDefinitionIndex(metrics.PAGE_VISIBLE),
     hiddenMetricIndex: getDefinitionIndex(metrics.PAGE_HIDDEN),
     heartbeatTimeout: 1,
