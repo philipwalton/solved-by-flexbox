@@ -34,5 +34,6 @@ The following translations have been graciously provided by the community:
 
 * [Chinese](https://hufan-akari.github.io/solved-by-flexbox/)
 * [Japanese](http://hashrock.github.io/solved-by-flexbox-ja/)
+* [Korean](https://hyunseob.github.io/solved-by-flexbox-kr/)
 
 Please note that translations are unofficial and may be inaccurate or out of date. To submit your own translation, please submit a [pull request](https://github.com/philipwalton/solved-by-flexbox/pull/new/master) or [open an issue](https://github.com/philipwalton/solved-by-flexbox/issues/new) and link to your translated content.
