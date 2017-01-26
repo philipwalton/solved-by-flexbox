@@ -1,7 +1,7 @@
 import supports from './supports';
 
 
-const POLYFILL_PATH = '/polyfills.js';
+const POLYFILL_PATH = process.env.SBF_PUBLIC_PATH + 'polyfills.js';
 
 
 /**
