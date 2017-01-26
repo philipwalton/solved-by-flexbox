@@ -5,7 +5,6 @@ import 'autotrack/lib/plugins/media-query-tracker';
 import 'autotrack/lib/plugins/outbound-link-tracker';
 import 'autotrack/lib/plugins/page-visibility-tracker';
 import 'autotrack/lib/plugins/social-widget-tracker';
-import parseUrl from 'dom-utils/lib/parse-url';
 
 
 /**
@@ -190,7 +189,7 @@ function trackCustomDimensions() {
   gaTest((tracker) => {
     const originalBuildHitTask = tracker.get('buildHitTask');
     tracker.set('buildHitTask', (model) => {
-      const path = model.get('page') || parseUrl(model.get('location')).path;
+      const path = model.get('page') || location.pathname;
       model.set(dimensions.PAGE_PATH, path),
 
       model.set(dimensions.HIT_TYPE, model.get('hitType'), true);
