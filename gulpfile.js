@@ -316,7 +316,7 @@ gulp.task('deploy', ['default', 'lint'], function() {
   // Delete all the existing files and add
   // the new ones from the build directory.
   sh.rm('-rf', './*');
-  sh.cp('-rf', path.join('..', DEST, '/'), './');
+  sh.cp('-rf', path.join('..', DEST, '/*'), './');
   sh.exec('git add -A');
 
   // Commit and push the changes to
@@ -329,5 +329,4 @@ gulp.task('deploy', ['default', 'lint'], function() {
   sh.cd('..');
   sh.rm('-rf', '_tmp');
   sh.rm('-rf', DEST);
-
 });
