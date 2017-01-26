@@ -31,6 +31,11 @@ const DEST = './build';
  */
 const REPO = 'solved-by-flexbox';
 
+/**
+ * The base public path of the site.
+ */
+const PUBLIC_PATH = path.join('/', (isProd() ? REPO : '.'), '/');
+
 
 function isProd() {
   return process.env.NODE_ENV == 'production';
@@ -137,7 +142,7 @@ function renderTemplate() {
 gulp.task('pages', function() {
   let baseData = require('./config.json');
   let overrides = {
-    baseUrl: isProd() ? '/' + REPO + '/' : '/',
+    baseUrl: PUBLIC_PATH,
     env: process.env.NODE_ENV || 'development'
   };
   let siteData = assign(baseData, overrides);
@@ -214,6 +219,7 @@ gulp.task('javascript:main', ((compiler) => {
       entry: entry,
       output: {
         path: DEST,
+        publicPath: PUBLIC_PATH,
         filename: path.basename(entry),
       },
       devtool: '#source-map',
@@ -252,6 +258,7 @@ gulp.task('javascript:polyfills', ((compiler) => {
       entry: entry,
       output: {
         path: DEST,
+        publicPath: PUBLIC_PATH,
         filename: path.basename(entry),
       },
       devtool: '#source-map',
