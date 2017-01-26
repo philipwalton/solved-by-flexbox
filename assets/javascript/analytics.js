@@ -1,5 +1,6 @@
 import 'autotrack/lib/plugins/clean-url-tracker';
 import 'autotrack/lib/plugins/event-tracker';
+import 'autotrack/lib/plugins/max-scroll-tracker';
 import 'autotrack/lib/plugins/media-query-tracker';
 import 'autotrack/lib/plugins/outbound-link-tracker';
 import 'autotrack/lib/plugins/page-visibility-tracker';
@@ -12,7 +13,7 @@ import parseUrl from 'dom-utils/lib/parse-url';
  * implementation. This allows you to create a segment or view filter
  * that isolates only data captured with the most recent tracking changes.
  */
-const TRACKING_VERSION = '1';
+const TRACKING_VERSION = '2';
 
 
 /**
@@ -31,7 +32,7 @@ const NULL_VALUE = '(not set)';
 
 const metrics = {
   PAGE_VISIBLE: 'metric1',
-  PAGE_HIDDEN: 'metric2',
+  MAX_SCROLL_PERCENTAGE: 'metric2',
 };
 
 
@@ -213,6 +214,11 @@ function requireAutotrackPlugins() {
     trailingSlash: 'add',
   });
   gaAll('require', 'eventTracker');
+  gaTest('require', 'maxScrollTracker', {
+    sessionTimeout: 30,
+    timeZone: 'America/Los_Angeles',
+    maxScrollMetricIndex: getDefinitionIndex(metrics.MAX_SCROLL_PERCENTAGE),
+  });
   gaAll('require', 'mediaQueryTracker', {
     definitions: [
       {
@@ -249,14 +255,9 @@ function requireAutotrackPlugins() {
   gaAll('require', 'outboundLinkTracker');
   gaTest('require', 'pageVisibilityTracker', {
     visibleMetricIndex: getDefinitionIndex(metrics.PAGE_VISIBLE),
-    hiddenMetricIndex: getDefinitionIndex(metrics.PAGE_HIDDEN),
-    heartbeatTimeout: 1,
     sessionTimeout: 30,
     timeZone: 'America/Los_Angeles',
     fieldsObj: {[dimensions.HIT_SOURCE]: 'pageVisibilityTracker'},
-    hitFilter: (model) => {
-      model.set(dimensions.METRIC_VALUE, String(model.get('eventValue')), true);
-    },
   });
   gaAll('require', 'socialWidgetTracker');
 }
