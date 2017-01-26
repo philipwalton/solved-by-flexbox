@@ -6,6 +6,5 @@ node_modules
 *.log
 *.lock
 
-
 # Static site output
 build

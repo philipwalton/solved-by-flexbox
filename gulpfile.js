@@ -1,31 +1,25 @@
-const argv = require('yargs').argv;
-const assign = require('object-assign');
-const babelify = require('babelify');
-const browserify = require('browserify');
-const buffer = require('vinyl-buffer');
 const connect = require('connect');
-const cssnext = require('gulp-cssnext');
 const del = require('del');
-const envify = require('envify');
-const eslint = require('gulp-eslint');
 const frontMatter = require('front-matter');
 const gulp = require('gulp');
+const cssnext = require('gulp-cssnext');
+const eslint = require('gulp-eslint');
+const htmlmin = require('gulp-htmlmin');
 const gulpIf = require('gulp-if');
+const plumber = require('gulp-plumber');
+const rename = require('gulp-rename');
 const gutil = require('gulp-util');
 const he = require('he');
 const hljs = require('highlight.js');
-const htmlmin = require('gulp-htmlmin');
 const nunjucks = require('nunjucks');
+const assign = require('object-assign');
 const path = require('path');
-const plumber = require('gulp-plumber');
 const Remarkable = require('remarkable');
-const rename = require('gulp-rename');
 const serveStatic = require('serve-static');
 const sh = require('shelljs');
-const source = require('vinyl-source-stream');
-const sourcemaps = require('gulp-sourcemaps');
 const through = require('through2');
-const uglify = require('gulp-uglify');
+const webpack = require('webpack');
+const {argv} = require('yargs');
 
 /**
  * The output directory for all the built files.
@@ -141,7 +135,6 @@ function renderTemplate() {
 
 
 gulp.task('pages', function() {
-
   let baseData = require('./config.json');
   let overrides = {
     baseUrl: isProd() ? '/' + REPO + '/' : '/',
@@ -205,19 +198,51 @@ gulp.task('lint', function() {
 });
 
 
-gulp.task('javascript', ['lint'], function() {
-  return browserify('./assets/javascript/main.js', {debug: true})
-      .transform(babelify)
-      .transform(envify)
-      .bundle()
-      .on('error', streamError)
-      .pipe(source('main.js'))
-      .pipe(buffer())
-      .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(gulpIf(isProd(), uglify()))
-      .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest(DEST));
-});
+gulp.task('javascript', ((compiler) => {
+  const createCompiler = () => {
+    const entry = './assets/javascript/main.js';
+    const plugins = [
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV':
+            JSON.stringify(process.env.NODE_ENV || 'development'),
+      })
+    ];
+    if (isProd()) {
+      plugins.push(new webpack.optimize.UglifyJsPlugin({sourceMap: true}));
+    }
+    return webpack({
+      entry: entry,
+      output: {
+        path: path.dirname(path.join(DEST, path.basename(entry))),
+        filename: path.basename(entry),
+      },
+      devtool: '#source-map',
+      plugins,
+      module: {
+        loaders: [{
+          test: /\.js$/,
+          loader: 'babel-loader',
+          query: {
+            babelrc: false,
+            cacheDirectory: false,
+            presets: [
+              ['es2015', {'modules': false}],
+            ],
+          },
+        }],
+      },
+      performance: {hints: false},
+      cache: {},
+    });
+  };
+  return (done) => {
+    (compiler || (compiler = createCompiler())).run(function(err, stats) {
+      if (err) return done(err);
+      gutil.log('[webpack]', stats.toString('minimal'));
+      done();
+    });
+  };
+})());
 
 
 gulp.task('clean', function(done) {
@@ -239,8 +264,7 @@ gulp.task('serve', ['default'], function() {
 });
 
 
-gulp.task('deploy', ['default'], function() {
-
+gulp.task('deploy', ['default', 'lint'], function() {
   if (process.env.NODE_ENV != 'production') {
     throw new Error('Deploying requires NODE_ENV to be set to production');
   }
