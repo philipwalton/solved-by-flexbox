@@ -198,7 +198,7 @@ gulp.task('lint', function() {
 });
 
 
-gulp.task('javascript', ((compiler) => {
+gulp.task('javascript:main', ((compiler) => {
   const createCompiler = () => {
     const entry = './assets/javascript/main.js';
     const plugins = [
@@ -213,7 +213,7 @@ gulp.task('javascript', ((compiler) => {
     return webpack({
       entry: entry,
       output: {
-        path: path.dirname(path.join(DEST, path.basename(entry))),
+        path: DEST,
         filename: path.basename(entry),
       },
       devtool: '#source-map',
@@ -243,6 +243,34 @@ gulp.task('javascript', ((compiler) => {
     });
   };
 })());
+
+
+gulp.task('javascript:polyfills', ((compiler) => {
+  const createCompiler = () => {
+    const entry = './assets/javascript/polyfills.js';
+    return webpack({
+      entry: entry,
+      output: {
+        path: DEST,
+        filename: path.basename(entry),
+      },
+      devtool: '#source-map',
+      plugins: [new webpack.optimize.UglifyJsPlugin({sourceMap: true})],
+      performance: {hints: false},
+      cache: {},
+    });
+  };
+  return (done) => {
+    (compiler || (compiler = createCompiler())).run(function(err, stats) {
+      if (err) return done(err);
+      gutil.log('[webpack]', stats.toString('minimal'));
+      done();
+    });
+  };
+})());
+
+
+gulp.task('javascript', ['javascript:main', 'javascript:polyfills']);
 
 
 gulp.task('clean', function(done) {
