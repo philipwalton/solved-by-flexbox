@@ -219,7 +219,7 @@ gulp.task('javascript:main', ((compiler) => {
     return webpack({
       entry: entry,
       output: {
-        path: DEST,
+        path: path.resolve(__dirname, DEST),
         publicPath: PUBLIC_PATH,
         filename: path.basename(entry),
       },
@@ -258,7 +258,7 @@ gulp.task('javascript:polyfills', ((compiler) => {
     return webpack({
       entry: entry,
       output: {
-        path: DEST,
+        path: path.resolve(__dirname, DEST),
         publicPath: PUBLIC_PATH,
         filename: path.basename(entry),
       },

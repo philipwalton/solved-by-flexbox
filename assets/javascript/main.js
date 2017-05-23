@@ -20,17 +20,12 @@ function main(err) {
     document.body.insertBefore(div, document.body.firstChild);
   }
 
-  // Delays running any analytics or registering the service worker
-  // to ensure the don't compete for load resources.
-  window.onload = function() {
-    System.import('./analytics').then((analytics) => {
-      analytics.init();
-      analytics.trackPageload();
-      if (err) {
-        analytics.trackError(err);
-      }
-    });
-  };
+  System.import('./analytics').then((analytics) => {
+    analytics.init();
+    if (err) {
+      analytics.trackError(err);
+    }
+  });
 }
 
 

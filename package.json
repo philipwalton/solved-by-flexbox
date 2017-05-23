@@ -13,7 +13,8 @@
     "deploy": "gulp clean && gulp deploy"
   },
   "devDependencies": {
-    "autotrack": "2.0.0-rc.2",
+    "autoprefixer": "^6.7.3",
+    "autotrack": "2.3.3",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
@@ -35,6 +36,7 @@
     "normalize.css": "^5.0.0",
     "nunjucks": "3.0.0",
     "object-assign": "^4.1.1",
+    "postcss": "^5.2.13",
     "remarkable": "^1.7.1",
     "serve-static": "^1.11.2",
     "shelljs": "^0.7.6",
