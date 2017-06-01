@@ -40,7 +40,7 @@ In the example below, the container is set to the height of the window, and the 
 }
 
 .Site-content {
-  flex: 1;
+  flex: 1 0 auto;
 }
 ```
 
