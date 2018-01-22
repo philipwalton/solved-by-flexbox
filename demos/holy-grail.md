@@ -41,7 +41,7 @@ Getting the center content row to stretch and the footer to stick to the bottom 
 ```css
 .HolyGrail {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   flex-direction: column;
 }
 
