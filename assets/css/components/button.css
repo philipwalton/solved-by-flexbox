@@ -15,14 +15,14 @@
 }
 .Button:focus {
   outline: thin dotted #666;
-  text-decoration:none;
+  text-decoration: none;
 }
 .Button:active,
 .Button:focus,
 .Button:hover {
   border: 0;
   background: hsla(31, 15%, 50%, 0.25);
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .Button--action {
