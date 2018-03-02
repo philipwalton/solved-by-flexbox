@@ -1,5 +1,5 @@
+import * as analytics from './analytics';
 import supports from './supports';
-
 
 const POLYFILL_PATH = process.env.SBF_PUBLIC_PATH + 'polyfills.js';
 
@@ -20,12 +20,7 @@ function main(err) {
     document.body.insertBefore(div, document.body.firstChild);
   }
 
-  System.import('./analytics').then((analytics) => {
-    analytics.init();
-    if (err) {
-      analytics.trackError(err);
-    }
-  });
+  analytics.init();
 }
 
 
