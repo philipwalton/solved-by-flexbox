@@ -21,6 +21,9 @@ function main(err) {
   }
 
   analytics.init();
+  if (err) {
+    analytics.trackError(err);
+  }
 }
 
 
