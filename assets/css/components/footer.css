@@ -3,6 +3,7 @@
   background: gray(25%);
   color: gray(60%);
   font-size: 0.85em;
+  overflow-x: hidden;
   text-align: center;
 }
 

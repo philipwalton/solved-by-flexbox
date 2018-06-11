@@ -54,6 +54,10 @@ pre {
   font-family: 'Menlo', 'Monaco', monospace;
 }
 
+pre {
+  overflow-x: auto;
+}
+
 code {
   font-size: .9em;
   font-weight: normal;
