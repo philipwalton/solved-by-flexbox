@@ -1,26 +1,35 @@
-<script src="{{ site.baseUrl }}main.js"></script>
+<script>
+(function() {
+  var style = document.body.style;
+  var supportsFlexbox = 'flexBasis' in style ||
+      'msFlexAlign' in style || 'webkitBoxDirection' in style;
 
-{% if site.env == 'dev' %}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html-inspector/0.8.2/html-inspector.js"></script>
-  <script>
-    HTMLInspector.rules.extend('unused-classes', function(config) {
-      config.whitelist = config.whitelist.concat([
-        /^icon/,
-        /^wf-/,
-        /^hljs-/,
-        /^twitter-/
-      ]);
-      return config;
-    })
+  if (!supportsFlexbox) {
+    var div = document.createElement('div');
+    div.className = 'Error';
+    div.innerHTML = 'Your browser does not support Flexbox.  ' +
+        'Parts of this site may not appear as expected.';
 
-    HTMLInspector.rules.extend('script-placement', function(config) {
-      config.whitelist = config.whitelist.concat([
-        '[async]',
-        '.js-allow-before-footer'
-      ]);
-      return config;
-    });
+    document.body.insertBefore(div, document.body.firstChild);
+  }
+})();
+</script>
 
-    HTMLInspector.inspect({excludeElements: ['svg', 'iframe']});
-  </script>
-{% endif %}
+<script async id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-40829935-1', 'auto');
+ga('set', 'transport', 'beacon');
+ga('send', 'pageview');
+</script>
+
+<script>
+(function(fa,fp,gai){function load(f,c){var a=document.createElement('script');
+a.async=1;a.src='https://fireperffw.firebaseapp.com/'+f;a.onload=c;
+var s=document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(a,s);}load(fa, function(){load(fp);});
+window.onload = function() {firebase.initializeApp({appId:gai}).performance();};
+})("firebase-app.js", "firebase-performance.js", '1:109034548309:web:8c5366e1d3ad13eb');
+</script>
+

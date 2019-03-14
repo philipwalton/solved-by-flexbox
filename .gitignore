@@ -7,4 +7,5 @@ node_modules
 *.lock
 
 # Static site output
-build
+_tmp/
+solved-by-flexbox/

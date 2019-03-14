@@ -1,165 +1,97 @@
 const connect = require('connect');
-const del = require('del');
+const cssnano = require('cssnano');
+const fs = require('fs-extra');
 const frontMatter = require('front-matter');
+const globby = require('globby');
 const gulp = require('gulp');
-const cssnext = require('gulp-cssnext');
-const eslint = require('gulp-eslint');
-const htmlmin = require('gulp-htmlmin');
-const gulpIf = require('gulp-if');
-const plumber = require('gulp-plumber');
-const rename = require('gulp-rename');
-const gutil = require('gulp-util');
 const he = require('he');
 const hljs = require('highlight.js');
+const htmlMinifier = require('html-minifier');
+const MarkdownIt = require('markdown-it');
 const nunjucks = require('nunjucks');
-const assign = require('object-assign');
 const path = require('path');
-const Remarkable = require('remarkable');
+const postcss = require('postcss');
+const atImport = require('postcss-import');
+const cssnext = require('postcss-cssnext');
 const serveStatic = require('serve-static');
 const sh = require('shelljs');
-const through = require('through2');
-const webpack = require('webpack');
 const {argv} = require('yargs');
+
+const isProd = () => process.env.NODE_ENV == 'production';
 
 /**
  * The output directory for all the built files.
  */
-const DEST = './build';
-
-/**
- * The name of the Github repo.
- */
-const REPO = 'solved-by-flexbox';
+const DEST = './solved-by-flexbox';
 
 /**
  * The base public path of the site.
  */
-const PUBLIC_PATH = path.join('/', (isProd() ? REPO : '.'), '/');
+const PUBLIC_PATH = path.join('/', DEST, '/');
 
+nunjucks.configure('templates', {autoescape: false, noCache: true});
 
-function isProd() {
-  return process.env.NODE_ENV == 'production';
-}
-
-
-nunjucks.configure('templates', {autoescape: false});
-
-
-function streamError(err) {
-  gutil.beep();
-  gutil.log(err instanceof gutil.PluginError ? err.toString() : err.stack);
-}
-
-
-function extractFrontMatter(options) {
-  let files = [];
-  let site = assign({demos: []}, options);
-  return through.obj(
-    function transform(file, enc, done) {
-      let contents = file.contents.toString();
-      let yaml = frontMatter(contents);
-
-      if (yaml.attributes) {
-        let slug = path.basename(file.path, path.extname(file.path));
-        let permalink = site.baseUrl +
-            (slug == 'index' ? '' : 'demos/' + slug + '/');
-
-        file.contents = new Buffer(yaml.body);
-        file.data = {
-          site: site,
-          page: assign({
-            slug: slug,
-            permalink: permalink
-          }, yaml.attributes)
-        };
-
-        if (file.path.indexOf('demos') > -1) {
-          site.demos.push(file.data.page);
-        }
-      }
-
-      files.push(file);
-      done();
-    },
-    function flush(done) {
-      files.forEach(function(file) { this.push(file); }.bind(this));
-      done();
-    }
-  );
-}
-
-
-function renderMarkdown() {
-  let markdown = new Remarkable({
+/**
+ * Renders markdown content as HTML with syntax highlighted code blocks.
+ * @param {string} content A markdown string.
+ * @return {string} The rendered HTML.
+ */
+const renderMarkdown = (content) => {
+  const md = new MarkdownIt({
     html: true,
     typographer: true,
-    highlight: function (code, lang) {
-      // Unescape to avoid double escaping.
-      code = he.unescape(code);
-      return lang ? hljs.highlight(lang, code).value : he.escape(code);
-    }
+    highlight: (code, lang) => {
+      code = lang ? hljs.highlight(lang, code).value :
+          // Since we're not using highlight.js here, we need to
+          // espace the html, but we have to unescape first in order
+          // to avoid double escaping.
+          he.escape(he.unescape(code));
+
+      return code;
+    },
   });
-  return through.obj(function (file, enc, cb) {
-    try {
-      if (path.extname(file.path) == '.md') {
-        file.contents = new Buffer(markdown.render(file.contents.toString()));
-      }
-      this.push(file);
-    }
-    catch (err) {
-      this.emit('error', new gutil.PluginError('renderMarkdown', err, {
-        fileName: file.path
-      }));
-    }
-    cb();
-  });
-}
 
+  return md.render(content);
+};
 
-function renderTemplate() {
-  return through.obj(function (file, enc, cb) {
-    try {
-      // Render the file's content to the page.content template property.
-      let content = file.contents.toString();
-      file.data.page.content = nunjucks.renderString(content, file.data);
-
-      // Then render the page in its template.
-      let template = file.data.page.template;
-      file.contents = new Buffer(nunjucks.render(template, file.data));
-
-      this.push(file);
-    }
-    catch (err) {
-      this.emit('error', new gutil.PluginError('renderTemplate', err, {
-        fileName: file.path
-      }));
-    }
-    cb();
-  });
-}
-
-
-gulp.task('pages', function() {
-  let baseData = require('./config.json');
-  let overrides = {
+gulp.task('pages', async () => {
+  const baseData = await fs.readJSON('./config.json');
+  const overrides = {
     baseUrl: PUBLIC_PATH,
     env: process.env.NODE_ENV || 'development'
   };
-  let siteData = assign(baseData, overrides);
+  const site = Object.assign({demos: []}, baseData, overrides);
 
-  return gulp.src(['*.html', './demos/**/*'], {base: process.cwd()})
-      .pipe(plumber({errorHandler: streamError}))
-      .pipe(extractFrontMatter(siteData))
-      .pipe(renderMarkdown())
-      .pipe(renderTemplate())
-      .pipe(rename(function(path) {
-        if (path.basename != 'index' && path.basename != '404') {
-          path.dirname += '/' + path.basename;
-          path.basename = 'index';
-          path.extname = '.html';
-        }
-      }))
-      .pipe(gulpIf(isProd(), htmlmin({
+  const processContent = async (pagePath) => {
+    const slug = path.basename(pagePath, path.extname(pagePath));
+    const permalink = site.baseUrl +
+        (slug === 'index' ? '' : 'demos/' + slug + '/');
+
+    const fileContents = await fs.readFile(pagePath, 'utf-8');
+    const {body, attributes} = frontMatter(fileContents);
+
+    const data = {
+      site,
+      page: {
+        content: body,
+        slug,
+        permalink,
+        ...attributes,
+      },
+    };
+
+    if (path.extname(pagePath) == '.md') {
+      data.page.content = renderMarkdown(data.page.content);
+    }
+    data.page.content = nunjucks.renderString(data.page.content, data);
+
+    return data;
+  }
+
+  const renderPage = async (data) => {
+    let html = nunjucks.render(data.page.template, data);
+    if (process.env.NODE_ENV === 'production') {
+      html = htmlMinifier.minify(html, {
         removeComments: true,
         collapseWhitespace: true,
         collapseBooleanAttributes: true,
@@ -168,142 +100,73 @@ gulp.task('pages', function() {
         useShortDoctype: true,
         removeEmptyAttributes: true,
         minifyJS: true,
-        minifyCSS: true
-      })))
-      .pipe(gulp.dest(DEST));
+        minifyCSS: true,
+      });
+    };
+
+    const outputPath = path.join(data.page.permalink.slice(1), 'index.html');
+    await fs.outputFile(outputPath, html);
+  };
+
+  const demoPaths = await globby('./demos/**/*');
+  for (const demoPath of demoPaths) {
+    const data = await processContent(demoPath);
+
+    // Add the page data to the site demos.
+    site.demos.push(data.page);
+
+    await renderPage(data);
+  };
+
+  const pagePaths = await globby('*.html');
+  for (const pagePath of pagePaths) {
+    const data = await processContent(pagePath);
+    await renderPage(data);
+  };
 });
 
-
-gulp.task('images', function() {
+gulp.task('images', () => {
   return gulp.src('./assets/images/**/*')
       .pipe(gulp.dest(path.join(DEST, 'images')));
 });
 
+gulp.task('css', async () => {
+  const src = './assets/css/main.css';
+  const css = await fs.readFile(src, 'utf-8');
 
-gulp.task('css', function() {
-  return gulp.src('./assets/css/main.css')
-      .pipe(plumber({errorHandler: streamError}))
-      .pipe(cssnext({
-        browsers: '> 1%, last 2 versions, Safari > 5, ie > 9, Firefox ESR',
-        compress: true,
-        url: false
-      }))
-      .pipe(gulp.dest(DEST));
+  const plugins = [
+    atImport(),
+    cssnext({
+      browsers: '> 1%, last 2 versions, Safari > 5, ie > 9, Firefox ESR',
+    }),
+  ];
+  if (process.env.NODE_ENV === 'production') {
+    plugins.push(cssnano({
+      preset: ['default', {discardComments: {removeAll: true}}],
+    }));
+  }
+
+  const result = await postcss(plugins).process(css, {from: src});
+  await fs.outputFile(path.join(DEST, path.basename(src)), result.css);
 });
 
+gulp.task('default', gulp.parallel('css', 'images', 'pages'));
 
-gulp.task('lint', function() {
-  return gulp.src([
-    'gulpfile.js',
-    'assets/javascript/**/*.js'
-  ])
-  .pipe(eslint())
-  .pipe(eslint.format())
-  .pipe(eslint.failAfterError());
-});
-
-
-gulp.task('javascript:main', ((compiler) => {
-  const createCompiler = () => {
-    const entry = './assets/javascript/main.js';
-    const plugins = [
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV':
-            JSON.stringify(process.env.NODE_ENV || 'development'),
-        'process.env.SBF_PUBLIC_PATH': JSON.stringify(PUBLIC_PATH),
-      })
-    ];
-    if (isProd()) {
-      plugins.push(new webpack.optimize.UglifyJsPlugin({sourceMap: true}));
-    }
-    return webpack({
-      entry: entry,
-      output: {
-        path: path.resolve(__dirname, DEST),
-        publicPath: PUBLIC_PATH,
-        filename: path.basename(entry),
-      },
-      devtool: '#source-map',
-      plugins,
-      module: {
-        loaders: [{
-          test: /\.js$/,
-          loader: 'babel-loader',
-          query: {
-            babelrc: false,
-            cacheDirectory: false,
-            presets: [
-              ['es2015', {'modules': false}],
-            ],
-          },
-        }],
-      },
-      performance: {hints: false},
-      cache: {},
-    });
-  };
-  return (done) => {
-    (compiler || (compiler = createCompiler())).run(function(err, stats) {
-      if (err) return done(err);
-      gutil.log('[webpack]', stats.toString('minimal'));
-      done();
-    });
-  };
-})());
-
-
-gulp.task('javascript:polyfills', ((compiler) => {
-  const createCompiler = () => {
-    const entry = './assets/javascript/polyfills.js';
-    return webpack({
-      entry: entry,
-      output: {
-        path: path.resolve(__dirname, DEST),
-        publicPath: PUBLIC_PATH,
-        filename: path.basename(entry),
-      },
-      devtool: '#source-map',
-      plugins: [new webpack.optimize.UglifyJsPlugin({sourceMap: true})],
-      performance: {hints: false},
-      cache: {},
-    });
-  };
-  return (done) => {
-    (compiler || (compiler = createCompiler())).run(function(err, stats) {
-      if (err) return done(err);
-      gutil.log('[webpack]', stats.toString('minimal'));
-      done();
-    });
-  };
-})());
-
-
-gulp.task('javascript', ['javascript:main', 'javascript:polyfills']);
-
-
-gulp.task('clean', function(done) {
-  del(DEST, done);
-});
-
-
-gulp.task('default', ['css', 'images', 'javascript', 'pages']);
-
-
-gulp.task('serve', ['default'], function() {
+gulp.task('serve', gulp.series('default', () => {
   let port = argv.port || argv.p || 4000;
-  connect().use(serveStatic(DEST)).listen(port);
+  connect().use(serveStatic('./')).listen(port);
 
-  gulp.watch('./assets/css/**/*.css', ['css']);
-  gulp.watch('./assets/images/*', ['images']);
-  gulp.watch('./assets/javascript/*', ['javascript']);
-  gulp.watch(['*.html', './demos/*', './templates/*'], ['pages']);
-});
+  gulp.watch('./assets/css/**/*.css', gulp.series('css'));
+  gulp.watch('./assets/images/*', gulp.series('images'));
+  gulp.watch(['*.html', './demos/*', './templates/*'], gulp.series('pages'));
+}));
 
-
-gulp.task('deploy', ['default', 'lint'], function() {
+gulp.task('deploy', gulp.series('default', (done) => {
   if (process.env.NODE_ENV != 'production') {
     throw new Error('Deploying requires NODE_ENV to be set to production');
   }
+
+  const repoUrl = 'git@github.com:philipwalton/solved-by-flexbox.git';
 
   // Create a tempory directory and
   // checkout the existing gh-pages branch.
@@ -311,7 +174,7 @@ gulp.task('deploy', ['default', 'lint'], function() {
   sh.mkdir('_tmp');
   sh.cd('_tmp');
   sh.exec('git init');
-  sh.exec('git remote add origin git@github.com:philipwalton/' + REPO + '.git');
+  sh.exec('git remote add origin ' + repoUrl);
   sh.exec('git pull origin gh-pages');
 
   // Delete all the existing files and add
@@ -330,4 +193,6 @@ gulp.task('deploy', ['default', 'lint'], function() {
   sh.cd('..');
   sh.rm('-rf', '_tmp');
   sh.rm('-rf', DEST);
-});
+
+  done();
+}));
