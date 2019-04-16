@@ -16,6 +16,7 @@
 </script>
 
 <script async id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script>
+
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -25,11 +26,12 @@ ga('send', 'pageview');
 </script>
 
 <script>
-(function(fa,fp,gai){function load(f,c){var a=document.createElement('script');
-a.async=1;a.src='https://fireperffw.firebaseapp.com/'+f;a.onload=c;
-var s=document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(a,s);}load(fa, function(){load(fp);});
-window.onload = function() {firebase.initializeApp({appId:gai}).performance();};
-})("firebase-app.js", "firebase-performance.js", '1:109034548309:web:8c5366e1d3ad13eb');
+(function(sa,fbc){function load(f,c){var a=document.createElement('script');
+a.async=1;a.src=f;a.onload=c;var s=document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(a,s);}load(sa);window.onload = function() {firebase.initializeApp(fbc).performance();};
+})('https://fireperffw.firebaseapp.com/v002/firebase-performance-standalone.js', {
+  apiKey: "AIzaSyDgqkfybAWIZoEVbN3xrjaRDmlvSlBBh1E",
+  projectId: "fireperf-demo",
+  appId: "1:109034548309:web:8c5366e1d3ad13eb",
+});
 </script>
-
