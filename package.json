@@ -10,7 +10,7 @@
   "scripts": {
     "build": "gulp",
     "start": "gulp serve",
-    "deploy": "rm -rf build && NODE_ENV=production gulp deploy"
+    "deploy": "rm -rf solved-by-flexbox && NODE_ENV=production gulp deploy"
   },
   "devDependencies": {
     "autoprefixer": "^9.5.0",

@@ -21,17 +21,27 @@
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', 'UA-40829935-1', 'auto');
+ga('set', 'dimension1', '1');
 ga('set', 'transport', 'beacon');
 ga('send', 'pageview');
 </script>
 
-<script>
-(function(sa,fbc){function load(f,c){var a=document.createElement('script');
-a.async=1;a.src=f;a.onload=c;var s=document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(a,s);}load(sa);window.onload = function() {firebase.initializeApp(fbc).performance();};
-})('https://fireperffw.firebaseapp.com/v003/firebase-performance-standalone.js', {
-  apiKey: "AIzaSyDgqkfybAWIZoEVbN3xrjaRDmlvSlBBh1E",
-  projectId: "fireperf-demo",
-  appId: "1:109034548309:web:8c5366e1d3ad13eb",
-});
+<script type="module">
+import {getCLS, getFCP, getFID, getLCP, getTTFB} from 'https://unpkg.com/web-vitals@0.2.1/dist/web-vitals.es5.min.js';
+
+function sendToGoogleAnalytics({name, delta, id}) {
+  ga('send', 'event', {
+    eventCategory: 'Web Vitals',
+    eventAction: name,
+    eventValue: Math.round(name === 'CLS' ? delta * 1000 : delta),
+    eventLabel: id,
+    nonInteraction: true,
+  });
+}
+
+getCLS(sendToGoogleAnalytics);
+getFCP(sendToGoogleAnalytics);
+getFID(sendToGoogleAnalytics);
+getLCP(sendToGoogleAnalytics);
+getTTFB(sendToGoogleAnalytics);
 </script>
