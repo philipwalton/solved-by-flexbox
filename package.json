@@ -21,7 +21,7 @@
     "globby": "^9.1.0",
     "gulp": "^4.0.0",
     "he": "^1.2.0",
-    "highlight.js": "^9.15.6",
+    "highlight.js": "^10.1.2",
     "html-minifier": "^3.5.21",
     "markdown-it": "^8.4.2",
     "normalize.css": "^8.0.1",
