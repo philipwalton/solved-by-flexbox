@@ -17,31 +17,25 @@
 
 <script async id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script>
 
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0YRDCZXZSB"></script>
+
 <script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-40829935-1', 'auto');
-ga('set', 'dimension1', '2');
-ga('set', 'transport', 'beacon');
-ga('send', 'pageview');
+(function() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  var config = {
+    measurement_version: '4',
+    transport_type: 'beacon',
+    debug_mode: location.hostname !== 'philipwalton.github.io',
+    custom_map: {
+      dimension1: 'measurement_version',
+      dimension2: 'event_id',
+    },
+  };
+  gtag('config', 'UA-40829935-1', config);
+  gtag('config', 'G-0YRDCZXZSB', config);
+})();
 </script>
 
-<script type="module">
-import {getCLS, getFCP, getFID, getLCP, getTTFB} from 'https://unpkg.com/web-vitals@0.2.3/dist/web-vitals.es5.min.js';
-
-function sendToGoogleAnalytics({name, delta, id}) {
-  ga('send', 'event', {
-    eventCategory: 'Web Vitals',
-    eventAction: name,
-    eventValue: Math.round(name === 'CLS' ? delta * 1000 : delta),
-    eventLabel: id,
-    nonInteraction: true,
-  });
-}
-
-getCLS(sendToGoogleAnalytics);
-getFCP(sendToGoogleAnalytics);
-getFID(sendToGoogleAnalytics);
-getLCP(sendToGoogleAnalytics);
-getTTFB(sendToGoogleAnalytics);
-</script>
+<script type="module" src="{{ site.baseUrl }}main.js"></script>

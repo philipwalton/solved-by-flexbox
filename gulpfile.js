@@ -150,7 +150,11 @@ gulp.task('css', async () => {
   await fs.outputFile(path.join(DEST, path.basename(src)), result.css);
 });
 
-gulp.task('default', gulp.parallel('css', 'images', 'pages'));
+gulp.task('javascript', async () => {
+  await sh.exec('rollup -c');
+});
+
+gulp.task('default', gulp.parallel('css', 'images', 'javascript', 'pages'));
 
 gulp.task('serve', gulp.series('default', () => {
   let port = argv.port || argv.p || 4000;
@@ -158,6 +162,7 @@ gulp.task('serve', gulp.series('default', () => {
 
   gulp.watch('./assets/css/**/*.css', gulp.series('css'));
   gulp.watch('./assets/images/*', gulp.series('images'));
+  gulp.watch('./assets/main.js', gulp.series('javascript'));
   gulp.watch(['*.html', './demos/*', './templates/*'], gulp.series('pages'));
 }));
 
@@ -168,7 +173,7 @@ gulp.task('deploy', gulp.series('default', (done) => {
 
   const repoUrl = 'git@github.com:philipwalton/solved-by-flexbox.git';
 
-  // Create a tempory directory and
+  // Create a temporary directory and
   // checkout the existing gh-pages branch.
   sh.rm('-rf', '_tmp');
   sh.mkdir('_tmp');
