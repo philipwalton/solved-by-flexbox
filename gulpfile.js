@@ -12,7 +12,7 @@ const nunjucks = require('nunjucks');
 const path = require('path');
 const postcss = require('postcss');
 const atImport = require('postcss-import');
-const cssnext = require('postcss-cssnext');
+const postcssPresetEnv = require('postcss-preset-env');
 const serveStatic = require('serve-static');
 const sh = require('shelljs');
 const {argv} = require('yargs');
@@ -136,7 +136,8 @@ gulp.task('css', async () => {
 
   const plugins = [
     atImport(),
-    cssnext({
+    postcssPresetEnv({
+      stage: 0,
       browsers: '> 1%, last 2 versions, Safari > 5, ie > 9, Firefox ESR',
     }),
   ];
