@@ -33,6 +33,11 @@
   display: none;
 }
 
+/* The GitHub button updates the link to be a span */
+.Footer-social > span {
+  margin-right: 1em;
+}
+
 /* If loading the social button fails */
 .Footer-social a,
 .Footer-social iframe {
