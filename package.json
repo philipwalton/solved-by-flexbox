@@ -17,6 +17,7 @@
     "autoprefixer": "^10.0.4",
     "connect": "^3.7.0",
     "cssnano": "^4.1.10",
+    "dot-prop": ">=4.2.1",
     "front-matter": "^4.0.2",
     "fs-extra": "^9.0.1",
     "globby": "^11.0.1",
