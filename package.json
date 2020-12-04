@@ -23,7 +23,7 @@
     "globby": "^11.0.1",
     "gulp": "^4.0.2",
     "he": "^1.2.0",
-    "highlight.js": "^10.4.0",
+    "highlight.js": "^10.4.1",
     "html-minifier": "^4.0.0",
     "markdown-it": "^12.0.2",
     "normalize.css": "^8.0.1",
