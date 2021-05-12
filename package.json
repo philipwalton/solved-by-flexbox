@@ -28,7 +28,7 @@
     "markdown-it": "^12.0.2",
     "normalize.css": "^8.0.1",
     "nunjucks": "3.2.2",
-    "postcss": "^8.1.10",
+    "postcss": "^8.2.10",
     "postcss-import": "^13.0.0",
     "postcss-preset-env": "^6.7.0",
     "rollup": "^2.34.0",
