@@ -34,7 +34,7 @@
     "rollup": "^2.34.0",
     "rollup-plugin-terser": "^7.0.2",
     "serve-static": "^1.14.1",
-    "shelljs": "^0.8.4",
+    "shelljs": "^0.8.5",
     "suitcss-utils-display": "^1.0.2",
     "suitcss-utils-text": "^1.0.0",
     "web-vitals": "^1.0.1",
